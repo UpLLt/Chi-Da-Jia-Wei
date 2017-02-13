@@ -1,0 +1,36 @@
+﻿<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<style>
+	#Myjiedan{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+	<div class="user_right">
+		<div class="postian"><p>服务中心＞<a href="index.html">接单区</a></p></div>
+		<div class="basic">
+			<div class="bas_taking">
+				<!--<h1>接单区</h1>-->
+				<foreach name="taking_order" item="vo">
+				<li>
+					<div class="taling_top">
+						<img src="__PUBLIC__/Service/images/xiu.png" /><span>{$vo.pro_name}</span><span>价格：{$vo.repair_price}元</span>
+						<span>订单号：{$vo.order_number}</span><span></span>
+						<b><a href="{:U('Lianbao_PC/STakingOrder/detail',array('order_number'=>$vo['order_number']))}"><i class="fa fa-file-text-o"></i>查看详情</a></a></b>
+					</div>
+					<p><b>待接单   厂家发单</b>
+					   <span>{$vo.user_name}</br>{$vo.user_phone}</span><span>{$vo.user_city}</span><span><a href="{:U('Lianbao_PC/STakingOrder/detail',array('order_number'=>$vo['order_number']))}">接单</a></span></p>
+				</li>
+				</foreach>
+
+
+				<div class="list_page">
+					{$page}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<include file="./public/Service/Sfooter.html"/>
+</body></html>

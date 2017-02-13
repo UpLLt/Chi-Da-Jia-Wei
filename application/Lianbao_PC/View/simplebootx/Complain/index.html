@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/tousu.css">
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+            <div class="user_right">
+                <div class="anzhuang">
+                    <div class="gd_lis">
+                        <li class="move"><a href="#">投诉工单号</a></li>
+
+                    </div>
+
+
+
+                    <form action="{:U('Lianbao_PC/Complain/complain')}" method="post" onsubmit="tijiao_do();return false;">
+                        <div class="cug_details_show none">
+                            <p class="details_title">投诉工单号</p>
+                            <div class="close_ul tousu_ul">
+                                <input value="" id="wnumber" onblur="num()" name="wnumber" style="width: 200px; height: 25px; line-height: 25px; border: 1px solid rgb(222, 222, 222); padding: 0px 7px;" type="text">
+                                <span id="ver_num" style="color: red;display: none"></span>
+                            </div>
+                            <p class="details_title">投诉对象</p>
+                            <div class="close_ul tousu_ul">
+                                <select name="who" id="who" class="second_content tousu_reasons" id="who">
+                                    <option value="-1">请选择</option>
+                                    <option value="师傅">师傅</option>
+                                    <option value="客服">客服</option>
+                                </select>
+                            </div>
+                            <div class="close_ul tousu_ul">
+                                <textarea id="reason" name="reason" ></textarea>
+                            </div>
+                            <p class="sub">
+                                <input name="wid" value="0" type="hidden">
+                                <input value="提交" id="but" onclick="a()" class="sub_but sub_but_tousu" type="button">
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+    <script>
+        function num(){
+            var wnumber = $('#wnumber').val();
+            if(wnumber.length<=0){
+               $('#ver_num').show();
+                if(wnumber.length<=0){
+                    $('#ver_num').html("投诉工单号不能为空");
+                    return false;
+                }else{
+                   $('#ver_num').hide();
+                }
+            }
+        }
+        function a(){
+            var z_wnumber = $('#wnumber').val();
+            var z_who = $('#who').val();
+            var z_reason = $('#reason').val();
+            var action = "{:U('Lianbao_PC/Complain/complain')}";
+            if(z_who==-1 || z_wnumber.length<0 || z_reason.length<0){
+                alert("请补全投诉信息");
+                return false;
+            }
+            $.post(action,{wnumber:z_wnumber,who:z_who,reason:z_reason},function(data){
+                if(data==1){
+                    alert("投诉添加成功");window.location.href="{:U('Lianbao_PC/Complain/index')}";
+                }
+                if(data == 0){
+                    alert("该订单不存在");
+                }
+            })
+
+        }
+
+    </script>
+<script>
+    $('#d_d').addClass('hve');
+</script>
+
+    </body></html>

@@ -1,0 +1,32 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<script type="text/javascript" src="__PUBLIC__/Service/js/layer.js"></script>
+<style>
+	#Mypolicy{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+
+	<div class="user_right">
+		<div class="postian"><p>政策规章＞<a href="{:U('Lianbao_PC/Spolicy/policy')}">政策规章</a></p></div>
+		<div class="basic">
+			<div class="bas_nav policy_nav">
+				<li><a href="{:U('Lianbao_PC/Spolicy/policy')}">服务中心接单指南</a></li>
+				<li><a href="{:U('Lianbao_PC/Spolicy/guide')}">生成子账号操作指南</a></li>
+				<li  class="hove"><a href="{:U('Lianbao_PC/Spolicy/rules')}">服务质量管理规章</a></li>
+				<li><a href="{:U('Lianbao_PC/Spolicy/required')}">工单完结必读</a></li>
+				<li><a href="{:U('Lianbao_PC/Spolicy/matter')}">工单主意事项</a></li>
+			</div>
+			<div class="policy_list">
+				{$list.content}
+			</div>
+		</div>
+	</div>
+</div>
+<include file="./public/Service/Sfooter.html"/>
+
+
+</body>
+</html>

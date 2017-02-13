@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lianbao_PC/js/jquery.leanModal.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/layer.js"></script>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/fadancp.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/goumaidl.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/xiaofeimx.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/set.css">
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+
+
+				<div class="user_right">
+       <div class="anzhuang">
+         <div class="middle_inner_right">
+        <div class="middle_inner_right">
+         <div class="guide">
+          <ul>
+            <li class="unique  selected"><a href="{:U('Lianbao_PC/SetUp/index')}">基本资料设置</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/SetUp/id_card')}">银行卡管理</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/SetUp/address')}">收货地址管理</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/SetUp/set_password')}">密码设置</a></li>
+          </ul>
+        </div>
+        <div class="content_show_top">
+          <div class="tab_left">
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="tb_one aa">姓　　名：</td>
+                    <td colspan="2"><input class="width_input2" name="name" id="username_check" value="{$data.name}" type="text">
+                      &nbsp;&nbsp; <span class="bk"></span></td>
+                  </tr>
+                  <tr>
+                    <td class="tb_one aa">联系手机：</td>
+                    <td colspan="2"><input class="width_input2" id="mobile" name="user_mobile" value="{$data.user_phone}" type="text">
+                      &nbsp;&nbsp; <span class="bk0"></span></td>
+                  </tr>
+                  <tr>
+                    <td class="tb_one aa">公司名称：</td>
+                    <td class="tb_two"><input class="width_input" id="company_name" value="{$data.company}" name="user_company" type="text"></td>
+                    <td class="tb_three"><span class="bk1"></span></td>
+                  </tr>
+                    <tr>
+                    <td class="tb_one aa">公司地址：</td>
+                    <td class="tb_two"><input class="width_input" id="company_address" value="{$data.com_address}" name="com_address" type="text"></td>
+                    <td class="tb_three"><span class="bk1"></span></td>
+                  </tr>
+                  <tr>
+                    <td class="tb_one aa">详细地址：</td>
+                    <td class="tb_two"><input class="width_input" id="address_details" value="{$data.detail_address}" name="user_delaise_addr" type="text"></td>
+                    <td class="tb_three"><span class="bk3"></span></td>
+                  </tr>
+                  <tr>
+                    <td class="tb_one aa">客服电话：</td>
+                    <td class="tb_two"><input class="width_input" id="service_phone" value="{$data.service_phone}" name="service_phone" type="text"></td>
+                    <td class="tb_three"><span class="bk3"></span></td>
+                  </tr>
+                  <tr>
+                    <td class="tb_one aa">财务电话：</td>
+                    <td class="tb_two"><input class="width_input" id="finance_phone" value="{$data.finance_phone}" name="finance_phone" type="text"></td>
+                    <td class="tb_three"><span class="bk3"></span></td>
+                  </tr>
+                  <tr>
+                    <td class="tb_one aa">技术电话：</td>
+                    <td class="tb_two"><input class="width_input" id="skill_phone" value="{$data.skill_phone}" name="skill_phone" type="text"></td>
+                    <td class="tb_three"><span class="bk3"></span></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="tb_one">Q　　Q：</td>
+                    <td colspan="2"><input class="width_input2" id="numbers" value="{$data.qq}" name="user_qq" type="text">
+                      &nbsp;&nbsp;<span class="bk8"></span></td>
+                  </tr>
+
+                  <tr><td class="tb_one">营业执照：</td>
+                      <td class="tb_two"><img  src="{$data.business_license}" />
+                          <span><a href="javascript:;" id="licence" onclick="openLayer('licence','layer_licence')">上传图片</a></span></td>
+                      <td class="tb_three"><span class="bk6"></span></td>
+                  </tr>
+
+                  <tr>
+                    <td class="tb_one"></td>
+                    <td class="tb_two" colspan="2"><input class="sub_btn" id="check_tijiao" value="确认提交" onclick="a()" type="button"></td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+
+
+
+
+      </div>
+			</div>
+      </div>
+		</div>
+	</div>
+</div>   
+</div>
+</div>
+<!--上传营业执照-->
+<div id="layer_licence" style="display:none" >
+    <div class="layer_show">
+        <div class="layer_top">
+            <div class="layer_title"><p>上传营业执照</p></div>
+            <div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="images/close.png" /></a></div>
+        </div>
+        <form action="{:U('Lianbao_PC/SetUp/upload_picture')}" enctype="multipart/form-data" method="post">
+            <div class="layer_upload">
+                <input type="hidden" name="type" value="1">
+                <h4>请上传图片</h4>
+                <input name="business_license" type="file"/>
+                <p>请上传JPG或者PNG格式，大小不超过2M。</p>
+            </div>
+            <div class="ensure"><input type="submit"  value="确 定"></div>
+        </form>
+
+    </div>
+</div>
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+<script type="text/javascript">
+function a(){
+    var username_check  = $('#username_check').val();
+    var mobile          = $('#mobile').val();
+    var company_name    = $('#company_name').val();
+    var company_address = $('#company_address').val();
+    var address_details = $('#address_details').val();
+    var z_service_phone   = $('#service_phone').val();
+    var z_finance_phone   = $('#finance_phone').val();
+    var z_skill_phone     = $('#skill_phone').val();
+    var numbers         = $('#numbers').val();
+    var action          = "{:U('Lianbao_PC/SetUp/setup')}";
+
+
+    $.post(action,{name:username_check,user_mobile:mobile,user_company:company_name,com_address:company_address,user_delaise_addr:address_details,user_qq:numbers,finance_phone:z_finance_phone,service_phone:z_service_phone,skill_phone:z_skill_phone},function(data){
+        if(data==1){
+            alert('修改成功');window.location.href="{:U('Lianbao_PC/SetUp/index')}";
+        }else{
+            alert('修改失败');
+        }
+
+    })
+}
+
+
+
+
+
+$(function(){
+  
+  $('#blind_kefu').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+});
+</script>
+<script>
+    $('#h_h').addClass('hve');
+</script>
+</body></html>

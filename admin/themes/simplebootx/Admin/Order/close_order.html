@@ -1,0 +1,48 @@
+<admintpl file="header" />
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#" target="_self">关闭订单</a></li>
+    </ul>
+        <div class="row-fluid">
+            <div class="span9">
+
+                <form method="post" class="form-horizontal js-ajax-form" action="{:U('Order/close_order')}">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>订单号</th>
+                            <td>
+                                <div>{$order_number}</div>
+                            </td>
+                        </tr>
+                        <input type="hidden" name="order_number" value="{$order_number}">
+                        <tr>
+                            <th>关闭原因</th>
+                            <td>
+                               <input type="text" name="reason" placeholder="请输入关闭订单原因" >
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary ">{:L('ADD')}</button>
+                        <a class="btn" href="{:U('Order/index')}">{:L('BACK')}</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        </div>
+
+</div>
+
+
+</body>
+</html>

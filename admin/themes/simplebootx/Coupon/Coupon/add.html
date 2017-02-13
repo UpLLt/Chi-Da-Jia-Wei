@@ -1,0 +1,54 @@
+<admintpl file="header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:U('Ticketadmin/lists')}" target="_self">用户列表</a></li>
+        <li class="active"><a href="javascript:;">新增优惠券</a></li>
+    </ul>
+    <form action="{:U('Coupon/add')}" method="post" class="form-horizontal js-ajax-forms"
+          enctype="multipart/form-data">
+        <div class="row-fluid">
+            <div class="span9">
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th>用户名：</th>
+                        <td><input type="hidden" name="uid" value="{$user.id}" style="width: 400px">
+                            <div>{$user.rel_name}</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>优惠券：</th>
+                        <td>
+                            <select name="tid" id="ticket">
+                                <foreach  name="list" item="vo">
+                                    <option value="{$vo.id}"  >{$vo.describe}</option>
+                                </foreach>
+
+                            </select>
+                        </td>
+                    </tr>
+
+
+
+
+
+
+                </table>
+            </div>
+        </div>
+        <button class="btn btn-primary js-ajax-submit" type="submit">提交</button>
+        <a class="btn" href="{:U('User/Indexadmin/index_own')}">返回</a>
+    </form>
+</div>
+</body>
+<script src="__PUBLIC__/js/common.js"></script>
+<script>
+
+
+
+</script>
+
+</html>

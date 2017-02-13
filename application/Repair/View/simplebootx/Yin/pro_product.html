@@ -1,0 +1,34 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="yes" name="apple-touch-fullscreen" />    
+		<meta name="data-spm" content="a215s" />
+		<meta content="telephone=no,email=no" name="format-detection" />    
+		<meta content="fullscreen=yes,preventMove=no" name="ML-Config" />
+		<link href="icon114-114.png" rel="apple-touch-icon-precomposed">
+		<link href="icon.png" rel="Shortcut Icon" type="image/x-icon" />
+		<link rel="stylesheet" href="__PUBLIC__/Repair/css/index.css">
+		<link rel="stylesheet" href="__PUBLIC__/Repair/css/user.css">
+    	<title>驰达家维</title>
+	</head>
+<body>
+
+
+<center>
+<div class="head"><h1><span></span>{$pro_pinlei}</h1></div>
+
+	<div class="jiage">
+		<p>收费标准</p>
+	</div>
+	<div class="ktl">
+		<foreach name="product" item="vo">
+		<li><a href="{:U('Repair/Yin/leibie',array('product'=>$vo['product'],'user_id'=>$user_id,'pro_pinlei'=>$vo['leibie']))}">{$vo.0}<span><img src="__PUBLIC__/Repair/images/more.png" /></span></a></li>
+		</foreach>
+	</div>
+</center>
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Lianbao_PC/css/wallet.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/wallet_czjl.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/wallet_dljl.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/wallet_myzd.css">
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+		<div class="user_right">
+      <div class="anzhuang">
+
+        <div class="guide">
+          <ul>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/index')}">账号总额</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/recharg_history')}">充值记录</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/danliang')}">单量记录</a></li>
+            <li class="selected"><a href="{:U('Lianbao_PC/Wallet/month_bill')}">每月账单</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/other_pay')}">其他支出</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/bond')}">保证金</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/frozen_money')}">冻结金额</a></li>
+          </ul>
+        </div>
+        <div class="list_nav_left">
+          <ul>
+            <li class=" specail "><a href="{:U('Lianbao_PC/Wallet/month_install')}">安装单量</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/month_repair')}">维修单量</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/month_send')}">送修单量</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/month_bill')}">全部单量记录</a></li>
+          </ul>
+        </div>
+       <form action="#" method="post">
+          <table class="box_line box_line2">
+            <tbody>
+              <tr class="odd">
+                <th>ID</th>
+                <th>月份</th>
+                <th>充值</th>
+                <th>其他支付</th>
+                <th>安装单(使用)</th>
+                <th>维修单(使用)</th>
+                <th>送修单(使用)</th>
+              </tr>
+			  <foreach name="list" item="vo">
+              <tr class="over_odd">
+                <td><a href="#" style="color: red;">{$vo.id}</a></td>
+                <td><a href="#" style="color: red;">{$vo.time|date="Y-m-d",###}</a></td>
+                <td><a href="#" style="color: red;">0</a></td>
+                <td><a href="#" style="color: red;">0</a></td>
+                <td><a href="#" style="color: red;">{$vo.install}</a></td>
+				<td><a href="#" style="color: red;">{$vo.repair}</a></td>
+                <td><a href="#" style="color: red;">{$vo.send}</a></td>
+                <!--<td align="center" class="operation"><a href="/index.php?s=/monthamtcheck/details/month/1456761600">查看明细</a></td>--></tr>
+				</foreach>
+            </tbody>
+          </table>
+          <div class="page2"><!--总计：元，当前页小计：0元--> {$page}
+            <input name="cur_page" value="1" type="hidden">
+          </div>
+        </form>
+ </div> </div>
+     
+           
+
+        <!-- middle_inner_left_body end --></div>
+      <!-- 左边结束 -->
+      
+         
+     
+
+      <!-----------------------------middle_inner_right end------------------></div>
+    </div>
+
+  <!-- 页脚开始 -->
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+<script>
+  $('#c_c').addClass('hve');
+</script>
+</body>
+</html>

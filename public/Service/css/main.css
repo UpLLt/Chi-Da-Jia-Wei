@@ -1,0 +1,161 @@
+﻿
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font-size:14px;
+	line-height:22px;
+	margin:0;
+	padding:0;
+	color:#000;
+	
+}
+a {
+	text-decoration:none;
+	color:#000;
+}
+a:hover {
+	color:#a80202;
+}
+.clear {
+	clear:both;
+	font-size:0px;
+	line-height:0;
+	height:0;
+}
+.fl {
+	float:left; margin: 20px 0px 0px 0px;
+	}
+.fr {
+	float:right;}
+i , em {
+	font-style:normal;}
+* html .clearfix {
+	zoom: 1;
+}
+.yh {
+	font-family:Microsoft YaHei,SimSun,Arial, Helvetica;}
+*:first-child+html .clearfix {
+	zoom: 1;
+}
+.cell, .cell2, .cell3 {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+.shadow {    
+ -moz-box-shadow: 0 0 2px #d9d9d9;    
+ -webkit-box-shadow: 0 0 2px #d9d9d9;     
+box-shadow: 0 0 2px #d9d9d9;     
+/* For IE 8 */     
+-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#d9d9d9')";     
+/* For IE 5.5 - 7 */     
+filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#d9d9d9'); 
+}
+li {
+	vertical-align:bottom;}
+h4 {
+	font-size:14px;}
+h1 {
+	font-size:18px;}
+h3 {
+	font-size:16px;}
+font {
+	font-size:12px;}
+p{ margin:0px;
+}
+.foot_section {
+	width:100%;
+	height:127px;
+	padding-top:28px;
+	background:#f2f1f1;}
+.foot_section ul li {
+	float:left;}
+.foot_section ul li.li1 .C .erweima_btn {
+	float:left;
+	position:relative;}
+.foot_section ul li.li1 .C .show_box {
+ 	display: none;
+    position: absolute;
+    top: 55px;
+    width: 100px;
+    z-index: 9999;
+}
+.foot_section ul li.li1 .C .weibo .show_box {
+	left:-28px;}
+.foot_section ul li.li1 .C .weixin .show_box {
+	right:17px;}
+.foot_section ul li img {
+	width:55px;
+	height:55px;}
+.foot_section ul li .show_box img {
+	width:100px;
+	height:auto;}
+.foot_section ul li.li1 .C a img {
+	width:auto;
+	height:auto;}
+.foot_section ul li.li1 {
+	width:25%;
+	}
+.foot_section ul li.li2 {
+	width:45%;
+	}
+.foot_section ul li.li3 {
+	width:25%;
+	}
+.foot_section ul li .word {
+	margin-left:20px;}
+.foot_section ul li .T h4 {
+	line-height:30px;
+	font-size:16px;
+	font-weight:normal;}
+.foot_section ul li .T i {
+	line-height:20px;
+	font-size:11px;}
+.foot_section ul li.li3 .C {
+	font-size:22px;
+	line-height:40px;}
+.foot_section ul li.li1 .C {
+	margin-top:14px;
+	}
+.foot_section ul li.li2 .C {
+	color:#333;
+	margin-top:5px;}
+.foot_section ul li.li2 .C p {
+	font-size:12px;
+	line-height:18px;}
+.foot_section ul li.li1 .C a {
+	width:48px;
+	height:36px;
+	text-align:center;
+	padding-top:12px;
+	line-height:36px;
+	margin-right:5px;
+	display:inline-block;}
+.foot_section ul li.li1 .C a:hover {
+	background:url(../images/foot_T1_yuan.png) center center no-repeat;}
+.footer {
+	width:100%;
+	padding:30px 0 30px 0;
+	background:#444;
+	margin:70px 0px 0px;
+	color: #999;}
+.footer p.footmenu {
+	line-height:56px;
+	height:56px;
+	text-align:right;
+	margin-bottom:10px;
+	border-bottom:1px solid #aaa;
+	color:#aaa;}
+.footer p.footmenu a {
+	font-size:14px;
+	color: #fff;}
+.footer a:hover {
+	color:#fff;}
+.footer p.word {
+	text-align:right;
+	line-height:24px;
+	color:#FFFFFF;
+	}
+.foot_logo img{ width:220px;
+}
+

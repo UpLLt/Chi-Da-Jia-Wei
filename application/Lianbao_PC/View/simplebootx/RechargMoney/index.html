@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/fadancp.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/goumaidl.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/xiaofeimx.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/set.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/chongzhi.css">
+
+
+<script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+
+
+
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+
+		<div class="user_right">
+          <div class="anzhuang">
+         <div class="middle_inner_right">
+      <div class="gd_list">
+        <li class="move"><a href="{:U('Lianbao_PC/RechargMoney/index')}">我要充值</a></li>
+
+
+      </div>
+
+          <!--<p class="withdrawal_tt">您当前可提现金额为<span class="col_sp">0.00</span>元<i class="icon fl"></i></p>-->
+          <div class="withdrawal_bor">
+            <div class="taocan">
+              <h1 class="tt">充值套餐</h1>
+              <ul class="list clearfix" id="taocan_list">
+              </ul>
+              <div style="color: rgb(255, 0, 0);"></div>
+            </div>
+            <div class="bot_list top_bor"><span class="big_sp">充值金额：</span>
+              <input value="" class="txt_inp" maxlength="6"  placeholder="请输入充值金额" id="amount" type="text" onkeyup='this.value=this.value.replace(/[^0-9.]/g,"")'>
+              <span>元</span><span class="big_sp pd_l_sp">
+              <input  id="order_sun" value="{$out_trade_no}" type="hidden">
+
+            </div>
+            <div class="bot_list clearfix" id="pay_box"><span class="cb_sp fl">支付平台：</span>
+
+
+              <div class="pc_div"></div>
+              <input class="n_see" name="payStyle" id="zfb" value="alipay" type="radio">
+              </label>
+
+              <div class="pc_div"></div>
+              <input class="n_see" name="payStyle" id="zfb1" value="chinapay" type="radio">
+              </label>
+              <label class="pic_lable fl" for="zfb2">
+              <img src="__PUBLIC__/Lianbao_PC/images/wxpay.jpg"/>
+              <div class="pc_div"></div>
+              <input class="n_see" name="payStyle" id="zfb2" value="weixin" type="radio">
+              </label>
+            </div>
+            <!--<div style="margin-top: 35px; margin-left: 12px; color: rgb(255, 0, 0);">-->
+              <!--<p>温馨提示：支付宝充值,请把钱充值到您自己支付宝帐户再回到中国联保充值,就不会有每日限额了.如果有当日限额,请勿多次充值累加,并联系你的业务经理线下处理</p>-->
+            <!--</div>-->
+            <div class="bot_list">
+              <!--<button class="but_a" onclick="" id="pay">立即充值</button>-->
+                <input type="button" class="but_a" onclick="wx()" value="立即充值">
+            </div>
+
+      </div>
+
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+ <include file="./public/Service/Sfooter.html"/>
+<script>
+    $('#i_i').addClass('hve');
+
+</script>
+<script>
+
+
+    function GetOrder(){
+        var zid=$('#order_sun').val();
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: "{:U('RechargMoney/madify_pay')}",
+            data: {id:zid},
+            success: function(data){
+                if (data == 1 ){
+                    location.href = "{:U('ConsumeMoney/index')}";
+                }
+            }
+        });
+    }
+    window.setInterval("GetOrder()",2000);
+
+
+
+
+    function wx(){
+        var zmoney = $('#amount').val();
+        var z_order_sun = $('#order_sun').val();
+
+        if(zmoney.length == 0){
+            layer.msg('请输入充值金额');
+            return false;
+        }
+
+        layer.open({
+            type: 2,
+            title: '驰达家维',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['350px', '360px'],
+            content: 'http://lianbao.cdth.cn/index.php?g=Lianbao_PC&m=RechargMoney&a=pay&money='+zmoney+'&out_trade_no='+z_order_sun,
+        });
+
+    }
+
+
+</script>
+

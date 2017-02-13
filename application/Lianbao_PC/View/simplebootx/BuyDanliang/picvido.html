@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>新加坡酷</title>
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" type="text/css" href="css/othe.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.layer.js"></script>
+
+</head>
+<body>
+<div class="head">
+	<div class="back"><a href="index.html"><img src="images/back.png" /></a></div>
+	<h1>新加坡酷图片视频</h1>
+</div>
+
+<div class="main">
+	<div class="pic_vod">
+		<li>
+			<a href="#" class="hover" id="one1" onmouseover="setTab('one',1,2)" >图片</a>
+			<i></i>
+			<a href="#" id="one2" onmouseover="setTab('one',2,2)">视频</a>
+		</li>
+	</div>
+
+	<div  id="con_one_1" >
+			<div class="pic_video_pic" id="layer-photos-demo" class="layer-photos-demo">
+			<div class="vid_pic" >
+				<h4>2016年9月20日</h4>
+				<h1>新加坡酷重庆站活动短片</h1>
+	 
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/tour1.jpg" src="images/tour1.jpg" /></a></li>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/tour2.jpg" src="images/tour1.jpg" /></a></li>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/banner.jpg" src="images/tour1.jpg" /></a></li>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/news1.jpg" src="images/tour1.jpg" /></a></li>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/news2.jpg" src="images/tour1.jpg" /></a></li>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/news3.jpg" src="images/tour1.jpg" /></a></li>
+			</div>
+
+			<div class="vid_pic" >
+				<h4>2016年9月20日</h4>
+				<h1>新加坡酷重庆站活动短片</h1>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/tour1.jpg" src="images/tour1.jpg" /></a></li>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/tour2.jpg" src="images/tour1.jpg" /></a></li>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/banner.jpg" src="images/tour1.jpg" /></a></li>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/news1.jpg" src="images/tour1.jpg" /></a></li>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/news2.jpg" src="images/tour1.jpg" /></a></li>
+				<li><a href="javascript:;"><img  layer-pid="wu" layer-src="images/news3.jpg" src="images/tour1.jpg" /></a></li>
+			</div>
+		</div>
+		
+	</div>
+	<div id="con_one_2"  class="pic_video" style="display:none">
+
+		<li>
+			<h4>2016年9月20日</h4>
+			<h1>新加坡酷重庆站活动短片</h1>
+			<iframe frameborder="0" width="100%" height="240" src="http://v.qq.com/iframe/player.html?vid=c0330584wks&tiny=0&auto=0" allowfullscreen></iframe>
+		</li>
+
+		<li>
+			<h4>2016年9月20日</h4>
+			<h1>新加坡酷重庆站活动短片</h1>
+			<iframe frameborder="0" width="100%" height="240" src="http://v.qq.com/iframe/player.html?vid=c0330584wks&tiny=0&auto=0" allowfullscreen></iframe>
+		</li>
+
+		<li>
+			<h4>2016年9月20日</h4>
+			<h1>新加坡酷重庆站活动短片</h1>
+			<iframe frameborder="0" width="100%" height="240" src="http://v.qq.com/iframe/player.html?vid=c0330584wks&tiny=0&auto=0" allowfullscreen></iframe>
+		</li>
+
+		<li>
+			<h4>2016年9月20日</h4>
+			<h1>新加坡酷重庆站活动短片</h1>
+			<iframe frameborder="0" width="100%" height="240" src="http://v.qq.com/iframe/player.html?vid=c0330584wks&tiny=0&auto=0" allowfullscreen></iframe>
+		</li>
+	
+	</div>
+
+</div>
+<div class="footer">
+	<p>Copyright© 2012-2016 新加坡酷 版权所有.</p>
+</div>
+
+
+</body>
+</html>
+
+
+<script>
+	function setTab(name,cursel,n){
+		 for(i=1;i<=n;i++){
+			  var menu=document.getElementById(name+i);
+			  var con=document.getElementById("con_"+name+"_"+i);
+			  menu.className=i==cursel?"hover":"";
+			  con.style.display=i==cursel?"block":"none";
+		 }
+	}
+</script> 
+
+
+<script type="text/javascript">
+		//调用示例
+	layer.ready(function(){ //为了layer.ext.js加载完毕再执行
+	  layer.photos({
+	    photos: '#layer-photos-demo'
+	  });
+	});  
+
+</script>

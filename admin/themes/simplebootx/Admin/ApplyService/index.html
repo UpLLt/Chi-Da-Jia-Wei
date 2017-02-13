@@ -1,0 +1,92 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">申请成为服务中心</a></li>
+		</ul>
+		<!--<form class="well form-search" method="post" action=" {:U('ApplyService/search')}">-->
+			<!--产品品类：-->
+			<!--<input name="real_name" type="text"> &nbsp;&nbsp;-->
+			<!--<input type="submit" class="btn btn-primary" value="搜索" />-->
+		<!--</form>-->
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+				
+					<tr>
+						<th width="50">申请人姓名</th>
+						<th width="50">申请时间</th>
+						<th width="50">申请城市</th>
+						<th width="50">用户电话</th>
+						<th width="50">申请状态</th>
+						<th width="50">操作</th>						
+					</tr>
+				<foreach name="list" item="vo">
+					<tr>
+						<td width="50">{$vo.real_name}</td>
+						<td width="50">{$vo.app_time|date='Y-m-d',###}</td>
+						<td width="50">{$vo.city}</td>
+						<td width="50">{$vo.phone}</td>
+						<td width="50">{$vo.status}</td>
+						<td width="50">
+							<a href="{:U('ApplyService/detail',array('user_id'=>$vo['user_id']))}">查看</a>
+							<a href="{:U('ApplyService/agree',array('user_id'=>$vo['user_id']))}" class="js-ajax-dialog-btn" data-msg="是否同意申请">同意</a>
+							<a href="{:U('ApplyService/disagree',array('user_id'=>$vo['user_id']))}" class="js-ajax-dialog-btn" data-msg="是否拒绝申请">拒绝</a>
+							<a href="{:U('ApplyService/change_service',array('user_id'=>$vo['user_id']))}"  data-msg="是否确认转换为服务中心" >转换</a>
+						</td>
+					</tr>
+				</foreach>	
+				</thead>
+			
+				
+				
+			</table>
+			
+			<div class="pagination">{$page}</div>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script>
+		function refersh_window() {
+			var refersh_time = getCookie('refersh_time');
+			if (refersh_time == 1) {
+				window.location = "{:U('AdminPost/index',$formget)}";
+			}
+		}
+		setInterval(function() {
+			refersh_window();
+		}, 2000);
+		$(function() {
+			setCookie("refersh_time", 0);
+			Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+				//批量移动
+				$('.js-articles-move').click(function(e) {
+					var str = 0;
+					var id = tag = '';
+					$("input[name='ids[]']").each(function() {
+						if ($(this).attr('checked')) {
+							str = 1;
+							id += tag + $(this).val();
+							tag = ',';
+						}
+					});
+					if (str == 0) {
+						art.dialog.through({
+							id : 'error',
+							icon : 'error',
+							content : '您没有勾选信息，无法进行操作！',
+							cancelVal : '关闭',
+							cancel : true
+						});
+						return false;
+					}
+					var $this = $(this);
+					art.dialog.open("__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids="+ id, {
+						title : "批量移动",
+						width : "80%"
+					});
+				});
+			});
+		});
+	</script>
+</body>
+</html>

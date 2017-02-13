@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"> 
+<title>驰达家维</title>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/more_fwwd.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/more_wxrc_xq.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/more_news_xq.css">
+<include file="./application/Lianbao_PC/View/simplebootx/Index/index_header.html"/>
+<div class="wangdian move"> 
+<div class="wmain">
+	<div class="user_login">
+		<h1>行业资讯<span>| News</span><strong></b>有家电的地方，就有驰达家维 </strong></h1>
+		
+
+  <div class="con">
+
+     <div class="right_top3">
+                    <p class="zh">{$list.title}</p>
+                    <!--<h1>家电维修  当心冒牌</h1>-->
+                    <div class="right_top3_remark">
+                       <p class="wz"><span >文章来源：{$list.post_source} │  发表时间：{$list.post_date}</span> </p>
+                    </div>
+                    <!--正文部分-->
+                    <div class="right_top2">
+                        {$list.post_content}
+
+                    </div>
+                    <!--end正文部分-->
+                    <br>
+                    <div class="right_top3_next_pre">
+                        <div>上一篇：<a href="{:U('Lianbao_PC/News/news_detail',array('id'=>$front['id']))}">{$front.post_title}</a> </div>
+                        <div>下一篇：<a href="{:U('Lianbao_PC/News/news_detail',array('id'=>$after['id']))}">{$after.post_title}</a> </div>
+                    </div>
+                </div>
+            </div>
+     
+    
+  </div>
+  <!-- 内容 --> 
+</div>
+	</div>
+</div>   
+</div>   
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+</body></html>

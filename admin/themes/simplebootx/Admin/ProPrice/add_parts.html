@@ -1,0 +1,194 @@
+<admintpl file="header" />
+<style type="text/css">
+.pic-list li {
+	margin-bottom: 5px;
+}
+</style>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#" target="_self">添加配件</a></li>
+		</ul>
+		<form action="{:U('AdminPost/add_parts')}" method="post" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+			<div class="row-fluid">
+				<div class="span9">
+					<table class="table table-bordered">
+						<tr>
+							<th>配件名称</th>
+							<td><input  type="text" id="pro_parts" name="pro_price" style="width: 200px" placeholder="配件名称"></td>
+						</tr>
+						<tr>
+							<th width="80" >配件品类</th>
+							<td>
+								<select onchange="pinlei()" id="pro_pinlei" >
+									<option value="0">请选择</option>
+									<foreach name="pro_pinlei" item="vo">
+										<option value="{$vo.pro_pinlei}">{$vo.pro_pinlei}</option>
+									</foreach>
+								</select>
+
+							</td>
+						</tr>
+						<tr>
+							<th width="80" >产品名称</th>
+							<td>
+								<select id="product" onchange="property()">
+									<option value="0">请选择</option>
+
+								</select>
+
+							</td>
+						</tr>
+						<tr>
+							<th width="80"  id="name_one">产品属性一</th>
+							<td>
+								<select id="property_one" >
+									<option value="0">请选择</option>
+
+								</select>
+
+							</td>
+						</tr>
+						<tr>
+							<th width="80" id="name_two" >产品属性二</th>
+							<td>
+								<select id="property_two" >
+									<option value="0">请选择</option>
+
+								</select>
+
+							</td>
+						</tr>
+						<tr>
+							<th width="80" id="name_three">产品属性三</th>
+							<td>
+								<select id="property_three" >
+									<option value="0">请选择</option>
+								</select>
+
+							</td>
+						</tr>
+						<tr>
+							<th width="80" id="name_four">产品属性四</th>
+							<td>
+								<select id="property_four" >
+									<option value="0">请选择</option>
+
+								</select>
+
+							</td>
+						</tr>
+						<tr>
+							<th>配件价格</th>
+							<td><input  type="text" id="parts_price" name="pro_price" style="width: 200px" placeholder="配件价格"></td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+			<div class="form-actions">
+				<button class="btn btn-primary js-ajax-submit" onclick="but()" type="button">提交</button>
+				<a class="btn" href="{:U('ProPrice/parts_index')}">返回</a>
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		//编辑器路径定义
+		var editorURL = GV.DIMAUB;
+	</script>
+
+	<script type="text/javascript">
+		function pinlei(){
+			$('.band_band').remove();
+			var action = "{:U('ProPrice/product')}";
+			var z_pinlei = $('#pro_pinlei').val();
+			$.ajax({
+				type:"post",
+				url:action,
+				data:{pinlei:z_pinlei},
+				datatype:"json",
+				success:function(data){
+					for(var i=0;i<data.length;i++){
+
+						$("#product").append("<option class='band_band' value="+data[i]+">"+data[i]+"</option>");
+					}
+				}
+			})
+		}
+		function property(){
+			var action = "{:U('ProPrice/show_property')}"
+			var z_pinlei  = $('#pro_pinlei').val();
+			var z_product = $('#product').val();
+			$.post(action,{pinlei:z_pinlei,product:z_product},function(data){
+				if(data['property_name_one']!=null){
+					$('#name_one').html(data['property_name_one'])
+					$("#property_one >.band_band ").remove();
+					var arr1= data['property_one'];
+					var arr = arr1.split(',');
+					for(var i in arr){
+						$("#property_one").append("<option class='band_band' value="+arr[i]+">"+arr[i]+"</option>");
+					}
+				}
+				if(data['property_name_two'].length>0){
+					$('#name_two').html(data['property_name_two'])
+					$("#property_two >.band_band ").remove();
+					var arr1= data['property_two'];
+					var arr = arr1.split(',');
+					for(var i in arr){
+						$("#property_two").append("<option class='band_band' value="+arr[i]+">"+arr[i]+"</option>");
+					}
+				}
+				if(data['property_name_three'].length>0){
+					$('#name_three').html(data['property_name_three'])
+					$("#property_three >.band_band ").remove();
+					var arr1= data['property_three'];
+					var arr = arr1.split(',');
+					for(var i in arr){
+						$("#property_three").append("<option class='band_band' value="+arr[i]+">"+arr[i]+"</option>");
+					}
+				}
+				if(data['property_name_four'].length>0){
+					$('#name_four').html(data['property_name_four'])
+					$("#property_four >.band_band ").remove();
+					var arr1= data['property_four'];
+					var arr = arr1.split(',');
+					for(var i in arr){
+						$("#property_four").append("<option class='band_band' value="+arr[i]+">"+arr[i]+"</option>");
+					}
+				}
+			})
+		}
+	function but(){
+		var action           = "{:U('ProPrice/add_parts')}";
+		var z_pro_pinlei     = $('#pro_pinlei').val();
+		var z_product        = $('#product').val();
+		var z_property_one   = $('#property_one').val();
+		var z_property_two   = $('#property_two').val();
+		var z_property_three = $('#property_three').val();
+		var z_property_four  = $('#property_four').val();
+		var z_pro_price      = $('#parts_price').val();
+		var z_parts_name	 = $('#pro_parts').val();
+
+
+		if(z_pro_pinlei==0 || z_product==0 || z_property_one==0 || z_pro_price.length<=0){
+			alert('请补全表单信息');
+			return false;
+		}
+		$.post(action,{parts_name:z_parts_name,parts_price:z_pro_price,pro_pinlei:z_pro_pinlei,product:z_product,property_one:z_property_one,property_two:z_property_two,property_three:z_property_three,property_four:z_property_four},function(data){
+			if(data==1){
+				alert("添加成功");window.location.href="{:U('ProPrice/parts_index')}";
+			}
+			if(data==2){
+				alert("添加失败");
+			}
+			if(data==3){
+				alert("修改成功");
+			}
+		})
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+	<style>
+		#Myinform{ background: #860404;
+		}
+	</style>
+	<script type="text/javascript" src="__PUBLIC__/Service/js/layer.js"></script>
+
+	<include file="./public/Service/Sheader.html"/>
+
+	<div class="user_right">
+		<div class="postian"><p>通知管理＞<a>我的消息</a></p></div>
+		<div class="basic">
+			<div class="news_list">
+				<h1><span>我的消息</span></h1>
+				<foreach name="list" item="vo">
+				<li><a href="{:U('Lianbao_PC/SNotification/news_show',array('id'=>$vo['id']))}">{$vo.title}</a> <span>{$vo.create_time|date="Y-m-d",###}</span></li>
+				</foreach>
+				<div class="list_page">{$page}</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<include file="./public/Service/Sfooter.html"/>
+
+
+</body>
+</html>

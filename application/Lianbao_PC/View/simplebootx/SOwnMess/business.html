@@ -1,0 +1,167 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<script type="text/javascript" src="__PUBLIC__/Service/js/layer.js"></script>
+<style>
+	#Myown{ background: #860404;
+	}
+</style>
+<script>
+function setTab(name,cursel,n){
+ for(i=1;i<=n;i++){
+  var menu=document.getElementById(name+i);
+  var con=document.getElementById("con_"+name+"_"+i);
+ 
+  menu.className=i==cursel?"ever":"";
+  con.style.display=i==cursel?"block":"none";
+ }
+}
+</script>
+<include file="./public/Service/Sheader.html"/>
+	<div class="user_right">
+		<div class="postian"><p>账号设置＞<a href="index.html">基本信息</a></p></div>
+		<div class="basic">
+			<div class="bas_nav">
+				<li><a href="{:U('Lianbao_PC/SOwnMess/index')}">基本资料</a></li>
+				<li><a href="{:U('Lianbao_PC/SOwnMess/setting')}">安全设置</a></li>
+				<li><a href="{:U('Lianbao_PC/SOwnMess/address')}">收货地址</a></li>
+				<!-- <li class="hove"><a href="{:U('Lianbao_PC/SOwnMess/business')}">业务信息</a></li> -->
+			</div>
+			<div class="bas_business">
+				<!--<h1>业务信息</h1>-->
+				<div class="area areaborder">
+					<h1>某某辖区</h1>
+					<li><i></i><span>万家寨</span></li>
+					<li><i></i><span>大河沟</span></li>
+					<li><i></i><span>上家屯</span></li>
+					<li><i></i><span>万达影院城</span></li>
+					<li><i></i><span>花期谷苗家寨大邑卞</span></li>
+					<li><i></i><span>万家寨</span></li>
+					<li><i></i><span>大河沟</span></li>
+					<li><i></i><span>上家屯</span></li>
+				</div>
+
+				<div class="area areaborder">
+					<h1>工单类型</h1>
+					<li><i></i><span>安装</span></li>
+					<li><i></i><span>维修</span></li>
+					<li><i></i><span>送修</span></li>
+					<li><i></i><span>清洁</span></li>
+					<li><i></i><span>保养</span></li>
+					<li><i></i><span>送修</span></li>
+				</div>
+      
+				<div class="area_ar">
+					<div class="areah1 ">
+						<li id="one1" class="ever" onMouseOver="setTab('one',1,11)" ><a href="#" >空调类</a></li>
+						<li id="one2" class="" onMouseOver="setTab('one',2,11)" ><a href="#" >黑电类</a></li>
+						<li id="one3" class="" onMouseOver="setTab('one',3,11)" ><a href="#" >冰洗类</a></li>
+						<li id="one4" class="" onMouseOver="setTab('one',4,11)" ><a href="#" >厨电类</a></li>
+						<li id="one5" class="" onMouseOver="setTab('one',5,11)" ><a href="#" >热水器类</a></li>
+						<li id="one6" class="" onMouseOver="setTab('one',6,11)" ><a href="#" >生活电器类</a></li>
+						<li id="one7" class="" onMouseOver="setTab('one',7,11)" ><a href="#" >其他电器类</a></li>
+						<li id="one8" class="" onMouseOver="setTab('one',8,11)" ><a href="#" >家电清洗</a></li>
+					</div>
+					<div class="area" id="con_one_1">
+						<li><i></i><span>万家寨</span></li>
+						
+						<li><i></i><span>万达影院城</span></li>
+						<li><i></i><span>花期谷苗家寨大邑卞</span></li>
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+					</div>
+
+					<div class="area" id="con_one_2" style="display:none;">
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+						<li><i></i><span>上家屯</span></li>
+						<li><i></i><span>大河沟</span></li>
+						<li><i></i><span>上家屯</span></li>
+						<li><i></i><span>万达影院城</span></li>
+						<li><i></i><span>花期谷苗家寨大邑卞</span></li>
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+					</div>
+
+					<div class="area" id="con_one_3" style="display:none;">
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+						
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+					</div>
+
+					<div class="area" id="con_one_4" style="display:none;">
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+						<li><i></i><span>上家屯</span></li>
+						<li><i></i><span>万达影院城</span></li>
+						<li><i></i><span>上家屯</span></li>
+						<li><i></i><span>万达影院城</span></li>
+						<li><i></i><span>花期谷苗家寨大邑卞</span></li>
+						<li><i></i><span>花期谷苗家寨大邑卞</span></li>
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+					</div>
+
+					<div class="area" id="con_one_5" style="display:none;">
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+						<li><i></i><span>上家屯</span></li>
+						<li><i></i><span>万达影院城</span></li>
+						<li><i></i><span>花期谷苗家寨大邑卞</span></li>
+						
+					</div>
+
+					<div class="area" id="con_one_6" style="display:none;">
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+						<li><i></i><span>大河沟</span></li>
+						<li><i></i><span>上家屯</span></li>
+						<li><i></i><span>万达影院城</span></li>
+						<li><i></i><span>花期谷苗家寨大邑卞</span></li>
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+					</div>
+					
+					<div class="area" id="con_one_7" style="display:none;">
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+						<li><i></i><span>上家屯</span></li>
+						<li><i></i><span>万达影院城</span></li>
+						<li><i></i><span>花期谷苗家寨大邑卞</span></li>
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+						<li><i></i><span>大河沟</span></li>
+					</div>
+
+					<div class="area" id="con_one_8" style="display:none;">
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+						<li><i></i><span>上家屯</span></li>
+						<li><i></i><span>万达影院城</span></li>
+						<li><i></i><span>花期谷苗家寨大邑卞</span></li>
+						<li><i></i><span>万家寨</span></li>
+						<li><i></i><span>大河沟</span></li>
+					</div>
+					
+				
+				</div>
+
+				<div class="area areaborder">
+					<h1>特殊技能</h1>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<include file="./public/Service/Sfooter.html"/>
+
+</body>
+</html>

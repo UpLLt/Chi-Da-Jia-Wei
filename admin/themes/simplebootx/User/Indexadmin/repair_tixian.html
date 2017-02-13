@@ -1,0 +1,44 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a>维修师傅提现</a></li>
+		</ul>
+		<form method="post" class="js-ajax-form">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th align="center">用户名</th>
+						<th>提现金额</th>
+						<th>提现人姓名</th>
+						<th>提现卡号</th>
+						<th>提现银行</th>
+						<th>提现人电话</th>
+						<th align="center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<foreach name="lists" item="vo">
+					<tr>
+						<td align="center">{$vo.username}</td>
+						<td>{$vo.tixian_ing}</td>
+						<td>{$vo.card_name}</td>
+						<td>{$vo.card_number}</td>
+						<td>{$vo.card_bank}</td>
+						<td>{$vo.phone}</td>
+						<td align="center">
+							<a href="{:U('indexadmin/repair_tixian',array('user_id'=>$vo['user_id'],'card_id'=>$vo['card_number']))}" class="js-ajax-dialog-btn" data-msg="确认已经提现">提现成功</a>
+							<a href="{:U('indexadmin/tixian_fail',array('user_id'=>$vo['user_id'],'card_id'=>$vo['card_number']))}" class="js-ajax-dialog-btn" data-msg="确认已经提现失败">提现失败</a>
+
+						</td>
+					</tr>
+					</foreach>
+				</tbody>
+			</table>
+			<div class="pagination">{$page}</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

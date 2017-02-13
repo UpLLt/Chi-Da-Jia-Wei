@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"> 
+<title>驰达家维</title>
+<link type="text/css" rel="stylesheet" href="css/main.css">
+<link type="text/css" rel="stylesheet" href="css/index.css">
+<link type="text/css" rel="stylesheet" href="css/font-awesome.css">
+<script type="text/javascript" src="js/layer.js"></script>
+
+<body>
+<!--顶部-->
+
+<div class="top">
+	<div class="cent">
+		<div class="logo"><img src="images/foot_logo.png" /></div>
+	<!--	<div class="pintai"><p>全国联保唯一指定官方服务平台</p></div>-->
+		
+	</div>   
+</div>    
+
+<div class="nav">
+	<div class="cent">
+		<div class="menu">
+			<li><a href="taking.html">接单区</a></li>	
+			<li><a href="order.html">我的订单</a></li>	
+			<li><a href="wallet.html">我的财务</a></li>	
+			<li><a href="member.html">我的成员</a></li>	
+			<li><a href="notification.html">通知管理</a></li>	
+			<li><a href="policy.html">政策规章</a></li>	
+			<li><a href="charge.html">收费标准</a></li>	
+			<li class="mover"><a href="index.html">个人中心</a></li>
+		</div>
+		<div class="user">
+			<li><p>1325121703@qq.com</p></li>
+			<li><p><a href="#">安全退出</a></p></li>
+		</div>
+	</div>
+</div>
+
+<div class="main">
+	<div class="user_left">
+		<div class="user_name">
+			<div class="name_img">
+				<a href="index.html"><img src="images/user_name.jpg" /></a>
+				<p>县级服务中心合作</p>
+				<p>成都市高新区家电维修部</p>
+			</div>
+			<div class="name_list">
+				<li><p>服务次数</p> <span>42342</span></li>
+				<li></li>
+				<li><p>累计收入</p> <span>42342.00元</span></li>
+			</div>
+		</div>
+		<div class="user_notice">
+			<li><a href="notification.html"><i class="fa fa-volume-up"></i>系统通知<span><img src="images/more.png" /></span></a></li>
+			<li><a href="immediate.html"><i class="fa fa-group"></i>我的成员<span><img src="images/more.png" /></span></a></li>
+			<li><a href="wallet.html"><i class="fa fa-rmb"></i>我的钱包<span><img src="images/more.png" /></span></a></li>
+		</div>
+	</div>
+	
+	<div class="user_right">
+		<div class="postian"><p>账号设置＞<a href="index.html">基本信息</a></p></div>
+		<div class="basic">
+			<div class="bas_nav">
+				<li><a href="index.html">基本资料</a></li><li class="hove"><a href="setting.html">安全设置</a></li><li><a href="address.html">收货地址</a></li><li><a href="business.html">业务信息</a></li>
+			</div>
+			<div class="bas_setting">
+				<!--<h1>安全设置</h1>-->
+				<li><i class="fa fa-unlock-alt"></i>登录密码<span>已设置</span> <b><a  href="javascript:;" id="loginpwd" onclick="openLayer('loginpwd','layer_loginpwd')">修改</a></b></li>
+				<li><i class="fa fa-unlock-alt"></i>支付密码<pan>未设置</pan> <b>
+				<a href="javascript:;" id="forgetpwd" onclick="openLayer('forgetpwd','layer_forgetpwd')">忘了密码？</a>
+				<a href="javascript:;" id="getpwd" onclick="openLayer('getpwd','layer_getpwd')">修改</a>
+				</b></li>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="footer">
+	<div class="main">
+    	<div class="fl foot_logo"><img src="images/foot_logo.png" alt=""></div>
+        <div class="fr">
+        	<p class="footmenu">
+			<a href="/">首页</a> 
+			  丨<a href="#">平台优势</a> 丨<a href="#">新手指导</a> 丨<a href="#">新手指导</a> 丨<a href="#">合作单位</a> 丨<a href="#">新手指导</a> 丨<a href="#">新手指导</a> 丨<a href="#">关于我们</a>			</p>
+			
+			
+            <p class="word">
+	<i class="banquan_china">版权所有 达州</i> Copyright ? 2016 dazhou.cn All rights reserved.<i>蜀ICP备13012949号</i> 
+</p>        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!--修改登录密码-->
+<div id="layer_loginpwd" style="display:none" >
+	<div class="layer_show">
+		<div class="layer_top">
+			<div class="layer_title"><p>修改登录密码</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="images/close.png" /></a></div>
+		</div>
+		<div class="loginpwd">
+			<h6><b>原登录密码：</b><input type="password" /> </h6>
+			<h6><b>新密码：</b><input type="password" /> </h6>
+			<h6><b>重复新密码：</b><input type="password" /> </h6>
+		</div>
+		<div class="ensure"><input type="button" value="确 定"></div>
+	</div>
+</div>
+<!--修改支付密码-->
+<div id="layer_getpwd" style="display:none" >
+	<div class="layer_show">
+		<div class="layer_top">
+			<div class="layer_title"><p>修改支付密码</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="images/close.png" /></a></div>
+		</div>
+		<div class="loginpwd">
+			<h6><b>原支付密码：</b><input type="password" /> </h6>
+			<h6><b>新密码：</b><input type="password" /> </h6>
+			<h6><b>重复新密码：</b><input type="password" /> </h6>
+		</div>
+		<div class="ensure"><input type="button" value="确 定"></div>
+	</div>
+</div>
+
+<!--忘记支付密码-->
+<div id="layer_forgetpwd" style="display:none" >
+	<div class="layer_show">
+		<div class="layer_top">
+			<div class="layer_title"><p>忘记支付密码?</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="images/close.png" /></a></div>
+		</div>
+		<div class="forgetpwd">
+			<h6><b>密保手机：</b><input type="text" value=" "  maxlength="11" class="mibao" /><span><a href="#">获取验证码</a></span> </h6>
+			<h6><b>验证码：</b><input type="text" value="" maxlength="6" /> </h6>
+		</div>
+		<div class="ensure"><input type="button" value="确 定"></div>
+	</div>
+</div>
+
+<!--设置支付密码-->
+<div id="layer_install" style="display:none" >
+	<div class="layer_show">
+		<div class="layer_top">
+			<div class="layer_title"><p>设置支付密码</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="images/close.png" /></a></div>
+		</div>
+		<div class="forgetpwd">
+			<h6><b>密保手机：</b><input type="password" value=" "  maxlength="11" class="mibao" /></h6>
+			<h6><b>支付密码：</b><input type="password" value="" maxlength="6" /> </h6>
+			<h6><b>重复支付密码：</b><input type="password" value="" maxlength="6" /> </h6>
+		</div>
+		<div class="ensure"><input type="button" value="确 定"></div>
+	</div>
+</div>
+
+</body></html>

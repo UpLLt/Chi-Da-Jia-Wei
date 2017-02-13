@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"> 
+<title>驰达家维</title>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+<include file="./application/Lianbao_PC/View/simplebootx/Index/index_header.html"/>
+<div class="wmain">
+	<div class="user_login">
+		<h1>用户登录中心<span>| Login</span><strong><b><a href="{:U('Lianbao_PC/Register/index')}">免费注册</a></b>已有<i>{$count}</i>位用户入驻了驰达家维 </strong></h1>
+		<div class="login">
+		<form method="post" action="{:U('Lianbao_PC/Login/login')}">
+			<input type="text" id="phone" onblur="ph_one()" class="username" name="name" placeholder="请输入手机号码"><p id="verify_tel" style="color:red;font-size:16px;"></p>
+			<p><a href="{:U('Lianbao_PC/Login/forget_password_list')}">忘记密码？</a></p>
+			<input type="password" class="userpwd" id="password" onblur="pass_word()" name="pwd"  placeholder="请输入密码">
+			<p id="verify_password" style="color:red;font-size:16px;"></p>
+			
+			<div class="co"><input type="text" name="code" id="code" onblur="co_de()"  class="code"  placeholder="请输入验证码">{:sp_verifycode_img('length=4&font_size=20&width=145&height=42&use_noise=1&use_curve=0','style="cursor: pointer;" title="点击获取"')}</div>
+			<div class="denglu"><h4><a href="javascript:void(0);" onclick="login()">登  录</a></h4></div>
+		</form>
+		</div>
+	</div>
+</div>   
+   
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+<script>
+function ph_one(){
+	var phone = $('#phone').val();
+	if(phone.length<=0){
+		$('#verify_tel').html('用户名不能为空');
+		return false;
+	}else{
+		$('#verify_tel').html('');
+	}
+}
+function pass_word(){
+	var pass_word = $('#password').val();
+	if(pass_word.length<=0){
+		$('#verify_password').html('密码不能为空');
+		return false;
+	}else{
+		$('#verify_password').html('');
+	}
+
+}
+function login(){
+	var phone     = $('#phone').val();
+	var pass_word = $('#password').val();
+	var z_code      = $('#code').val();
+	var action    = "{:U('Lianbao_PC/Login/login')}";
+	if(phone.length<=0||pass_word.length<=0||z_code.length<=0){
+		alert('请补全表单');
+		return false;
+	}
+	$.post(action,{name:phone,pwd:pass_word,code:z_code},function(data){
+	
+	if(data==1){
+		alert('登陆成功');window.location.href="{:U('Lianbao_PC/Userindex/userindex')}";
+		}
+		if(data==2){
+		alert('账号密码不一致');
+		}
+		if(data==3){
+		alert('验证码错误');
+		}
+		if(data==4){
+			alert('登陆成功');window.location.href="{:U('Lianbao_PC/STakingOrder/index')}";
+		}
+		if(data==5){
+			alert('登陆失败，账号尚未通过审核，请耐心等待');
+		}
+
+	})
+
+
+
+} 
+</script>
+</html>

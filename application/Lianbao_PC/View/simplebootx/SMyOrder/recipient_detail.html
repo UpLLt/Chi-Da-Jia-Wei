@@ -1,0 +1,976 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+	<script type="text/javascript" src="__PUBLIC__/Service/js/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.layer.js"></script>
+	<style>
+		#Myorder{ background: #860404;
+		}
+	</style>
+	<include file="./public/Service/Sheader.html"/>
+	<div class="user_right">
+		<div class="postian"><p>我的订单＞<a>订单详情</a>＞<a>待寄件</a></p></div>
+		<div class="basic">
+			<div class="bas_datails">
+				<!--<h1>订单详情</h1>-->
+				<div class="datails">
+					<li><b>订单号：</b> {$detail.order_number} <span class="data_sh" ><a  href="javascript:;" id="refresh"><i class="fa fa-refresh"></i>重新获取验证码</a><b>&nbsp;</b></span></li>
+					<li><b>订单状态：</b> <i>待寄件</i></li>
+					<li><b>时间状态：</b> <red>已过{$detail.hours}小时{$detail.mins}分</red></li>
+					<li><b>执行人：</b> {$detail.user_name}</li>
+					<li><b></b> <red>请联系客户确认信息并告知客户稍后会有师傅联系预约上门时间</red></li>
+					<li><b>服务状态：</b>
+						<span><a href="javascript:;" id="reass">改派师傅</a></span>
+						<span><a href="javascript:;" id="finish" onclick="openLayer('finish','layer_finish')">完结工单</a></span>
+						<span class="back"><a href="javascript:;" id="back" onclick="openLayer('back','layer_back')">退单</a></span>
+						<span class="red"><a href="javascript:;" id="tele" onclick="openLayer('tele','layer_tele')">服务电话</a></span></li>
+				</div>
+
+				<table class="collapse">
+					<tr class="tr1">
+						<td width="120">客户信息</td>
+						<td width="250">客户地址</td>
+						<td width="100">保修类型</td>
+						<td width="150">产品名称</td>
+						<td width="200">产品型号</td>
+						<td width="50">价格</td>
+					</tr>
+					<tr>
+						<td>{$detail.user_phone}</br>{$detail.user_name}</td>
+						<td>{$detail.user_address}</td>
+						<td>{$detail.baoxiu_type}</td>
+						<td>{$detail.pro_xinhao}</td>
+						<td>{$detail.pro_property}</td>
+						<td>{$order_price.repair_price}</td>
+						<input type="hidden" id="order_number_gaipai" value="{$detail.order_number}">
+					</tr>
+					<tr>
+						<td  class="remarks" colspan="6"><span>产品故障：</span>{$detail.remarks}</td>
+					</tr>
+				</table>
+
+				<div class="parts" >
+					<h1><span>配件与服务内容</span> <b><a href="javascript:;" id="fitting">修改配件或者服务项</a></b></h1>
+					<table class="collapse" style="margin:10px 0px 0px;">
+						<tr class="tr1">
+							<td width="200">配件所属服务项</td>
+							<td width="200">配件价格</td>
+							<td width="200">配件名称</td>
+							<td width="100">数量</td>
+							<td width="200">配件照片</td>
+							<td width="200">整机照片</td>
+						</tr>
+
+							{$parts}
+
+						<tr>
+							<td  class="remarks" colspan="6">
+								<h1>所属服务增加项</h1>
+								{$tankuang_service}
+
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="follower">
+					<div class="follow">
+						<li><a id="one1" class="dataer" onmousedown="setTab('one',1,11)" href="javascript:;">工单跟踪</a></li>
+						<!-- <li><a id="one2"  onmousedown="setTab('one',2,11)" href="javascript:;">收入明细</a></li> -->
+					</div>
+					<div class="foolow_show" id="con_one_1">
+
+						<foreach name="track" item="vo">
+							<li><div class="follow_left"><p>{$vo.create_time|date="Y-m-d H:i:s",###}</p></div>
+								<div class="follow_right">
+									<span></span>
+									<h4>{$vo.content}</h4>
+									<p>执行人：<red>{$vo.person}</red></p>
+								</div>
+							</li>
+						</foreach>
+						<li>
+							<div class="follow_left"></div>
+							<div class="follow_right"><span></span></div>
+						</li>
+
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+	<include file="./public/Service/Sfooter.html"/>
+<!--完结工单-->
+<div id="layer_finish" style="display:none" >
+	<div class="layer_show">
+		<div class="layer_top">
+			<div class="layer_title"><p>完结工单</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<form method="post" enctype="multipart/form-data" action="{:U('Lianbao_PC/SMyOrder/end_order')}">
+			<div class="finish_show">
+				<input type="hidden" value="{$detail.order_number}" name="order_number">
+				<h1>工单完结码：<input name="end_number" type="text" placeholder="请输入工单完结码" /></h1>
+				<h1>故障图片/正面图片：<input type="file" name="end_picture_1"></h1>
+				<h1>整机图片/侧面图片：<input type="file" name="end_picture_2">	</h1>
+				<h1>完结条码：<input type="file" name="wanjiema">	</h1>
+				<h1>购期凭证：<input type="file" name="buying_picture">	</h1>
+			</div>
+		<div class="ensure"><input type="submit" value="确 定"></div>
+		</form>
+	</div>
+</div>
+
+
+<!--退单-->
+	<div id="layer_back" style="display:none" >
+		<div class="layer_show edit">
+			<form method="post" action="{:U('Lianbao_PC/SMyOrder/cancel_order')}">
+				<div class="layer_top">
+					<input type="hidden" name="order_number" id="order_number" value="{$detail.order_number}">
+					<div class="layer_title"><p>退单</p></div>
+					<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+				</div>
+				<div class="back_show">
+					<li><input type="radio"  name="order_reason" value="1" />用户地址错误</li>
+					<li><input type="radio"  name="order_reason" value="2" />用户联系方式错误</li>
+					<li><input type="radio"  name="order_reason" value="3" />工单服务类型错误（安装/维修）</li>
+					<li><input type="radio"  name="order_reason" value="4" />保内/保外类型错误</li>
+					<li><input type="radio"  name="order_reason" value="5" />客户已自行安装/维修</li>
+					<li><input type="radio"  name="order_reason" value="6" />师傅致电，用户已退换机，无需上门</li>
+					<li><input type="radio"  name="order_reason" value="7" />师傅电话沟通后处理完毕，无需上门</li>
+					<li><input type="radio"  name="order_reason" value="8" />保外工单师傅报价，客户不修</li>
+					<li><input type="radio"  name="order_reason" value="9" />用户因安装环境原因,推迟安装(超30天)</li>
+				</div>
+				<div class="ensure"><input type="submit" value="确 定"></div>
+			</form>
+		</div>
+	</div>
+
+<!--服务电话-->
+<div id="layer_tele" style="display:none" >
+	<div class="layer_show ">
+		<div class="layer_top">
+			<div class="layer_title"><p>服务电话</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<div class="tele_show">
+			<h1>{$user_service.company}</h1>
+			<li><i class="fa fa-phone-square" ></i>技术支持：{$user_service.skill_phone}</li>
+			<li><i class="fa fa-phone-square" ></i>客服电话：{$user_service.service_phone}</li>
+
+			<h1>驰达家维</h1>
+			<li><i class="fa fa-phone-square" ></i>驰达家维技术支持：{$user_shop.link_description}</li>
+			<li><i class="fa fa-phone-square" ></i>驰达家维客服电话：{$user_shop.link_description}</li>
+
+		</div>
+
+	</div>
+</div>
+<script type="text/javascript">
+	var wait=60;
+	function time(o) {
+		if (wait == 0) {
+			$(".data_sh a").css("display","block");
+			$(".data_sh b").css("display","none");
+			wait = 60;
+		} else {
+			$(".data_sh a").css("display","none");
+			$(".data_sh b").css("display","block");
+			$(".data_sh b").html("<b>重新发送 (" + wait + ")</b>");
+			wait--;
+			setTimeout(function() {
+						time(o)
+					},
+					1000);
+		}
+	}
+	document.getElementById("refresh").onclick=function(){time(this);}
+</script>
+
+
+<script>
+
+	//验证码
+	$('#refresh').on('click', function(){
+		var number = $('#order_number_gaipai').val();
+		var action = "{:U('Lianbao_PC/SMyOrder/end_code')}";
+		$.post(action,{order_number:number},function(data){
+			if(data==1){
+			alert('发送成功');
+			}else{
+			alert('发送失败');
+			}
+		});
+
+	});
+
+	//配件放大图0
+	$('#pjimg_0').on('click', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['auto', 'auto'], //宽高
+			content: '<img src="{$num_parts['0']['parts_picture']}" width="500">'
+		});
+	});
+	//整机放大图0
+	$('#zjimg_0').on('click', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['auto', 'auto'], //宽高
+			content: '<img src="{$num_parts['0']['all_picture']}" width="500">'
+		});
+	});
+	//配件放大图1
+	$('#pjimg_1').on('click', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['auto', 'auto'], //宽高
+			content: '<img src="{$num_parts['1']['parts_picture']}" width="500">'
+		});
+	});
+	//整机放大图0
+	$('#zjimg_1').on('click', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['auto', 'auto'], //宽高
+			content: '<img src="{$num_parts['1']['all_picture']}" width="500">'
+		});
+	});
+	//配件放大图2
+	$('#pjimg_2').on('click', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['auto', 'auto'], //宽高
+			content: '<img src="{$num_parts['2']['parts_picture']}" width="500">'
+		});
+	});
+	//整机放大图2
+	$('#zjimg_2').on('click', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['auto', 'auto'], //宽高
+			content: '<img src="{$num_parts['2']['all_picture']}" width="500">'
+		});
+	});
+	//配件放大图3
+	$('#pjimg_3').on('click', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['auto', 'auto'], //宽高
+			content: '<img src="{$num_parts['3']['parts_picture']}" width="500">'
+		});
+	});
+	//整机放大图3
+	$('#zjimg_3').on('click', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['auto', 'auto'], //宽高
+			content: '<img src="{$num_parts['3']['all_picture']}" width="500">'
+		});
+	});
+	//配件放大图4
+	$('#pjimg_4').on('click', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['auto', 'auto'], //宽高
+			content: '<img src="{$num_parts['4']['parts_picture']}" width="500">'
+		});
+	});
+	//整机放大图0
+	$('#zjimg_4').on('click', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['auto', 'auto'], //宽高
+			content: '<img src="{$num_parts['4']['all_picture']}" width="500">'
+		});
+	});
+
+	//修改配件或服务项
+	$('#fitting').on('click', function(){
+		layer.tab({
+	  area: ['700px', '600px'],
+	  tab: [{
+	    title: '申请厂家寄件', 
+	    content: '{$str_add_service}'
+	  }, {
+	    title: '申请自行购买',  
+	    content: '{$str_add_service_z2}'
+	  }]
+	});
+		var index = parent.layer.getFrameIndex(window.name);
+
+		//申请厂家寄件 添加配件
+		$('#vender_show').on('click', function(){
+			layer.open({
+				type: 1,
+				skin: 'layui-layer-demo', //样式类名
+				closeBtn: 1, //不显示关闭按钮
+				shift: 2,
+				shadeClose: true, //开启遮罩关闭
+				content: '<div class="peijian"><form method="post" enctype="multipart/form-data" action="{:U('Lianbao_PC/SMyOrder/add_parts')}">' +
+				'<li><b>配件名称：</b>' +
+				'<select name="parts_name">' +
+				'{$select_parts}</select></li>' +
+				'<li><b>配件数量：</b><input type="hidden" value="1"><input name="parts_count" type="text" placeholder="请输入配件数量"/></li>' +
+				'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p></li>' +
+				'<div class="undid"><div class="undit_input">' +
+				'<input type="file" name="parts_picture" />' +
+				'<input type="hidden" name="parts_pinlei" value="{$order_pro.pro_xinhao}"> ' +
+				'<input type="hidden" name="parts_product" value="{$order_pro.pro_product}"> ' +
+				'<input type="hidden" name="order_number" value="{$detail.order_number}">' +
+				'<input type="hidden" name="type" value="1">' +
+				'<input type="file" name="all_picture" />' +
+			    '<input type="hidden" name="parts_pinlei" value="{$order_pro.pro_xinhao}"></div></div>' +
+				'<div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+			});
+			var index = parent.layer.getFrameIndex(window.name);
+		});
+		//申请自行购买 添加配件
+		$('#vender_show_oneself').on('click', function(){
+			layer.open({
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 1, //不显示关闭按钮
+						shift: 2,
+						shadeClose: true, //开启遮罩关闭
+						content: '<div class="peijian"><form method="post" enctype="multipart/form-data" action="{:U('Lianbao_PC/SMyOrder/add_parts')}"><from><li><b>配件名称：</b>' +
+			'<input placeholder="请输入配件名称" name="parts_name">' +
+			'</li>' +
+			'<li><b>配件数量：</b>' +
+			'<input type="text" name="parts_count" placeholder="请输入配件数量"/></li>' +
+			'<li><b class="peijian_li_b" >自购件价格：</b>' +
+			'<input type="text" name="parts_price" placeholder="仅自购件价格"/><input type="hidden" name="type" value="2"></li>' +
+			'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p></li>' +
+			'<div class="undid">' +
+			'<div class="undit_input">' +
+			'<input type="file" name="parts_picture" />' +
+			'<input type="hidden" name="parts_pinlei" value="{$order_pro.pro_xinhao}"> ' +
+			'<input type="hidden" name="parts_product" value="{$order_pro.pro_product}"> ' +
+			'<input type="hidden" name="order_number" value="{$detail.order_number}">' +
+			'<input type="file" name="all_picture" />' +
+			'<input type="hidden" name="parts_pinlei" value="{$order_pro.pro_xinhao}">' +
+			'</div></div></from>' +
+			'<div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+		});
+
+			var index = parent.layer.getFrameIndex(window.name);
+			//申请自行购买 配件大图
+			$('#search5_0').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[0]['parts_picture']}" width="500">'
+				});
+			});
+			//申请自行购买 整机大图
+			$('#search6_0').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[0]['all_picture']}" width="500">'
+				});
+			});
+		});
+
+		// 申请厂家寄件 编辑
+		$('#vender_edit_0').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-demo', //样式类名
+					closeBtn: 1, //不显示关闭按钮
+					shift: 2,
+					shadeClose: true, //开启遮罩关闭
+					content: '<div class="peijian"><from> <form method="post" action="{:U('Lianbao_PC/SMyOrder/save_parts')}"><li><b>配件名称：</b><select name="parts_name">' +
+					'{$select_parts}</select></li>' +
+					'<li><b>配件数量：</b><input type="text" name="parts_count" value="{$parts_z1[0]['parts_count']}" /></li>' +
+					'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p>' +
+					'</li><div  class="undid"><li id="test_one"><img src="{$parts_z1[0]['parts_picture']}"/>' +
+					'<input type="hidden" id="parts_one" value="1">' +
+					'<input type="hidden" id="all_one" value="2">' +
+					'<input type="hidden" name="type" value="1">' +
+					' <input type="hidden" id="parts_id_one" name="parts_id" value="{$parts_z1[0]['id']}">' +
+					'<div class="pjimg_sh" ><h1><a href="#"><i class="fa fa-trash" onclick="parts_onc()"></i></a>' +
+					'<a href="javascript:;" id="search3_0"><i class="fa fa-search"></i></a>' +
+					'</h1><h6>配件照片</h6></div></li><li id="test2_one"><img  src="{$parts_z1[0]['all_picture']}"/>' +
+					'<div class="pjimg_sh"><h1><a href="#"><i class="fa fa-trash" onclick="all_onc()"></i></a>' +
+					'<a href="javascript:;" id="search4_0"><i class="fa fa-search"></i></a></h1>' +
+					'<h6>整机照片</h6></div></li></div></from><div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+				});
+			var index = parent.layer.getFrameIndex(window.name);
+			// 配件大图  编辑
+			$('#search3_0').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1[0]['parts_picture']}" width="500">'
+				});
+			});
+			$('#search4_0').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1[0]['all_picture']}" width="500">'
+				});
+			});
+
+		});
+
+		// 申请自行寄件 编辑
+		$('#vender_edit_z2_0').on('click', function(){
+			layer.open({
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 1, //不显示关闭按钮
+						shift: 2,
+						shadeClose: true, //开启遮罩关闭
+						content: '<div class="peijian"><from> <form method="post" action="{:U('Lianbao_PC/SMyOrder/save_parts')}"><li><b>配件名称：</b><input value="{$parts_z2[0]['parts_name']}" name="parts_name">' +
+			'</li>' +
+			'<li><b>配件数量：</b><input type="text" name="parts_count" value="{$parts_z2[0]['parts_count']}" /></li>' +
+			'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p>' +
+			'</li><div  class="undid"><li id="test_one"><img src="{$parts_z2[0]['parts_picture']}"/>' +
+			'<input type="hidden" id="parts_one" value="1">' +
+			'<input type="hidden" id="all_one" value="2">' +
+			'<input type="hidden" name="type" value="2">' +
+			' <input type="hidden" id="parts_id_one" name="parts_id" value="{$parts_z2[0]['id']}">' +
+			'<div class="pjimg_sh" ><h1><a href="#"><i class="fa fa-trash" onclick="parts_onc()"></i></a>' +
+			'<a href="javascript:;" id="search3_0"><i class="fa fa-search"></i></a>' +
+			'</h1><h6>配件照片</h6></div></li><li id="test2_one"><img  src="{$parts_z2[0]['all_picture']}"/>' +
+			'<div class="pjimg_sh"><h1><a href="#"><i class="fa fa-trash" onclick="all_onc()"></i></a>' +
+			'<a href="javascript:;" id="search4_0"><i class="fa fa-search"></i></a></h1>' +
+			'<h6>整机照片</h6></div></li></div></from><div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+		});
+			var index = parent.layer.getFrameIndex(window.name);
+			// 配件大图  编辑
+			$('#search3_0').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[0]['parts_picture']}" width="500">'
+				});
+			});
+			$('#search4_0').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[0]['all_picture']}" width="500">'
+				});
+			});
+
+		});
+		// 申请自行寄件 编辑
+		$('#vender_edit_z2_1').on('click', function(){
+			layer.open({
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 1, //不显示关闭按钮
+						shift: 2,
+						shadeClose: true, //开启遮罩关闭
+						content: '<div class="peijian"><from> <form method="post" action="{:U('Lianbao_PC/SMyOrder/save_parts')}"><li><b>配件名称：</b><input value="{$parts_z2[1]['parts_name']}" name="parts_name">' +
+			'</li>' +
+			'<li><b>配件数量：</b><input type="text" name="parts_count" value="{$parts_z2[1]['parts_count']}" /></li>' +
+			'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p>' +
+			'</li><div  class="undid"><li id="test_one"><img src="{$parts_z2[1]['parts_picture']}"/>' +
+			'<input type="hidden" id="parts_one" value="1">' +
+			'<input type="hidden" id="all_one" value="2">' +
+			' <input type="hidden" id="parts_id_one" name="parts_id" value="{$parts_z2[1]['id']}">' +
+			'<div class="pjimg_sh" ><h1><a href="#"><i class="fa fa-trash" onclick="parts_onc()"></i></a>' +
+			'<a href="javascript:;" id="search3_1"><i class="fa fa-search"></i></a>' +
+			'</h1><h6>配件照片</h6></div></li><li id="test2_one"><img  src="{$parts_z2[1]['all_picture']}"/>' +
+			'<div class="pjimg_sh"><h1><a href="#"><i class="fa fa-trash" onclick="all_onc()"></i></a>' +
+			'<a href="javascript:;" id="search4_1"><i class="fa fa-search"></i></a></h1>' +
+			'<h6>整机照片</h6></div></li></div></from><div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+		});
+			var index = parent.layer.getFrameIndex(window.name);
+			// 配件大图  编辑
+			$('#search3_1').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[1]['parts_picture']}" width="500">'
+				});
+			});
+			$('#search4_1').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[1]['all_picture']}" width="500">'
+				});
+			});
+		});
+		// 申请厂家寄件 编辑
+		$('#vender_edit_1').on('click', function(){
+			layer.open({
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 1, //不显示关闭按钮
+						shift: 2,
+						shadeClose: true, //开启遮罩关闭
+						content: '<div class="peijian"><from> <form method="post" action="{:U('Lianbao_PC/SMyOrder/save_parts')}"><li><b>配件名称：</b><select name="parts_name">' +
+			'{$select_parts}</select></li>' +
+			'<li><b>配件数量：</b><input type="text" name="parts_count" value="{$parts_z1[1]['parts_count']}" /></li>' +
+			'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p>' +
+			'</li><div  class="undid"><li id="test_one"><img src="{$parts_z1[1]['parts_picture']}"/>' +
+			'<input type="hidden" id="parts_one" value="1">' +
+			'<input type="hidden" id="all_one" value="2">' +
+			' <input type="hidden" id="parts_id_one" name="parts_id" value="{$parts_z1[1]['id']}">' +
+			'<div class="pjimg_sh" ><h1><a href="#"><i class="fa fa-trash" onclick="parts_onc()"></i></a>' +
+			'<a href="javascript:;" id="search3_1"><i class="fa fa-search"></i></a>' +
+			'</h1><h6>配件照片</h6></div></li><li id="test2_one"><img  src="{$parts_z1[1]['all_picture']}"/>' +
+			'<div class="pjimg_sh"><h1><a href="#"><i class="fa fa-trash" onclick="all_onc()"></i></a>' +
+			'<a href="javascript:;" id="search4_1"><i class="fa fa-search"></i></a></h1>' +
+			'<h6>整机照片</h6></div></li></div></from><div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+		});
+			var index = parent.layer.getFrameIndex(window.name);
+			// 配件大图  编辑
+			$('#search3_1').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1[1]['parts_picture']}" width="500">'
+				});
+			});
+			$('#search4_1').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1[1]['all_picture']}" width="500">'
+				});
+			});
+		});
+		// 申请自行寄件 编辑
+		$('#vender_edit_z2_2').on('click', function(){
+			layer.open({
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 1, //不显示关闭按钮
+						shift: 2,
+						shadeClose: true, //开启遮罩关闭
+						content: '<div class="peijian"><from> <form method="post" action="{:U('Lianbao_PC/SMyOrder/save_parts')}"><li><b>配件名称：</b><input value="{$parts_z2[2]['parts_name']}" name="parts_name">' +
+			'</li>' +
+			'<li><b>配件数量：</b><input type="text" name="parts_count" value="{$parts_z2[2]['parts_count']}" /></li>' +
+			'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p>' +
+			'</li><div  class="undid"><li id="test_one"><img src="{$parts_z2[2]['parts_picture']}"/>' +
+			'<input type="hidden" id="parts_one" value="1">' +
+			'<input type="hidden" id="all_one" value="2">' +
+			' <input type="hidden" id="parts_id_one" name="parts_id" value="{$parts_z2[2]['id']}">' +
+			'<div class="pjimg_sh" ><h1><a href="#"><i class="fa fa-trash" onclick="parts_onc()"></i></a>' +
+			'<a href="javascript:;" id="search3_2"><i class="fa fa-search"></i></a>' +
+			'</h1><h6>配件照片</h6></div></li><li id="test2_one"><img  src="{$parts_z2[2]['all_picture']}"/>' +
+			'<div class="pjimg_sh"><h1><a href="#"><i class="fa fa-trash" onclick="all_onc()"></i></a>' +
+			'<a href="javascript:;" id="search4_2"><i class="fa fa-search"></i></a></h1>' +
+			'<h6>整机照片</h6></div></li></div></from><div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+		});
+			var index = parent.layer.getFrameIndex(window.name);
+			// 配件大图  编辑
+			$('#search3_2').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[2]['parts_picture']}" width="500">'
+				});
+			});
+			$('#search4_2').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[2]['all_picture']}" width="500">'
+				});
+			});
+		});
+		// 申请厂家寄件 编辑
+		$('#vender_edit_2').on('click', function(){
+			layer.open({
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 1, //不显示关闭按钮
+						shift: 2,
+						shadeClose: true, //开启遮罩关闭
+						content: '<div class="peijian"><from> <form method="post" action="{:U('Lianbao_PC/SMyOrder/save_parts')}"><li><b>配件名称：</b><select name="parts_name">' +
+			'{$select_parts}</select></li>' +
+			'<li><b>配件数量：</b><input type="text" name="parts_count" value="{$parts_z1[2]['parts_count']}" /></li>' +
+			'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p>' +
+			'</li><div  class="undid"><li id="test_one"><img src="{$parts_z1[2]['parts_picture']}"/>' +
+			'<input type="hidden" id="parts_one" value="1">' +
+			'<input type="hidden" id="all_one" value="2">' +
+			' <input type="hidden" id="parts_id_one" name="parts_id" value="{$parts_z1[2]['id']}">' +
+			'<div class="pjimg_sh" ><h1><a href="#"><i class="fa fa-trash" onclick="parts_onc()"></i></a>' +
+			'<a href="javascript:;" id="search3_2"><i class="fa fa-search"></i></a>' +
+			'</h1><h6>配件照片</h6></div></li><li id="test2_one"><img  src="{$parts_z1[2]['all_picture']}"/>' +
+			'<div class="pjimg_sh"><h1><a href="#"><i class="fa fa-trash" onclick="all_onc()"></i></a>' +
+			'<a href="javascript:;" id="search4_2"><i class="fa fa-search"></i></a></h1>' +
+			'<h6>整机照片</h6></div></li></div></from><div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+		});
+			var index = parent.layer.getFrameIndex(window.name);
+			// 配件大图  编辑
+			$('#search3_2').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1[2]['parts_picture']}" width="500">'
+				});
+			});
+			$('#search4_2').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1[2]['all_picture']}" width="500">'
+				});
+			});
+		});
+		// 申请自行寄件 编辑
+		$('#vender_edit_z2_3').on('click', function(){
+			layer.open({
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 1, //不显示关闭按钮
+						shift: 2,
+						shadeClose: true, //开启遮罩关闭
+						content: '<div class="peijian"><from> <form method="post" action="{:U('Lianbao_PC/SMyOrder/save_parts')}"><li><b>配件名称：</b><input value="{$parts_z2[3]['parts_name']}" name="parts_name">' +
+			'</li>' +
+			'<li><b>配件数量：</b><input type="text" name="parts_count" value="{$parts_z2[3]['parts_count']}" /></li>' +
+			'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p>' +
+			'</li><div  class="undid"><li id="test_one"><img src="{$parts_z2[3]['parts_picture']}"/>' +
+			'<input type="hidden" id="parts_one" value="1">' +
+			'<input type="hidden" id="all_one" value="2">' +
+			' <input type="hidden" id="parts_id_one" name="parts_id" value="{$parts_z2[3]['id']}">' +
+			'<div class="pjimg_sh" ><h1><a href="#"><i class="fa fa-trash" onclick="parts_onc()"></i></a>' +
+			'<a href="javascript:;" id="search3_3"><i class="fa fa-search"></i></a>' +
+			'</h1><h6>配件照片</h6></div></li><li id="test2_one"><img  src="{$parts_z2[3]['all_picture']}"/>' +
+			'<div class="pjimg_sh"><h1><a href="#"><i class="fa fa-trash" onclick="all_onc()"></i></a>' +
+			'<a href="javascript:;" id="search4_3"><i class="fa fa-search"></i></a></h1>' +
+			'<h6>整机照片</h6></div></li></div></from><div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+		});
+			var index = parent.layer.getFrameIndex(window.name);
+			// 配件大图  编辑
+			$('#search3_3').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[3]['parts_picture']}" width="500">'
+				});
+			});
+			$('#search4_3').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[3]['all_picture']}" width="500">'
+				});
+			});
+		});
+		// 申请厂家寄件 编辑
+		$('#vender_edit_3').on('click', function(){
+			layer.open({
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 1, //不显示关闭按钮
+						shift: 2,
+						shadeClose: true, //开启遮罩关闭
+						content: '<div class="peijian"><from> <form method="post" action="{:U('Lianbao_PC/SMyOrder/save_parts')}"><li><b>配件名称：</b><select name="parts_name">' +
+			'{$select_parts}</select></li>' +
+			'<li><b>配件数量：</b><input type="text" name="parts_count" value="{$parts_z1[3]['parts_count']}" /></li>' +
+			'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p>' +
+			'</li><div  class="undid"><li id="test_one"><img src="{$parts_z1[3]['parts_picture']}"/>' +
+			'<input type="hidden" id="parts_one" value="1">' +
+			'<input type="hidden" id="all_one" value="2">' +
+			' <input type="hidden" id="parts_id_one" name="parts_id" value="{$parts_z1[3]['id']}">' +
+			'<div class="pjimg_sh" ><h1><a href="#"><i class="fa fa-trash" onclick="parts_onc()"></i></a>' +
+			'<a href="javascript:;" id="search3_3"><i class="fa fa-search"></i></a>' +
+			'</h1><h6>配件照片</h6></div></li><li id="test2_one"><img  src="{$parts_z1[3]['all_picture']}"/>' +
+			'<div class="pjimg_sh"><h1><a href="#"><i class="fa fa-trash" onclick="all_onc()"></i></a>' +
+			'<a href="javascript:;" id="search4_3"><i class="fa fa-search"></i></a></h1>' +
+			'<h6>整机照片</h6></div></li></div></from><div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+		});
+			var index = parent.layer.getFrameIndex(window.name);
+			// 配件大图  编辑
+			$('#search3_3').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1[3]['parts_picture']}" width="500">'
+				});
+			});
+			$('#search4_3').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1[3]['all_picture']}" width="500">'
+				});
+			});
+		});
+		// 申请自行寄件 编辑
+		$('#vender_edit_z2_4').on('click', function(){
+			layer.open({
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 1, //不显示关闭按钮
+						shift: 2,
+						shadeClose: true, //开启遮罩关闭
+						content: '<div class="peijian"><from> <form method="post" action="{:U('Lianbao_PC/SMyOrder/save_parts')}"><li><b>配件名称：</b><input value="{$parts_z2[4]['parts_name']}" name="parts_name">' +
+			'{$select_parts}</select></li>' +
+			'<li><b>配件数量：</b><input type="text" name="parts_count" value="{$parts_z2[4]['parts_count']}" /></li>' +
+			'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p>' +
+			'</li><div  class="undid"><li id="test_one"><img src="{$parts_z2[4]['parts_picture']}"/>' +
+			'<input type="hidden" id="parts_one" value="1">' +
+			'<input type="hidden" id="all_one" value="2">' +
+			' <input type="hidden" id="parts_id_one" name="parts_id" value="{$parts_z2[4]['id']}">' +
+			'<div class="pjimg_sh" ><h1><a href="#"><i class="fa fa-trash" onclick="parts_onc()"></i></a>' +
+			'<a href="javascript:;" id="search3_4"><i class="fa fa-search"></i></a>' +
+			'</h1><h6>配件照片</h6></div></li><li id="test2_one"><img  src="{$parts_z2[4]['all_picture']}"/>' +
+			'<div class="pjimg_sh"><h1><a href="#"><i class="fa fa-trash" onclick="all_onc()"></i></a>' +
+			'<a href="javascript:;" id="search4_4"><i class="fa fa-search"></i></a></h1>' +
+			'<h6>整机照片</h6></div></li></div></from><div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+		});
+			var index = parent.layer.getFrameIndex(window.name);
+			// 配件大图  编辑
+
+			$('#search3_4').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[4]['parts_picture']}" width="500">'
+				});
+			});
+			$('#search4_4').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z2[4]['all_picture']}" width="500">'
+				});
+			});
+		});
+		// 申请厂家寄件 编辑
+		$('#vender_edit_4').on('click', function(){
+			layer.open({
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 1, //不显示关闭按钮
+						shift: 2,
+						shadeClose: true, //开启遮罩关闭
+						content: '<div class="peijian"><from> <form method="post" action="{:U('Lianbao_PC/SMyOrder/save_parts')}"><li><b>配件名称：</b><select name="parts_name">' +
+			'{$select_parts}</select></li>' +
+			'<li><b>配件数量：</b><input type="text" name="parts_count" value="{$parts_z1[4]['parts_count']}" /></li>' +
+			'<li><b>上传照片：</b> <p>附图（小于1024K）若某些情况下无法正常上传，请尝试更换（升级）高版本浏览器，<span>需上传2张照片,第1张为配件照片，第2张为整机照片.</span></p>' +
+			'</li><div  class="undid"><li id="test_one"><img src="{$parts_z1[4]['parts_picture']}"/>' +
+			'<input type="hidden" id="parts_one" value="1">' +
+			'<input type="hidden" id="all_one" value="2">' +
+			' <input type="hidden" id="parts_id_one" name="parts_id" value="{$parts_z1[4]['id']}">' +
+			'<div class="pjimg_sh" ><h1><a href="#"><i class="fa fa-trash" onclick="parts_onc()"></i></a>' +
+			'<a href="javascript:;" id="search3_4"><i class="fa fa-search"></i></a>' +
+			'</h1><h6>配件照片</h6></div></li><li id="test2_one"><img  src="{$parts_z1[4]['all_picture']}"/>' +
+			'<div class="pjimg_sh"><h1><a href="#"><i class="fa fa-trash" onclick="all_onc()"></i></a>' +
+			'<a href="javascript:;" id="search4_4"><i class="fa fa-search"></i></a></h1>' +
+			'<h6>整机照片</h6></div></li></div></from><div class="ensure gog"><input type="submit" value="确 定"></form></div></div>'
+		});
+			var index = parent.layer.getFrameIndex(window.name);
+			// 配件大图  编辑
+
+			$('#search3_4').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1[4]['parts_picture']}" width="500">'
+				});
+			});
+			$('#search4_4').on('click', function(){
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1[4]['all_picture']}" width="500">'
+				});
+			});
+		});
+
+		//增加服务项
+		$('#vender_list').on('click', function(){
+			layer.confirm('<div class="add_fit_to"><form method="post" action="{:U('Lianbao_PC/SMyOrder/add_service')}">' +
+					'<input type="hidden" name="order_number" value="{$detail.order_number}">' +
+					'{$add_service_str}' +
+					'<input type="submit" value="确 定"></form></div>', {
+				btn: ['取消'] //按钮
+			}, function(){
+
+			});
+		});
+
+		//申请自行购买 增加服务项
+		$('#vender_list_oneself').on('click', function(){
+			layer.confirm('<div class="add_fit_to"><form method="post" action="{:U('Lianbao_PC/SMyOrder/add_service')}">' +
+					'<input type="hidden" name="order_number" value="{$detail.order_number}">' +
+			'{$add_service_str}' +
+			'<input type="submit" value="确 定"></form>' +
+			'</div>', {
+				btn: ['取消']
+			}, function(){
+			});
+		});
+
+
+		$('#vender_img_0').on('click', function () {
+				layer.open({
+					type: 1,
+					skin: 'layui-layer-rim', //加上边框
+					area: ['auto', 'auto'], //宽高
+					content: '<img src="{$parts_z1['0']['parts_picture']}" width="500">'
+				});
+			});
+		$('#vender_img_1').on('click', function () {
+			layer.open({
+				type: 1,
+				skin: 'layui-layer-rim', //加上边框
+				area: ['auto', 'auto'], //宽高
+				content: '<img src="{$parts_z1['1']['parts_picture']}" width="500">'
+			});
+		});
+		$('#vender_img_2').on('click', function () {
+			layer.open({
+				type: 1,
+				skin: 'layui-layer-rim', //加上边框
+				area: ['auto', 'auto'], //宽高
+				content: '<img src="{$parts_z1['2']['parts_picture']}" width="500">'
+			});
+		});
+		$('#vender_img_3').on('click', function () {
+			layer.open({
+				type: 1,
+				skin: 'layui-layer-rim', //加上边框
+				area: ['auto', 'auto'], //宽高
+				content: '<img src="{$parts_z1['3']['parts_picture']}" width="500">'
+			});
+		});
+		$('#vender_img_4').on('click', function () {
+			layer.open({
+				type: 1,
+				skin: 'layui-layer-rim', //加上边框
+				area: ['auto', 'auto'], //宽高
+				content: '<img src="{$parts_z1['4']['parts_picture']}" width="500">'
+			});
+		});
+
+
+
+
+	});
+function parts_onc(){
+var parts_one = $('#parts_one').val();
+var	action    = "{:U('Lianbao_PC/SMyOrder/del_picture')}";
+var order_num = $('#parts_id_one').val();
+	$.post(action,{parts:parts_one,order_number:order_num},function(data){
+		if(data==1){
+			$('#test_one').hide();
+		}
+	})
+}
+function all_onc(){
+		var parts_one = $('#all_one').val();
+		var	action    = "{:U('Lianbao_PC/SMyOrder/del_picture')}";
+		var order_num = $('#parts_id_one').val();
+		$.post(action,{parts:parts_one,order_number:order_num},function(data){
+			if(data==1){
+				$('#test2_one').hide();
+			}
+		})
+	}
+
+
+</script>
+<script>
+function setTab(name,cursel,n){
+ for(i=1;i<=n;i++){
+  var menu=document.getElementById(name+i);
+  var con=document.getElementById("con_"+name+"_"+i);
+ 
+  menu.className=i==cursel?"dataer":"";
+  con.style.display=i==cursel?"block":"none";
+ }
+}
+
+$('#reass').on('click', function(){
+   layer.open({
+		type: 1,
+	    title: '改派师傅',
+	    shadeClose: false,
+	    shade: 0.8,
+	    area: ['800px', '620px'],
+	    content:'<div id="layer_reass"><a href="javascript:;"></a><div class="reass_show">{$chengyuan_str}</div><div class="ensure"></div></div>'
+   });
+	
+	var index = parent.layer.getFrameIndex(window.name);
+  		
+  	$('#sdad').on('click', function(){
+	    layer.confirm('确定是否要改派给【薛国福】？', {
+		    btn: ['确定','取消'] //按钮
+		}, function(){
+		    alert(1);
+		});
+	});
+	 for(var i=0;i<=100;i++ ){
+		$('#sdad_'+i).on('click', function(){
+			var user = $(this).attr('name');
+			var action  = "{:U('Lianbao_PC/SMyOrder/gaipai')}";
+			var number =$('#order_number_gaipai').val();
+			$.post(action,{user_id:user,order_number:number},function(data){
+				if(data==1){
+					alert('改派成功');window.location.href="{:U('Lianbao_PC/SMyOrder/recipient')}";
+				}
+				if(data==2){
+					alert('改派失败');
+				}
+			})
+		});
+     }	
+});
+</script>
+
+<script>
+	function setTab(name,cursel,n){
+		for(i=1;i<=n;i++){
+			var menu=document.getElementById(name+i);
+			var con=document.getElementById("con_"+name+"_"+i);
+
+			menu.className=i==cursel?"dataer":"";
+			con.style.display=i==cursel?"block":"none";
+		}
+	}
+</script>
+</body></html>

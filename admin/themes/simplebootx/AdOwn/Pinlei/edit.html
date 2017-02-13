@@ -1,0 +1,57 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:U('Pinlei/add_pinlei_list')}">修改图片</a></li>
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form" action="{:U('Pinlei/edit')}">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label">品类名称</label>
+                <div class="controls">
+                    <input type="text"  value="{$list.pro_pinlei}">
+                    <span class="form-required">*</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">品类缩略图</label>
+                <div class="controls">
+                    <input type="hidden" name="id" value="{$list.id}">
+                    <div class="span3" style="margin-left: -3px;">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>缩略图</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="text-align: center;">
+                                        <input type="hidden" name="image" id="thumb" value="{$list.image}">
+                                        <a href="javascript:void(0);" onclick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
+                                            <img src="{$list.image}" id="thumb_preview" width="135" style="cursor: hand" />
+                                        </a>
+                                        <input type="button" class="btn btn-small" onclick="$('#thumb_preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;" value="取消图片">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">{:L('ADD')}</button>
+            <a class="btn" href="{:U('Pinlei/index')}">{:L('BACK')}</a>
+        </div>
+    </form>
+
+
+
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js"></script>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

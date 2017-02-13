@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<script type="text/javascript" src="__PUBLIC__/Service/js/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.layer.js"></script>
+<style>
+	#Myorder{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+	
+	<div class="user_right">
+		<div class="postian"><p>我的订单＞<a >订单详情</a></p></div>
+		<div class="basic">
+			<div class="bas_datails">
+				<!--<h1>订单详情</h1>-->
+				<div class="datails">
+					<li><b>订单号：</b> {$detail.order_number} <span class="data_sh" ></span></li>
+					<li><b>订单状态：</b> <i>待指派</i></li>
+					<li><b>时间状态：</b> <red>已过{$detail.day}天{$detail.hours}小时{$detail.mins}分</red></li>
+					<li><b></b> <red>请联系客户确认信息并告知客户稍后会有师傅联系预约上门时间</red></li>
+					<li><b>服务状态：</b>
+						<span><a href="javascript:;" id="reass">指派工单</a></span>
+							<span class="red"><a href="javascript:;" id="tele" onclick="openLayer('tele','layer_tele')">服务电话</a></span></li>
+				</div>
+				
+				<table class="collapse">
+					<tr class="tr1">
+						<td width="120">客户信息</td>
+						<td width="250">客户地址</td>
+						<td width="100">保修类型</td>
+						<td width="150">产品名称</td>
+						<td width="200">产品型号</td>
+						<td width="50">价格</td>
+					</tr>
+					<tr>
+						<td>{$detail.user_phone}</br>{$detail.user_name}</td>
+						<td>{$detail.user_address}</td>
+						<td>{$detail.baoxiu_type}</td>
+						<td>{$detail.pro_xinhao}</td>
+						<td>{$detail.pro_property}</td>
+						<td>{$order_price.repair_price}</td>
+						<input type="hidden" id="order_number_gaipai" value="{$detail.order_number}">
+					</tr>
+					<tr>
+						<td  class="remarks" colspan="6"><span>产品故障：</span>{$detail.remarks}</td>
+					</tr>
+				</table>
+
+				<div class="parts">
+					<h1><span>配件与服务内容</span></h1>
+				</div>
+				
+				<div class="follower">
+					<div class="follow">
+						<li><a id="one1" class="dataer" onmousedown="setTab('one',1,11)" href="javascript:;">工单跟踪</a></li>
+						<!-- <li><a id="one2"  onmousedown="setTab('one',2,11)" href="javascript:;">收入明细</a></li> -->
+					</div>
+					<div class="foolow_show" id="con_one_1">
+						<foreach name="track" item="vo">
+						<li><div class="follow_left"><p>{$vo.create_time|date="Y-m-d H:i:s",###}</p></div>
+							<div class="follow_right">
+								<span></span>
+								<h4>{$vo.content}</h4>
+								<p>执行人：<red>{$vo.person}</red></p>
+							</div>
+						</li>
+						</foreach>
+						<li>
+							<div class="follow_left"></div>
+							<div class="follow_right"><span></span></div>
+						</li>
+						
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<include file="./public/Service/Sfooter.html"/>
+
+
+<!--服务电话-->
+<div id="layer_tele" style="display:none" >
+	<div class="layer_show ">
+		<div class="layer_top">
+			<div class="layer_title"><p>服务电话</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<div class="tele_show">
+			<h1>{$user_service.company}</h1>
+			<li><i class="fa fa-phone-square" ></i>技术支持：{$user_service.skill_phone}</li>
+			<li><i class="fa fa-phone-square" ></i>客服电话：{$user_service.service_phone}</li>
+
+			<h1>驰达家维</h1>
+			<li><i class="fa fa-phone-square" ></i>驰达家维技术支持：{$user_shop.link_description}</li>
+			<li><i class="fa fa-phone-square" ></i>驰达家维客服电话：{$user_shop.link_description}</li>
+
+		</div>
+	</div>
+</div>
+
+<script>
+	function setTab(name,cursel,n){
+		for(i=1;i<=n;i++){
+			var menu=document.getElementById(name+i);
+			var con=document.getElementById("con_"+name+"_"+i);
+
+			menu.className=i==cursel?"dataer":"";
+			con.style.display=i==cursel?"block":"none";
+		}
+	}
+
+	$('#reass').on('click', function(){
+		layer.open({
+			type: 1,
+			title: '改派师傅',
+			shadeClose: false,
+			shade: 0.8,
+			area: ['800px', '620px'],
+			content:'<div id="layer_reass"><a href="javascript:;"></a><div class="reass_show">{$chengyuan_str}</div><div class="ensure"></div></div>'
+		});
+
+		var index = parent.layer.getFrameIndex(window.name);
+
+		for(var i=0;i<=100;i++ ){
+			$('#sdad_'+i).on('click', function(){
+				var user = $(this).attr('name');
+				var action  = "{:U('Lianbao_PC/SMyOrder/gaipai')}";
+				var number =$('#order_number_gaipai').val();
+				$.post(action,{user_id:user,order_number:number},function(data){
+					if(data==1){
+						alert('改派成功');window.location.href="{:U('Lianbao_PC/SMyOrder/wait_send')}";
+					}
+					if(data==2){
+						alert('改派失败');
+					}
+
+				})
+			});
+		}
+	});
+</script>
+</body></html>
+

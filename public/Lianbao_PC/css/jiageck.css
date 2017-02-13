@@ -1,0 +1,121 @@
+/* ::::: http://four.cug2313.com/Public/Home/css/cug_main.css?k=16041501 ::::: */
+
+* { border: 0px none; margin: 0px; padding: 0px; font-family: "微软雅黑"; }
+body { font-family: "微软雅黑"; margin: 0px auto; height: 100%; background: rgb(241, 241, 241) none repeat scroll 0% 0%; }
+ul { display: block; margin: 0px; padding: 0px; list-style: outside none none; }
+li { display: block; margin: 0px; padding: 0px; list-style: outside none none; }
+p { margin: 0px; padding: 0px; }
+img { border: 0px none; }
+a { text-decoration: none; outline: medium none; }
+table { border-collapse: collapse; border-spacing: 0px; }
+table tr th { height: 30px; line-height: 30px; }
+.clear { clear: both; }
+.message-box { position: fixed; right: 0px; bottom: 0px; background-color: rgb(255, 255, 255); z-index: 10; width: 182px; }
+.message-block { position: relative; text-align: left; }
+.message-block .message-header { cursor: pointer; }
+.message-header .message-icon { display: inline-block; background: transparent url('message-icon.png') no-repeat scroll 0% 0%; }
+.message-header i.icon-hint { width: 32px; height: 32px; background-color: rgb(219, 28, 33); background-position: -62px 9px; float: left; }
+.message-header i.icon-slideUp { width: 16px; height: 32px; background-position: 0px 9px; position: absolute; right: 0px; margin-right: 10px; }
+.message-header span.message-header-title { display: inline-block; width: 148px; height: 30px; line-height: 30px; border: 1px solid rgb(221, 221, 221); }
+.message-header span.message-header-title em { font-style: normal; font-size: 12px; color: rgb(150, 150, 150); margin-left: 10px; }
+.message-block .message-list { display: none; border-width: medium 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgb(221, 221, 221) rgb(221, 221, 221); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; padding: 0px 10px; width: 160px; }
+.message-list ul { width: 100%; }
+.message-list ul li { height: 30px; line-height: 30px; border-top: 1px dashed rgb(221, 221, 221); font-size: 14px; }
+.message-list ul li:first-child { border-top: medium none; }
+.message-list ul li a { display: inline-block; width: 100%; height: 100%; cursor: pointer; }
+.message-list ul li span.message-title { color: rgb(120, 120, 120); }
+.message-list ul li:hover span.message-title { color: rgb(219, 28, 33); }
+.message-list ul li em { font-style: normal; position: absolute; right: 0px; margin-right: 10px; color: rgb(219, 28, 33); }
+.message-list ul li em.notHas { color: rgb(187, 187, 187); }
+/* ::::: http://four.cug2313.com/Public/Home/css/cug_top.css?k=16041501 ::::: */
+
+html > body .clearfix {  }
+.clearfix {  }
+.clearfix::after { content: "."; display: block; height: 0px; clear: both; visibility: hidden; }
+.header_top_left .words, .header_top_left .logo, .header_top .header_top_right {  }
+.header { width: 100%; min-width: 1280px; height: auto; margin: 0px auto 10px; background-color: rgb(255, 255, 255); text-align: center; }
+.header .header_in { min-width: 1280px; margin: 0px auto; height: auto; }
+.header_in .header_top { width: 1200px; height: 83px; margin: 0px auto; overflow: hidden; }
+.header_top .header_top_left { width: 420px; height: 60px; float: left; margin-top: 8px; }
+.header_top_left .logo { width: 140px; height: 60px; float: left; }
+.header_top_left .words { width: 240px; height: 35px; line-height: 35px; padding-left: 15px; border-left: 1px solid rgb(204, 204, 204); font-size: 17px; color: rgb(102, 102, 102); float: left; margin: 14px 0px 0px 20px; }
+.header_top .header_top_right { width: 205px; height: 40px; float: right; margin-top: 25px; }
+.header_in .nav { width: 100%; height: 50px; background: rgb(219, 28, 33) none repeat scroll 0% 0%; overflow: hidden; }
+.nav .nav_inner { width: 1200px; height: 50px; margin: 0px auto; background: rgb(219, 28, 33) none repeat scroll 0% 0%; }
+.nav_inner .nav_inner_left { width: auto; height: 50px; float: left; }
+.nav_inner_left ul li { width: 136px; height: 50px; line-height: 50px; list-style: outside none none; float: left; }
+.nav_inner_left ul li a { width: 136px; height: 50px; display: inline-block; }
+.nav_inner ul li a { color: rgb(255, 255, 255); }
+.nav_inner_left ul li.selected { background: rgb(163, 0, 5) none repeat scroll 0% 0%; }
+.nav_inner_left .many { width: 19px; height: 17px; line-height: 15px; display: inline-block; margin-left: 5px; text-align: center; font-size: 12px; background: transparent url('message_white.png') no-repeat scroll 0% 0%; color: rgb(219, 28, 33); font-weight: bold; }
+.nav .nav_inner_right { width: auto; height: 23px; float: right; margin-top: 12px; }
+.nav .nav_inner_right ul li { height: 23px; line-height: 23px; float: left; }
+.nav_inner_right ul li.one { width: auto; padding-left: 35px; padding-right: 20px; background: transparent url('person.png') no-repeat scroll 0% 0%; font-size: 12px; }
+.nav_inner_right ul li.two { width: 110px; height: 18px; line-height: 18px; border-left: 1px solid rgb(255, 255, 255); margin-top: 3px; background: transparent url('exit.png') no-repeat scroll 20px 1px; text-align: right; font-size: 15px; }
+
+body {  }
+.aui_outer { text-align: left; }
+table.aui_border, table.aui_dialog { border: 0px none; margin: 0px; border-collapse: collapse; width: auto; }
+.aui_nw, .aui_n, .aui_ne, .aui_w, .aui_c, .aui_e, .aui_sw, .aui_s, .aui_se, .aui_header, .aui_tdIcon, .aui_main, .aui_footer { padding: 0px; }
+.aui_header, .aui_buttons button { font: 12px/1.11 "Microsoft Yahei",Tahoma,Arial,Helvetica,STHeiti; }
+.aui_title { overflow: hidden; text-overflow: ellipsis; }
+.aui_close { display: block; position: absolute; text-decoration: none; outline: medium none; }
+.aui_close:hover { text-decoration: none; }
+.aui_main { text-align: center; min-width: 9em; }
+.aui_content { display: inline-block; text-align: left; border: 0px none; }
+.aui_icon { vertical-align: middle; }
+.aui_icon div { width: 48px; height: 48px; margin: 10px 0px 10px 10px; background-position: center center; background-repeat: no-repeat; }
+.aui_buttons { padding: 8px; text-align: right; white-space: nowrap; }
+.aui_buttons button::-moz-focus-inner { border: 0px none; padding: 0px; margin: 0px; }
+.aui_inner { background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(81, 80, 80); }
+.aui_nw, .aui_ne, .aui_sw, .aui_se { width: 3px; height: 3px; }
+.aui_nw, .aui_n, .aui_ne, .aui_w, .aui_e, .aui_sw, .aui_s, .aui_se { background: rgba(0, 0, 0, 0.05) none repeat scroll 0% 0%; }
+.aui_titleBar { position: relative; height: 100%; }
+.aui_title { position: absolute; top: 0px; left: 0px; width: 100%; height: 24px; text-indent: -9999em; overflow: hidden; font-size: 0px; }
+.aui_close { padding: 0px; top: 0px; right: 0px; width: 18px; height: 18px; line-height: 18px; text-align: center; font-family: Helvetica,STHeiti; font-size: 18px; text-decoration: none; color: rgb(33, 79, 163); }
+.aui_close:hover, .aui_close:active { text-decoration: none; color: rgb(153, 0, 0); }
+.aui_content { color: rgb(102, 102, 102); }
+@media screen and (min-width: 0px) {
+	.aui_close { width: 20px; height: 20px; line-height: 20px; right: -10px; top: -10px; border-radius: 20px; background: rgb(153, 153, 153) none repeat scroll 0% 0%; color: rgb(255, 255, 255); box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); transition: all 0.06s linear 0s; }
+	.aui_close:hover { width: 24px; height: 24px; line-height: 24px; right: -12px; top: -12px; color: rgb(255, 255, 255); box-shadow: 0px 1px 3px rgba(209, 40, 42, 0.5); background: rgb(209, 40, 42) none repeat scroll 0% 0%; border-radius: 24px; }
+	.aui_dialog:active { box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ! important; }
+}
+.aui_footer .aui_buttons { background-color: rgb(255, 255, 255); border-top: 0px none; margin: 6px; padding: 6px; font-size: 14px; }
+.aui_inner { border: 0px none; }
+.aui_outer { box-shadow: none; background: rgb(255, 255, 255) none repeat scroll 0% 0%; padding: 0px; border: 1px solid rgb(204, 204, 204); }
+/* ::::: http://four.cug2313.com/Public/jtool/jtool.css ::::: */
+
+/* ::::: http://four.cug2313.com/Public/Repair/css/rep_preic.css?i=2 ::::: */
+
+.wait_content { background: rgb(255, 255, 255) none repeat scroll 0% 0%; font-size: 12px; position: relative; }
+.box { border-width: medium 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgb(220, 220, 220) rgb(220, 220, 220); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; position: relative; z-index: 10; width: 1198px; }
+.pinlei { position: absolute; top: 0px; left: 0px; width: 120px; text-align: center; padding-top: 20px; }
+.pro_pattern_box { margin-left: 119px; border-left: 1px solid rgb(220, 220, 220); min-height: 100px; }
+.pro_pattern { border-top: 1px solid rgb(220, 220, 220); overflow: hidden; position: relative; z-index: 10; min-height: 100px; }
+.first_pro_pattern { border-top: 0px none; }
+.fdp_pro_pattern_attr span { display: inline; }
+.fdp_kinds_attr { padding-right: 10px; color: rgb(153, 153, 153); }
+.pro_pattern_name { position: absolute; z-index: 10; border-right: 1px solid rgb(220, 220, 220); min-height: 100px; padding-top: 20px; left: 0px; width: 195px; text-align: left; padding-left: 20px; }
+.pro_pattern_name H5 { color: rgb(244, 59, 2); font-size: 13px; font-weight: normal; }
+.fdp_pro_pattern_cat { width: 100%; margin-bottom: -2px; }
+.pro_pattern_name .fdp_kinds_attr_per { color: rgb(0, 0, 0); }
+.fdp_pro_pattern_cat_box { margin-left: 215px; text-align: center; }
+.fdp_pro_pattern_cat_tr td { border-left: 1px solid rgb(220, 220, 220); border-bottom: 1px solid rgb(220, 220, 220); }
+.fdp_pro_pattern_cat_tr { line-height: 35px; width: 100%; }
+.fdp_pro_pattern_cat_tr tr { border-bottom: 1px solid rgb(220, 220, 220); }
+.fdp_pro_pattern_cat_title { width: 113px; border-left: 1px solid rgb(220, 220, 220); }
+.fdp_pro_pattern_cat_tr .order_type {  }
+.order_type { border-left: 1px solid rgb(220, 220, 220); width: 113px; }
+.baonei_list { width: 140px; }
+.service_list { width: 140px; }
+.biaoti { width: 100%; line-height: 40px; text-align: center; min-width: 1200px; margin-top: 10px; }
+.biaoti th { border: 1px solid rgb(220, 220, 220); background: rgb(246, 246, 246) none repeat scroll 0% 0%; height: 40px; line-height: 40px; text-align: center; }
+.price_list_all { width: 1198px; margin: 25px auto 0px; border: 1px solid rgb(224, 224, 224); padding-bottom: 20px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; font-size: 12px; }
+.price_list_all .menu_list { padding: 25px 0px; text-align: center; }
+.price_list_all .menu_list li { display: inline-block; width: 87px; height: 32px; border: 1px solid rgb(202, 202, 202); position: relative; margin: 0px 5px; }
+.price_list_all .menu_list li {  }
+.price_list_all .menu_list a.mu { display: inline-block; width: 85px; line-height: 30px; color: rgb(0, 0, 0); overflow: hidden; background: rgb(255, 255, 255) none repeat scroll 0% 0%; }
+.price_list_all .menu_list a.mu:hover, .price_list_all .menu_list a.hover { color: rgb(219, 28, 33); }
+.price_list_all .menu_list .sun { width: 550px; min-height: 125px; position: absolute; top: 32px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(202, 202, 202); text-align: left; padding: 0px 15px; line-height: 40px; z-index: 103; display: none; }
+.price_list_all .menu_list .sun a { padding: 0px 10px; display: inline-block; height: 40px; color: rgb(0, 0, 0); }
+.price_list_all .menu_list .sun a:hover { color: rgb(245, 118, 39); }

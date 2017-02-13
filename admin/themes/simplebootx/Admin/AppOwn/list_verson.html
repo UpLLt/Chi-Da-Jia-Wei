@@ -1,0 +1,39 @@
+ <admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">版本号</a></li>
+			<li ><a href="{:U('AppOwn/add_verson_list')}">添加版本号</a></li>
+		</ul>
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+				
+					<tr>
+						<th width="50">版本号</th>
+						<th width="50">创建时间</th>
+						<th width="50">操作</th>						
+					</tr>
+					<foreach name="list" item="vo">
+					<tr>
+						<td width="50">{$vo.verson_number}</td>
+						<td width="50">{$vo.create_time|date="Y-m-d H:i",###}</td>
+						<td width="50">
+							<a  href="{:U('AppOwn/edit_verson_list',array('id'=>$vo['id']))}">编辑</a>
+							<a  href="{:U('AppOwn/del_verson',array('id'=>$vo['id']))}">删除</a>
+						</td>
+					</tr>
+					</foreach>
+				</thead>
+			
+				
+				
+			</table>
+			
+			<div class="pagination">{$page}</div>
+
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

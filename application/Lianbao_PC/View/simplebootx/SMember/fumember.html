@@ -1,0 +1,49 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<style>
+	#Mychengyuan{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+
+	<div class="user_right">
+		<div class="postian"><p>我的成员＞<a>直属成员</a></p></div>
+		<div class="basic">
+			<div class="bas_nav">
+				<li><a href="{:U('Lianbao_PC/SMember/index')}">直属成员</a></li>
+				<li class="hove"><a href="{:U('Lianbao_PC/SMember/fumember')}">附属成员</a></li>
+				<li><a href="{:U('Lianbao_PC/SMember/apply')}">申请成员</a></li>
+			</div>
+			<div class="bas_apply">
+				<!--<h1>直属成员</h1>-->
+				<foreach name="zhishu_repairer" item="vo">
+				<li>
+					<div class="apply_top">
+						<div class="apply_lt"><img src="{$vo.id_card_picture_1}" /></div>
+						<div class="apply_rt">
+							<h4>{$vo.real_name}</h4>
+							<p>{$vo.phone} <span><a href="{:U('Lianbao_PC/SMember/affiliate_show',array('user_id'=>$vo['user_id']))}"><i class="fa fa-edit"></i>编辑</a></span></p>
+						</div>
+					</div>
+					<div class="immed_dow">
+						<h4>累计做单：<span>{$vo.end_order}</span>单 <a href="{:U('Lianbao_PC/SMember/member_show',array('user_id'=>$vo['user_id']))}">查看详情</a></h4>
+						<p>服务类型：
+							<foreach name="vo.service" item="vp">
+									 <a href="#">{$vp.service_pinlei}</a>
+							</foreach>
+						</p>
+					</div>
+				</li>
+			</foreach>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<include file="./public/Service/Sfooter.html"/>
+
+
+</body></html>

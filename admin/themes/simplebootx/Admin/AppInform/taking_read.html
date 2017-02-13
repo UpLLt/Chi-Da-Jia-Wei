@@ -1,0 +1,47 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">接单必读</a></li>
+			<li><a href="{:U('AppInform/taking_add_list')}">添加接单必读</a></li>
+			<li><a href="{:U('AppInform/index_portal')}">分类列表</a></li>
+			<li><a href="{:U('AppInform/add_portal_list')}">添加分类</a></li>
+
+		</ul>
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+				
+					<tr>
+						<th width="50">时间</th>
+						<th width="50">标题</th>
+						<th width="50">状态</th>
+						<th width="50">类型</th>
+						<th width="50">操作</th>						
+					</tr>
+					<foreach name="list" item="vo">
+					<tr>
+						<td width="50">{$vo.create_time|date='Y-m-d',###}</td>
+						<td width="50">{$vo.title}</td>
+						<td width="50">{$vo.status}</td>
+						<td width="50">{$vo.type_name}</td>
+						<td width="50">
+							<a  href="{:U('AppInform/taking_detail',array('id'=>$vo['id']))}">查看</a>
+							<a  href="{:U('AppInform/taking_edit_list',array('id'=>$vo['id']))}">编辑</a>
+							<a  href="{:U('AppInform/taking_del',array('id'=>$vo['id']))}">删除</a>
+						</td>
+					</tr>
+					</foreach>
+				</thead>
+			
+				
+				
+			</table>
+			
+			<div class="pagination">{$page}</div>
+
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

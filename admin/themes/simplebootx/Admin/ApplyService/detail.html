@@ -1,0 +1,124 @@
+<admintpl file="header" />
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#" target="_self">申请人员信息</a></li>
+    </ul>
+        <div class="row-fluid">
+            <div class="span9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="width: 100px;">申请人姓名</th>
+                        <td>
+                            {$list.real_name}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>申请人QQ</th>
+                        <td>
+                            {$list.qq}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>申请人邮箱</th>
+                        <td>
+                            {$list.email}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>申请人地址</th>
+                        <td>
+                            {$list.address}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>申请人城市</th>
+                        <td>
+                            {$list.city}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>申请人身份证</th>
+                        <td>
+                            {$list.id_card}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>申请时间</th>
+                        <td>
+                            {$list.app_time|date='Y-m-d',###}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>申请人电话</th>
+                        <td>
+                            {$list.phone}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>申请人技能</th>
+                        <td>
+                            {$list.skill}
+                        </td>
+                    </tr>
+					 <tr>
+                        <th>法人姓名</th>
+                        <td>
+                            {$data.raren_name}
+                        </td>
+                    </tr>
+					
+					 <tr>
+                        <th>申请公司名称</th>
+                        <td>
+                             {$data.company}
+                        </td>
+                    </tr>
+					
+					 <tr>
+                        <th>公司邮箱</th>
+                        <td>
+                            {$data.email}
+                        </td>
+                    </tr>
+				
+				 <tr>
+                        <th>营业执照</th>
+                        <td>
+                            <img src="{$data.business_license}" style="width:200px;height:200px;">
+                        </td>
+                 </tr>
+                
+				 <tr>
+                        <th>税务证书</th>
+                        <td>
+                            <img src="{$data.tax_regis}" style="width:200px;height:200px;">
+                        </td>
+                 </tr>
+				 
+				  <tr>
+                        <th>特殊资格证</th>
+                        <td>
+                            <img src="{$data.special_regis}" style="width:200px;height:200px;">
+                        </td>
+                 </tr>
+				
+				</table>
+
+            </div>
+
+        </div>
+        </div>
+
+</div>
+
+
+</body>
+</html>

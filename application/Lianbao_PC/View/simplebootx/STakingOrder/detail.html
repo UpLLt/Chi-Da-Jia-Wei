@@ -1,0 +1,117 @@
+﻿<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Service/js/layer.js"></script>
+<style>
+	#Myjiedan{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+	<div class="user_right">
+		<div class="postian"><p>我的订单＞<a >订单详情</a></p></div>
+		<div class="basic">
+			<div class="bas_datails">
+				<!--<h1>订单详情</h1>-->
+				<div class="datails">
+					<li><b>订单号：</b> {$detail.order_number}</li>
+					<li><b>订单状态：</b> <i>等待接单</i></li>
+					<li><b>时间状态：</b> <red>已过{$detail.hours}小时{$detail.mins}分</red></li>
+					<li><b></b> <red>请联系客户确认信息并告知客户稍后会有师傅联系预约上门时间</red></li>
+					<li><b>服务状态：</b> <span><a href="javascript:;" id="ordertaking" onclick="but()">接单</a></a></span>
+										  </li>
+				</div>
+				
+				<table class="collapse">
+					<tr class="tr1">
+						<td width="120">客户信息</td>
+						<td width="250">客户地址</td>
+						<td width="100">保修类型</td>
+						<td width="150">产品名称</td>
+						<td width="200">产品型号</td>
+						<td width="50">价格</td>
+					</tr>
+					<tr>
+						<td>{$detail.user_name}</br>{$detail.user_phone}</td>
+						<td>{$detail.user_address}</td>
+						<td>{$detail.baoxiu_type}</td>
+						<td>{$detail.pro_xinhao}</td>
+						<td>{$detail.pro_property}</td>
+						<td>{$detail.repair_price}</td>
+					</tr>
+					<tr>
+						<input type="hidden" id="hidden" value="{$detail.order_number}">
+						<td  class="remarks" colspan="6"><span>产品故障：</span>{$detail.remarks}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<include file="./public/Service/Sfooter.html"/>
+
+
+<!--接单-->
+<!--<div id="layer_ordertaking" style="display:none" >-->
+	<!--<div class="layer_show">-->
+		<!--<div class="layer_top">-->
+			<!--<div class="layer_title"><p>修改信息跟进手机</p></div>-->
+			<!--<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>-->
+		<!--</div>-->
+		<!--<div class="telphone">-->
+			<!--<h6>手机号码：<input id="phone" type="text" value=" " /> </h6>-->
+		<!--</div>-->
+		<!--<div class="ensure"><input id="but" onclick="but()" type="button" value="确 定"></div>-->
+	<!--</div>-->
+<!--</div>-->
+
+
+<!--退单-->
+<div id="layer_back" style="display:none" >
+	<div class="layer_show edit">
+		<div class="layer_top">
+			<div class="layer_title"><p>退单</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<div class="back_show">
+			<li><input type="radio" />用户地址错误</li>
+			<li><input type="radio" />用户联系方式错误</li>
+			<li><input type="radio" />工单服务类型错误（安装/维修）</li>
+			<li><input type="radio" />保内/保外类型错误</li>
+			<li><input type="radio" />客户已自行安装/维修</li>
+			<li><input type="radio" />师傅致电，用户已退换机，无需上门</li>
+			<li><input type="radio" />师傅电话沟通后处理完毕，无需上门</li>
+			<li><input type="radio" />保外工单师傅报价，客户不修</li>
+			<li><input type="radio" />用户因安装环境原因,推迟安装(超30天)</li>
+		</div>
+		<div class="ensure"><input type="button" value="确 定"></div>
+	</div>
+</div>
+
+
+<script>
+function setTab(name,cursel,n){
+ for(i=1;i<=n;i++){
+  var menu=document.getElementById(name+i);
+  var con=document.getElementById("con_"+name+"_"+i);
+ 
+  menu.className=i==cursel?"dataer":"";
+  con.style.display=i==cursel?"block":"none";
+ }
+}
+function but(){
+	var z_order_number = $('#hidden').val();
+	var action = "{:U('Lianbao_PC/STakingOrder/taking')}";
+	$.post(action,{order_number:z_order_number},function(data){
+		if(data==1){
+			alert("接单成功");window.location.href="{:U('Lianbao_PC/STakingOrder/index')}";
+		}else{
+			alert("接单失败");
+		}
+	})
+
+}
+
+</script>
+</body></html>

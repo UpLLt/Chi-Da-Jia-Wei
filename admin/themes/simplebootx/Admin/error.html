@@ -1,0 +1,39 @@
+<admintpl file="header" />
+<style>
+li {
+	list-style: none;
+}
+.success{
+	width: 300px;
+	margin: 0px auto; 
+	padding: 100px; 
+	text-align: center;
+}
+.success h1{
+	color: #333;
+	letter-spacing: 2px;
+	font-size: 42px;
+}
+.success p{
+	margin: 20px 0px;
+}
+</style>
+</head>
+<body>
+		<div class="success">
+			<h1>{$msgTitle}</h1>
+			<p>{$error}</p>
+		</div>
+	
+		<!-- <div class="error_return">
+			<a href="{$jumpUrl}" class="btn">返回</a>
+		</div> -->
+	
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script>
+		setTimeout(function() {
+			location.href = '{$jumpUrl}';
+		}, 1500);
+	</script>
+</body>
+</html>

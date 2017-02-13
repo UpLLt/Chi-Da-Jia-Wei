@@ -1,0 +1,42 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<script type="text/javascript" src="__PUBLIC__/Service/js/layer.js"></script>
+<style>
+	#Mycaiwu{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+	
+	<div class="user_right">
+		<div class="postian"><p>我的财务＞<a>我的钱包</a></p></div>
+		<div class="basic">
+			<div class="bas_nav">
+				<li class="hove"><a href="{:U('Lianbao_PC/SWallet/index')}">我的钱包</a></li>
+				<li ><a href="{:U('Lianbao_PC/SWallet/card')}">我的银行卡</a></li>
+				<li><a href="{:U('Lianbao_PC/SWallet/income')}">财务流水明细</a></li>
+			</div>
+			<div class="withdraw_list">
+				<!--<h1>提现</h1>-->
+				<form action="{:U('Lianbao_PC/SWallet/tixian')}" method="post">
+					<h1><b><i class="fa fa-rmb"></i></b>您当前可提现金额为<span>{$bal.balance}</span>元</h1>
+					<h4>请选择提现银行卡 </h4>
+					{$str}
+					<h6>提现金额：<input name="tixian_money" type="text" placeholder="请输入提现金额" />元</h6>
+					<h6>提现密码：<input name="taking_password" type="password" placeholder="请输入提现密码"/></h6>
+					<h5><input type="submit" value="立即提现" /></h5>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<include file="./public/Service/Sfooter.html"/>
+
+
+</div>
+
+</body>
+</html>

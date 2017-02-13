@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+	<title>驰达家维</title>
+	<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css"></head>
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/index_header.html"/>
+<div class="wmain">
+	<div class="user_login">
+		<h1>用户注册中心<span>| Register</span><strong><b><a href="login.html">会员登录</a></b>已有<i>3500</i>位用户入驻了驰达家维 </strong></h1>
+		<div class="reg">
+
+			<form>
+				<li><b>手机号码：</b><input onchange="a()" type="text" placeholder="请输入手机号码" name="username" id="mobile"  maxlength="11" /> <p>请输入手机号码，注册成功后即可登录</p></li>
+				<li><b>登录密码：</b><input type="password" onchange ="b()" placeholder="请输入登录密码" id="password" name="password" maxlength="16" /><p>登录密码长度位于6到16之间</p></li>
+				<li><b>确认密码：</b><input type="password" onchange ="s()" placeholder="请再次输入登录密码" id="re_password" name="re_password" maxlength="16" /><p>登录密码长度位于6到16之间</p></li>
+				<li><b>支付密码：</b><input type="password" onchange ="c()" placeholder="请输入支付密码" id="pay_password" name="pay_password" maxlength="16" /><p>支付密码长度位于6到16之间</p></li>
+				<li><b>确认密码：</b><input type="password" onchange ="o()" placeholder="请再次输入支付密码" id="re_pay_password" name="re_pay_password" maxlength="16" /><p>支付密码长度位于6到16之间</p></li>
+				<li><b>验 证 码：</b><input class="yzm" type="text" name="vcode" id="vcode" placeholder="请输入验证码" />{:sp_verifycode_img('length=4&font_size=20&width=145&height=42&use_noise=1&use_curve=0','style="cursor: pointer;" title="点击获取"')}</li>
+				<li><b>激活码：</b><input class="yzm" type="text" id="shot_message" name="shot_message" placeholder="请输入激活码" /> <span class="data_sh" ><a  href="javascript:;" id="refresh" >获取验证码</a><qw>&nbsp;</qw></span></li>
+				<li class="xieyi"><b>&nbsp;</b><p>我已同意<a href="{:U('Lianbao_PC/Register/agreement')}">《驰达家维注册协议》</a></p></li>
+				<div class="zhuche"><h4><a href="javascript:void(0)" onclick="but()">立 即 注 册</a></h4></div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+
+<script type="text/javascript">
+	var wait=60;
+	function time(o) {
+		if (wait == 0) {
+			$(".data_sh a").css("display","block");
+			$(".data_sh qw").css("display","none");
+			wait = 60;
+		} else {
+			$(".data_sh a").css("display","none");
+			$(".data_sh qw").css("display","block");
+			$(".data_sh qw").html("<red>重新发送 (" + wait + ")</red>");
+			wait--;
+			setTimeout(function() {
+						time(o)
+					},
+					1000);
+		}
+	}
+	
+
+	document.getElementById("refresh").onclick=function(){
+		var z_username = $('#mobile').val();
+		var reg = /(1[3-9]\d{9}$)/;
+		if (!reg.test(z_username))
+		{
+			alert("请输入正确格式的手机号码！");
+			return false;
+		}else{
+			time(this);
+		}	
+
+
+		
+	}
+</script>
+
+<script>
+	//验证码
+	$('#refresh').on('click', function(){
+		var z_mobile = $('#mobile').val();
+
+		var reg = /(1[3-9]\d{9}$)/;
+		if (!reg.test(z_mobile))
+		{
+			return false;
+		}else{
+			var action   = "{:U('Lianbao_PC/Register/send_info')}";
+				$.post(action,{mobile:z_mobile},function(data){
+					if(data==1){
+						alert('发送成功');
+					}
+					if(data==2){
+						alert('请输入正确的手机号');
+					}
+					if(data==3){
+						alert('账户已存在');
+					}
+					if(data==4){
+						alert('不能连续点击');
+					}
+					if(data==5){
+						alert('失败');
+					}
+					if(data==6){
+						alert('发送失败');
+					}
+				})
+		}	
+
+
+
+	});
+
+	function s(){
+		var z_password = $('#re_password').val();
+		if(z_password.length<6 || z_password.length>20){
+			alert('密码位数不能小于6,并且不能大于20');
+			return false;
+		}
+	}
+
+	function o(){
+		var z_pay_password = $('#re_pay_password').val();
+		if(z_pay_password.length<6 || z_pay_password.length>20){
+			alert('密码位数不能小于6,并且不能大于20');
+			return false;
+		}
+	}
+
+function a(){
+	var z_username = $('#mobile').val();
+	var action = "{:U('Lianbao_PC/Register/verfiy_username')}";
+	var reg = /(1[3-9]\d{9}$)/;
+	if (!reg.test(z_username))
+	{
+		alert("请输入正确格式的手机号码！");
+		return false;
+	}
+	$.post(action,{mobile:z_username},function(data){
+		if(data==1){
+			alert('用户名已存在');
+			return false;
+		}
+	})
+
+}
+
+function b(){
+	var z_password = $('#password').val();
+	if(z_password.length<6){
+		alert('密码位数不能小于6');
+		return false;
+	}
+}
+function c(){
+	var z_pay_password = $('#pay_password').val();
+	if(z_pay_password.length<6){
+		alert('密码位数不能小于6');
+		return false;
+	}
+}
+
+function but(){
+	var z_username = $('#mobile').val();
+	var z_re_password = $('#re_password').val();
+	var z_password = $('#password').val();
+	var z_pay_password = $('#pay_password').val();
+	var z_re_pay_password = $('#re_pay_password').val();
+	var z_vcode = $('#vcode').val();
+	var z_shot_message = $('#shot_message').val();
+	var action = "{:U('Lianbao_PC/Register/register')}";
+	if(z_username.length<=0 || z_password.length<=0 || z_pay_password.length<=0 || z_vcode.length<=0 || z_shot_message.length<=0){
+		alert('请补全表单');
+		return false;
+	}
+
+	if( z_re_password !== z_password ){
+		alert('两次登录密码不一致');
+		return false;
+	}
+	if( z_pay_password !== z_re_pay_password ){
+		alert('两次支付密码不一致');
+		return false;
+	}
+
+	$.post(action,{mobile:z_username,password:z_password,pay_password:z_pay_password,vcode:z_vcode,shot_message:z_shot_message},function(data){
+		if(data==1){
+			alert('添加成功');window.location.href="{:U('Lianbao_PC/Userindex/userindex')}";
+		}
+		if(data==2){
+			alert('请输入正确的验证码');
+		}
+		if(data==3){
+			alert('请输入正确的短信激活码');
+		}
+		if(data==4){
+			alert('短信激活码已过时');
+		}
+		if(data==5){
+			alert('添加失败');
+		}
+
+	})
+
+}
+
+</script>
+</body></html>

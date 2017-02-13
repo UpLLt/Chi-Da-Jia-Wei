@@ -1,0 +1,275 @@
+
+/* 用户 界面*/
+body{ background:#f4f4f4; color:#333333; font-size:14px; margin:0px; padding:0px;
+}
+li{ list-style:none;
+}
+img{ border:none;
+}
+.main{ width:100%; padding:0px 10px; box-sizing:border-box;
+}
+.logo{ width:100%; height:55px; margin:120px auto 70px;
+}
+.logo img{ width:150px;
+}
+.login{ width:100%;  
+}
+.user_login{ padding:20px 0px;background:#fff; box-shadow:1px 1px 3px #c9c7c7; margin:0px 0px 20px; border-radius:5px;
+}
+.user_login input{ width:300px; height:30px; padding:3px 5px 3px 30px; margin:0px 0px 10px; border:none;
+}
+.nam{ background:url(../images/name.png) left no-repeat;
+}
+.pwd{ background:url(../images/pwd.png) left no-repeat; margin:10px 0PX 0PX !important;
+}
+.heng{ width:300px; height:1px; background:#CCC;
+}
+.denglu{ width:100%; line-height:35px; height:35px; background:#FF0000; border:none; color:#FFFFFF; font-size:16px;  border-radius:2px;
+}
+.login p{ text-align:left; font-size:12px; color:#333333; margin:20px 0px 0px;
+}
+.login p a{ color:#FF0000;
+}
+.login h1{ text-align:left; font-size:12px; color:#333333; font-weight:400; margin:20px 0px 0px;
+}
+.login h1 a{color:#FF0000; text-decoration:none; 
+}
+.head{ width:100%; height:50px; border-bottom:1px solid #fe6b64; box-sizing:border-box; background:#ff0000;
+}
+.head h1{ margin:0px; line-height:50px; font-size:18px; color:#FFFFFF;font-weight:400;
+}
+.head h1 img{ width:12px;	
+}
+.head span{ width:15px; height:20px; float:left; margin:5px 0px 0px 10px;
+}
+.head b{ float:right; font-size:14px; margin:5px 10px 0px 0px; font-weight:400;
+}
+.header{ width:100%; height:50px; border-bottom:1px solid #fe6b64; box-sizing:border-box; background:#fe9900;
+}
+.header h1{ margin:0px; line-height:50px; font-size:18px; font-weight:400;color:#FFFFFF;
+}
+.header span{ width:15px; height:15px; float:left; display:block; margin:2px 0px 0px 10px;
+}
+.reg{ width:100%; height:auto; padding:10px; text-align:left; background:#fff; margin:20px 0px; box-sizing:border-box; box-shadow:1px 1px 3px #c9c7c7;
+}
+.reg input{ line-height:30px; border:none; padding:5px 0px 0px; width:260px; border-bottom:1px solid #f4f4f4;
+}
+.reg h1{ font-size:14px; font-weight:400; line-height:40px; margin:5px 0px 5px;
+}
+.reg span{ width:70px; text-align:right; font-size:14px; float:left;
+}
+.yan{ width:160px !important;
+}
+.reg h1 b{ padding:5px 10px; background:#ff0000;  border-radius:2px; margin:0px 0px 0px 10px;
+}
+.reg h1 b a{ color:#FFFFFF; text-decoration:none; 
+}
+.go h4{ margin:10px 0px 10px; text-align:left; font-size:12px; font-weight:400; line-height:15px;
+}
+.go input{ float:left; color:#FF0000;
+}
+.go h4 a{ color:#FF0000; margin:0px 0px 0px 5px; text-decoration:none;
+}
+.go h6{ width:100%; height:35px; line-height:35px; font-size:16px; font-weight:400; background:#FF0000; border-radius:2px;
+}
+.go h6 a{ color:#FFFFFF; text-decoration:none;   width:100%; height:35px; float:left;
+}
+
+.reg_go{ width:100%; height:auto; text-align:left; background:#fff; margin:20px 0px; padding:0px 0px 5px; box-sizing:border-box; box-shadow:1px 1px 3px #c9c7c7;
+}
+.reg_go h1{ font-size:14px; font-weight:400; line-height:35px; border-bottom:1px solid #f4f4f4;border-top:1px solid #f4f4f4; margin:0px; padding:0px 10px; 
+}
+.reg_go h1 input{ border:none; line-height:30px; padding:5px 0px 0px; width:260px; color:#111;
+}
+.reg_go p{ margin:0px; line-height:30px; font-size:12px; color:#aaa; background:#f4f4f4; padding:0px 10px;
+}
+.reg_go p span{ color:#FF0000; margin:0px 2px; font-size:10px;
+}
+.zhapin{ width:100%; height:100px; box-sizing:border-box; line-height:100px !important; margin:10px 0px 0px;
+}
+.zhapin span{ width:70px; height:70px; float:right; margin:10px 0px 0px 20px; border:1px solid #aaa;
+}
+.zhapin span img{ float:left; margin:15px 22px 10px 23px;
+}
+.zhapin span p{ float:left; margin:0px ; text-align:center; width:100%; padding:0px; background:#fff; line-height:20px;
+}
+.go_ok{ width:100%; height:35px; line-height:35px;
+}
+.go_ok h6{ width:100%; height:100%; text-align:center; background:#FF0000; border-radius:3px;
+}
+.go_ok h6 a{ color:#FFFFFF; text-decoration:none; font-size:18px; font-weight:400; width:100%; height:35px; float:left;
+}
+.chengyun{ width:100%; height:auto; display:block; overflow:hidden; margin:20px 0px; background:#fff; padding:0px 10px; box-sizing:border-box;
+}
+.chengyun li{ line-height:40px; text-align:left; border-bottom:1px solid #CCCCCC; width:100%;box-sizing:border-box;
+}
+.chengyun li:last-child{ border-bottom:none;
+}
+.chengyun li span{ float:right;
+}
+.chengyun li a{ color:#000000;
+}
+.chengyun li span img{ float:right; margin:12px 0px 0px 10px;
+}
+.shenq{ width:100%; height:auto; margin:20px 0px; padding:0px 10px; box-sizing:border-box;
+}
+.shenq h1{ width:100%; background:#ff0000; font-size:16px; color:#fff; font-weight:400; line-height:35px; border-radius:5px; 
+}
+.xuanz{ width:100%; height:100%; position:fixed; top:0px; left:0px; background:rgba(150,150,150,0.6);
+}
+.xz{ width:100%; height:230px; position:relative; top:437px; left:0px; background:#eefafd;
+}
+.zhlx{ width:100%;  
+}
+.zhlx p{ line-height:40px; border-bottom:1px solid #CCCCCC; padding:0px 10px; box-sizing:border-box; color:#000000;
+}
+.zhlx span{ float:left; font-size:16px;  
+}
+.zhlx b{ float:right; font-weight:400; font-size:16px;
+}
+.zhlx a{ color:#FF0000; letter-spacing:1px;
+}
+.lex{ width:100%; height:auto; padding:40px 0px 20px;
+}
+.lex a{ color:#666; line-height:30px; width:100%; display:block;
+}
+.lex li{ line-height:30px;
+}
+.xuz a{ color:#000000; border-bottom:1px solid #CCCCCC; border-top:1px solid #CCCCCC; 
+}
+.service{ width:100%; height:auto; display:block; margin:0px 0px 50px 0px; overflow:hidden; background:#fff; padding:0px 10px; box-sizing:border-box;
+}
+.service h1{ color:#fe9900; line-height:40px; font-size:16px; text-align:left; margin:0px; font-weight:400;
+}
+.service p{ margin:0px 0px 10px; text-align:left; font-size:14px; color:#333;
+}
+.service p span{ font-weight:600; color:#000;
+}
+.service h4{ font-size:14px; margin:20px 0px 0px; text-align:left; padding:0px 0px 20px 0px;
+}
+.biaozhun{ padding:10px; background:#fff; width:100%; box-sizing:border-box; display:block; overflow:hidden; height:auto;
+}
+.biaozhun li{ width:80px; float:left; margin:20px 57px 30px 0px;
+}
+.biaozhun li img{ width:100%; padding:0px 10px; box-sizing:border-box; 
+}
+.biaozhun li:nth-child(3n+3){ margin:20px 0px 30px 0px;
+}
+.biaozhun li p{ margin:5px 0px 0px;
+}
+.biaozhun li a{ color:#000000;
+}
+.ktl{ width:100%; height:auto; display:block; overflow:hidden; padding:10px 10px 20px;background:#FFFFFF; box-sizing:border-box;
+}
+.ktl li{ line-height:50px; text-align:left; width:100%; border-bottom:1px solid #CCCCCC; padding:0px 5px; box-sizing:border-box; 
+}
+.ktl li span{ float:right; 
+}
+.ktl li a{ color:#000000;
+}
+.jiage{ width:100%; background:#fff; border-bottom:1px solid #CCCCCC; 
+}
+.jiage p{ font-size:14px; color:#fe9900; margin:0px;line-height:40px; text-align:left; padding:0px 10px; box-sizing:border-box;
+}
+.ktys{ width:100%; padding:10px 10px; background:#fff; box-sizing:border-box;
+}
+.ktys li{ font-size:14px; text-align:left; border-bottom:1px solid #CCCCCC; margin:0px 0px 10px;
+}
+.ktys li h1{ margin:0px; color:#fe9900; line-height:40px; font-size:16px; font-weight:400;  
+}
+.ktys li p{ line-height:30px; margin:0px;
+}
+.ktys li a{ color:#000000;
+}
+.ktys li span{ color:#666666; margin:0px 5px 0px 0px;
+}
+.ktys li h1 span{ float:right;
+}
+.fuwxm{ width:100%; padding:10px 10px; height:auto; display:block; overflow:hidden; background:#fff; box-sizing:border-box;
+}
+.fuwxm li{ width:100%; padding:5px 0px; margin:0px 0px 10px 0px; border-bottom:1px solid #CCCCCC; display:block; float:left;
+}
+.fuwxm li a{ color:#000000;
+}
+.fwlt{ width:300px; float:left;
+}
+.fwlt p{ margin:0px ; text-align:left; line-height:30px;
+}
+.fwlt p span{ color:#777;
+} 
+.fwrt{ width:50px; float:right;
+}
+.fwrt p{ line-height:100%;
+}
+.fwrt p img{ float:right;
+}
+.bnjg{ width:100%; height:auto; display:block; overflow:hidden; background:#fff;padding:20px 10px; box-sizing:border-box;
+}
+.bnjg h1{ color:#111; font-weight:400; margin:0px; padding:7px 0px; margin:0px 0px 10px 0px; text-align:left; font-size:14px; border-bottom:1px solid #CCCCCC;
+}
+.bnjg span{ float:right; color:#fe9900;
+}
+.bnjg p{ margin:5px 0px 0px; color:#999;
+}
+.seter{ width:100%; height:auto; display:block; overflow:hidden; margin:10px 0px 0px; padding:0px 10px; background:#fff; box-sizing:border-box; border-bottom:1px solid #CCCCCC;
+}
+.seter li{ line-height:40px; text-align:left; font-size:14px; border-bottom:1px solid #CCCCCC;
+}
+.seter li:last-child{ border-bottom:none;
+}
+.seter li a{ color:#000000;
+}
+.seter li span{ float:right; line-height:40px; color:#666666;
+}
+.anq{ width:100%; margin:40px 0px 0px; padding:0px 10px; box-sizing:border-box;
+}
+.anq h1{ line-height:35px; width:100%; font-size:14px; background:#ff0000; color:#FFFFFF; margin:0px; border-radius:4px;
+}
+.xxtz{ width:100%; height:auto; display:block; 
+}
+.xxtz li{ width:100%; line-height:40px; color:#333333; text-align:left; border-bottom:1px solid #CCCCCC; background:#fff;padding:0px 10px; box-sizing:border-box;
+}
+.xxtz li span{ float:right; height:40px; 
+}
+.xxtz li span img{ width:38px; margin:10px 0px;
+}
+.xxtz h1{ line-height:40px; width:100%; margin:0px; font-weight:400; color:#000000; text-align:left; font-size:14px; padding:0px 10px; box-sizing:border-box;
+}
+.xieyi{ width:100%; height:auto; display:block; overflow:hidden; padding:10px ; box-sizing:border-box; background:#fff;
+}
+.xieyi h1{ margin:0px; font-size:16px; font-weight:50; margin:10px;
+}
+.xieyi p{ text-align:left; line-height:25px; text-indent:27px;
+}
+.ger{ width:100%; height:auto; display:block; overflow:hidden; background:#fff; margin:15px 0px 0px; border-bottom:1px solid #CCCCCC;box-sizing:border-box; padding:0px 10px;
+}
+.ger li{ width:100%;  padding:8px 0px; border-bottom:1px solid #CCCCCC; text-align:left; color:#666666; font-weight:100;  
+}
+.ger li:last-child{ border-bottom:none;
+}
+.ger span{ color:#000000; margin:0px 5px 0px 0px; font-size:14px;
+}
+.geter{ width:100%; height:auto; display:block; overflow:hidden; background:#fff; margin:15px 0px 0px; border-bottom:1px solid #CCCCCC;box-sizing:border-box; padding:0px 10px;
+}
+.geter li{ width:100%;  padding:8px 0px; border-bottom:1px solid #CCCCCC; text-align:left;
+}
+.geter span{ float:right; color:#666;
+}
+.geter img{ margin:3px 0px 0px 5px; float:right;
+}
+.geter li:last-child{ border-bottom:none;
+}
+.geter a{ color:#000000;
+}
+.zhanhao{ margin:15px 0px; width:100%; padding:0px 10px; background:#fff; box-sizing:border-box; border-bottom:1px solid #CCCCCC;
+}
+.zhanhao li{ line-height:30px; border-bottom:1px solid #CCCCCC; text-align:left; padding:10px 0px 0px;
+}
+.zhanhao input{ border:none; width:100%; line-height:25px; padding:0px 5px; box-sizing:border-box;
+}
+.zhanhao li:last-child{ border-bottom:none;
+}
+.hengxi{ width:100%; height:5px; background:#f4f4f4 !important;
+}
+.xyi a{ color:#FF0000; 
+}

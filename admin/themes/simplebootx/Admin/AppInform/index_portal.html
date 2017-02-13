@@ -1,0 +1,37 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:U('AppInform/index_portal')}">分类列表</a></li>
+			<li><a href="{:U('AppInform/add_portal_list')}">添加分类</a></li>
+		</ul>
+		<form method="post" class="js-ajax-form" action="{:U('AdminTerm/listorders')}">
+
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th width="50">ID</th>
+						<th>分类名称</th>
+						<th>父级名称</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<foreach name="list" item="vo">
+				<tbody>
+				<td width="50">{$vo.id}</td>
+				<td>{$vo.name}</td>
+				<td>{$vo.parent_id}</td>
+				<td>
+					<a  href="{:U('AppInform/edit_portal_list',array('id'=>$vo['id']))}">编辑</a>
+					<a  href="{:U('AppInform/del_portal',array('id'=>$vo['id']))}">删除</a>
+
+				</td>
+				</tbody>
+				</foreach>
+			</table>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

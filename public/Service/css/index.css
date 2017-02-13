@@ -1,0 +1,935 @@
+
+body{ font-family:"Microsoft YaHei"; background: #edf5f4;
+}
+li{ list-style:none;
+}
+ul{ margin: 0px ; padding: 0px;
+}
+.top{ width:100%; height:150px; background:url(../images/top_bg.jpg) bottom;
+}
+.cent{ width:1200px; margin:0px auto; 
+}
+.logo{ width:240px; float:left; 
+}
+.logo img{ width:100%; margin:40px 0px 0px;
+}
+.pintai{ width:500px; float:left; height:30px; margin:30px 0px 0px 70px;
+}
+.pintai p{ font-size:16px; line-height:30px; text-align:left;
+}
+.nav{ width:100%; height:50px; background:#c80a0a; margin:-20px 0px 0px ; z-index:22;
+}
+.menu{ width:900px; margin:0px auto; height:50px; float:left;
+}
+.menu li{ width:110px; float:left; text-align:center; font-size:16px; line-height:50px;
+}
+.menu li a{ width:100%; display:block;height:50px; color:#e7f2f2; font-weight:500;
+}
+.mover{ background: #860404;	
+}
+.menu li a:hover{background: #860404;	
+}
+.user{ width:300px; float:left; height:50px; text-align:center; margin:0px; 
+}
+.user li{ width:200px; line-height:20px; border-right:2px solid #FFFFFF; height:20px; margin:15px 0px; box-sizing:border-box; float:left;
+}
+.user li:nth-child(2){ border:none; width:98px;
+}
+.user li p{ font-size:14px; color:#FFFFFF;
+}
+.user li p a{ color:#FFFFFF; font-weight:700; font-size:16px;
+}
+.main{ width:1200px; margin:20px auto; height:auto; display:block; overflow:hidden;
+}
+.user_left{ width:260px; float:left; height:auto; display:block; overflow:hidden;
+}
+.user_name{ background: #fff;  width:100%; height:auto; float:left; display:block; overflow:hidden;  border:1px solid #ccc; box-sizing:border-box;
+}
+.name_img{ width:100%; height:auto; float:left; 
+}
+.name_img img{ width:120px; height:120px; border-radius:130px; margin:10px 70px;
+}
+.name_img p{ line-height:30px; text-align:center; font-size:16px;
+}
+.name_list{ width:100%; height:auto; display:block; overflow:hidden; float:left; margin:10px 0px;
+}
+.name_list li{ width:127px; height:auto; line-height:25px; text-align:center; float:left;
+}
+.name_list li:nth-child(2){ width:1px; height:30px; margin:10px 0px; border:none; background:#ff0000;
+}
+.name_list span{ color:#d84a12;
+}
+.user_notice{ width:100%; height:auto; display:block; float:left; overflow:hidden; margin:20px 0px 0px;
+}
+.user_notice li{ background: #fff; width:100%; line-height:40px; box-sizing:Border-box; border:1px solid #ccc; margin:0px 0px 10px 0px; font-size:16px;
+}
+.user_notice li i{  margin:0px 20px 0px 20px; color:#a80202; font-weight:300; 
+}
+.user_notice li span{ float:right; margin:13px 10px 0px 0px; height:15px; display:block; overflow:hidden;
+}
+.user_notice li img{ height:15px;
+}
+.user_notice li a{ width:100%; display:block;
+}
+.user_notice li:Hover img{ -webkit-filter:invert(1);
+}
+/* 账号设置 */
+.user_right{ width:920px; background: #fff; float:right; height:auto; display:block; overflow:hidden; padding:20px; box-sizing:border-box; border:1px solid #CCCCCC;
+}
+.postian{ width:100%; height:30px; float:left;
+}
+.postian p{ font-size:14px; color:#999999;
+}
+.postian p a{ color:#666666;
+}
+.postian p a:hover{ color:#ff0000;
+}
+.basic{ width:100%; height:auto; display:block; overflow:hidden; float:left;
+}
+.bas_nav{ width:100%; height:40px; float:left; border-bottom:1px solid #CCCCCC;
+}
+.bas_nav li{ width:160px; float:left; line-height:40px; text-align:center;
+}
+.bas_nav li a{ color:#333; font-size:16px; 
+}
+.hove{ border-bottom:2px solid #FF0000 !important; line-height:39px !important;
+}
+.hove a{ color: #ff0000 !important;
+}
+.bas_list,.bas_setting,.bas_apply{ width:100%; height:auto; display:block; overflow:hidden; float:left; margin:20px 0px;
+}
+.bas_list h1{ width:100%; line-height:20px; margin:10px 0px; font-weight:400; padding:0px 0px 0px 5px; box-sizing:border-box; border-left:5px #FF0000 solid;
+}
+.bas_list li{ line-height:50px; width:70%; text-align:left;
+}
+.bas_list li b{ width:150px; text-align:right; float:left; font-weight:300; margin:0px 20px 0px 0px;   
+}
+.bas_list li span{ width: 100px; height: 30px; margin: 10px 0px 0px; border-radius: 2px; font-size:14px; font-weight: 200;  border: 1px solid #ccc; float:right; line-height: 30px; text-align: center; 	
+}
+.bas_list li span a{ width: 100%; display: block;
+}
+.bas_list li img{ width:50px; height:50px;
+}
+.bas_setting{ padding: 20px 0px;	
+}
+.bas_setting li{ width: 100%; padding: 0px 40px; box-sizing:border-box; margin: 0px 0px 20px 0px; height:auto; border-bottom:1px dashed #ccc; display: block; overflow: hidden; float: left; line-height: 60px; text-align: left; font-size: 20px;
+}
+.bas_setting li i{ font-size: 34px; float: left; color: #d84a12; margin: 15px 40px 0px 0px;	
+}
+.bas_setting li span{ font-size: 14px; color: #f6a844; margin: 0px 50px;
+}
+.bas_setting li pan{ color:#5ca924; font-size: 14px; margin: 0px 50px;
+}
+.bas_setting li b{ font-weight: 200;  float:right; 
+}
+.bas_setting li b a{  display: block; margin: 15px 0px 0px 20px; float: left; padding: 3px 20px; border-radius: 2px; font-size:14px;   border: 1px solid #ccc;line-height: 30px; text-align: center; 	
+} 
+.bas_apply li{ width: 48%; float: left; padding: 10px; box-sizing:border-box; margin: 0px 4% 20px 0px; border: 1px solid #ccc; border-radius: 3px ;	
+}
+.bas_apply li:nth-child(2n+2){ margin: 0px 0px 20px 0px;
+}
+.apply_top{ width: 360px; height: auto; display: block; overflow: hidden; padding: 10px 20px; border-bottom:1px solid #d6d3d3; 	
+}
+.apply_lt{ width: 60px; height: 60px; float:left; 	
+}
+.apply_lt img{width: 100%; height: 60px;
+}
+.apply_rt{ width: 280px; float: left; margin: 0px 0px 0px 20px;	
+}
+.apply_rt h4{ width: 100%; text-align: left; font-size: 16px; font-weight: 600; margin: 0px; color: #333; line-height: 40px;
+}
+.apply_rt p{ font-size: 14px; text-align: left; line-height: 20px;
+}
+.apply_rt span{ float: right; 	
+}
+.apply_rt i{ margin: 0px 10px 0px 0px;
+}
+.apply_dow,.immed_dow{ width: 100%; height: auto; display: block; overflow:hidden; float: left;	
+}
+.apply_dow p{ line-height: 25px; text-align: left; color: #666;  margin: 10px 0px 0px;	
+}
+.apply_dow span{ margin: 0px 0px 0px 10px;  color: #d84a12;	
+}
+.apply_dow h1{ line-height: 30px; font-size: 14px; font-weight: 400; margin: 15px 0px 0px;
+}
+.apply_dow a{ float: right; height: 20px; line-height: 20px; margin: 0px 0px 0px 10px; padding: 3px 15px; border: 1px solid #ccc; display: block; border-radius: 3px;	
+}
+.agree{ background: #FF0000; color: #FFFFFF !important;
+}
+.apply_dow a:hover{ color:#111;
+}
+.immed_dow h4{ line-height: 40px; margin: 10px 0px 0px; font-size: 14px; color: #666; font-weight: 300;	
+}
+.immed_dow h4 a{ padding: 2px 15px; border-radius: 3px;  margin: 0px 0px 0px 30px; border: 1px solid #ccc; height: 20px; line-height: 20px;
+}
+.immed_dow span{ color: #d84a12; margin: 0px 5px 0px 10px;	
+}
+.immed_dow p{ margin: 0px 0px 10px 0px; line-height: 30px;	
+}
+.immed_dow p a{ color: #d84a12; padding: 0px 10px; height: 15px; line-height: 15px; border-radius: 3px; border: 1px solid #ccc; margin: 0px 0px 0px 10px;
+}
+/* 修改密码 */
+.loginpwd{ width: 100%; height: auto; display: block; overflow: hidden; margin: 20px 0px;  float: left; padding: 0px 20px; box-sizing:border-box;
+}
+.loginpwd h6{ margin: 10px 0px; line-height: 40px; height: 40px;
+}
+.loginpwd h6 b{ width: 100px; text-align: right; font-size: 14px; font-weight: 400; float: left !important; margin: 0px 10px 0px 0px;
+}
+.loginpwd h6 input{ float: left; padding: 5px 10px; margin: 5px 0px 0px; width: 200px; 
+}
+
+/* 忘记支付密码 */
+.forgetpwd{ width: 100%; height: auto; display: block; overflow: hidden; margin: 20px 0px;  float: left; padding: 0px 20px; box-sizing:border-box;
+}
+.forgetpwd h6{ margin: 10px 0px; line-height: 40px; height: 40px;
+}
+.forgetpwd h6 b{ width: 100px; text-align: right; font-size: 14px; font-weight: 400; float: left !important; margin: 0px 10px 0px 0px;
+}
+.forgetpwd h6 input{ float: left; padding: 5px 10px; margin: 5px 0px 0px; width: 200px; 
+}
+.forgetpwd h6 span a{ padding: 2px 10px; border:1px solid #ccc; border-radius: 3px; margin: 3px 0px 0px 20px; padding: 0px 20px; box-sizing:border-box;
+}
+/* 基本信息 */
+#popupAddr{
+    left:35%;
+}
+.layer_show{ width: 600px; height: 400px;box-shadow: 5px 5px 20px #111; border: none;  background: #ffffff;	padding: 20px; box-sizing:border-box;
+}
+.layer_top{ width: 100%; height: 60px; display: block; overflow: hidden;  border-bottom:1px dashed #ff0000; 
+}
+.layer_title{ width: 80%; float: left; height: 50px; 	
+}
+.layer_title p{font-size:24px; text-align: left; line-height: 50px; font-weight: 300; color: #666; margin: 0px !important;  
+}
+.tel_colse{ width: 20%; float: right;	
+}
+.tel_colse img{ width: 30px !important; height: 30px !important; float: right;  margin: 10px 0px 0px;
+}
+.telphone{ width: 100%; height: 50px; margin: 50px 0px;
+}
+.telphone h6{ line-height: 40px; text-align: center; font-size: 16px; font-weight: 300;
+}
+.telphone input{ padding: 5px 10px; margin: 0px 0px 0px 10px; width: 240px;
+}
+.ensure{ width: 100%; height: 50px;
+}
+.ensure input{ width: 150px; height: 30px; background: #ff0000; border: none; border-radius: 3px; float: right; margin: 0px 100px 0px 0px; font-size: 14px; color: #FFFFFF
+}
+.layer_upload{ width: 100%; height: auto; display: block; overflow: hidden; margin: 20px 0px;
+}
+.layer_upload h4{ text-align: left; line-height: 40px; font-size: 18px; font-weight: 300; padding: 0px 40px; box-sizing:border-box;
+}
+.layer_upload p{ margin: 20px 0px 0px; font-size: 14px;
+}
+.tel_colse a{ border:none !important; padding: 0px !important; margin: 0px !important; float: right !important;;
+}
+/* 收货地址 */
+.adress_list{ width: 100%; height: auto; display: block; overflow: hidden; margin: 20px 0px; float: left;
+}
+.adress_list li{ width: 48%; float: left; padding: 10px 20px; height: 135px; margin: 0px 0px 20px 0px; box-sizing:border-box; border: 1px solid #ccc; border-radius: 5px; text-align: center;
+}
+.adress_list li:nth-child(2n+2){ margin: 0px 0px 20px 4%;
+}
+.adress_list li h1{ line-height: 40px; font-weight: 400; font-size: 14px; text-align: left; margin: 0px; border-bottom: 1px solid #ccc; 
+}
+.adress_list li h1 span{ margin: 0px 0px 0px 10px; color: #d84a12;
+}
+.adress_list li h1 b{ float: right; font-weight: 300; color: #666; font-size: 12px;
+}
+.adress_list li p{ line-height: 50px; text-align: left; color: #666; margin: 20px 0px 0px;
+}
+.adress_list li p span{ float: right;
+}
+.adress_list li p span a{ padding: 2px 10px; border: 1px solid #ccc; margin: 0px 0px 0px 10px; border-radius: 3px;
+}
+.add_to{ width: 100%; height:135px; 
+}
+.add_to a{ color: #999; width: 100%; display: block; height: 100%;  
+}
+.add_to i{ font-size: 34px; line-height: 115px;
+}
+.edit{ height: 550px !important;
+}
+.layer_edit{ width: 100%; height: auto; display: block; overflow: hidden; margin: 20px 0px;
+}
+.layer_edit h4{ text-align: left; line-height: 40px; font-size: 18px; font-weight: 300; padding: 0px 40px; box-sizing:border-box;
+}
+.layer_edit p{ margin: 20px 0px 0px; font-size: 14px;
+}
+.layer_address{ width: 550px; margin: 40px auto; height: auto; 
+}
+#distpicker{ width: 100%; height: 40px;
+}
+.city-picker-span{ width: 420px !important;
+}
+.city-picker-span .placeholder{ font-size: 14px;
+}
+.city-select-wrap{ width: 550px;
+}
+.btn-warning{ margin: 0px 0px 0px 20px;
+}
+.addre{width: 100%; height: auto; display: block; overflow:  hidden; margin: 20px 0px;
+}
+.addre li{ line-height: 20px; text-align: left; float: left; width: 420px; margin: 0px 0px 20px 0px; padding: 10px 0px 5px 0px; border-bottom: 1px solid #ccc;
+}
+.addre li:nth-child(4){ border: none;	
+}
+.addre li b{ width: 20%; float: left;
+}
+.addre li input{ border: none; height: 20px; width: 80%; float: left; color: #333; font-size: 14px;
+}
+.checkboxs{ width: 15px!important; height: 15px !important; color: #fff; margin: 3px 0px 0px 10px!important; float: left; 
+}
+.addre li span{ float: left;
+}
+/* 增加收货地址 */
+.add_adress_list{ width: 100%; height: auto; display: block; overflow:  hidden; margin: 20px 0px; float: left;
+}
+.distpicker{ width: 80% !important; float: left; height: 30px!important;
+}
+.distpicker span{ height: 30px !important; width: 500px !important; border: none!important; line-height: 30px !important;
+}
+.add_adress_list li{ width: 70%; display: block; float: left; height:30px; margin: 0px 0px 20px 0px; padding: 10px 0px 5px 0px; border-bottom: 1px dashed #ccc;
+}
+.add_adress_list li b{ float: left; width: 18%; line-height: 30px; text-align: right;
+}
+.add_adress_list li input{ width: 80%; float: left; margin: 0px 0px 0px 2%; border: none; height: 30px; line-height: 30px; padding: 0px 10px; box-sizing:border-box;
+}
+.add_adress_list li wuliu_show
+}
+.add_adress_list li select{ width: 260px; line-height: 30px; height: 30px;
+}
+.divlib{ width: 15% !important;
+}
+.divlibcheck{ width: 15px !important; height: 15px !important; margin: 8px 0px 0px 5px !important;
+}
+.city-picker-dropdown .city-select-wrap{ width: 500px;
+}
+.city-select-content{ box-sizing:border-box;
+}
+.lef{ float: left;
+}
+/* 业务信息 */
+.bas_business{ width: 100%; float: left; height: auto; display: block; overflow: hidden; margin: 20px 0px;
+}
+.area{ width: 100%; height: auto; display: block; overflow: hidden;   margin: 20px 0px 10px; box-sizing:border-box;
+}
+.areaborder{ border: 1px dashed #ccc; float: left; padding: 10px 20px;
+}
+.area h1{ width: 100%; color: #d84a12; margin: 0px;border-bottom: 1px solid #ccc; padding: 0px 0px 2px ; font-size: 16px; font-weight: 400; 
+}
+.area li{ width: 100px; height: 48px; border: 1px solid #dbdada; box-sizing:border-box; float: left; margin: 10px 0px 0px 16px; text-align: center; border-radius: 5px;
+}
+.area li i{ width: 1px; height: 48px;  vertical-align:middle; overflow: hidden; display:inline-block;
+}
+.area span{ width: 95px; color: #665; line-height: 20px; max-height: 42px; vertical-align:middle; overflow: hidden; display:inline-block; padding: 0px 5px; box-sizing:border-box;
+}
+.area_ar{ width: 100%; float: left; height: auto; display: block; overflow: hidden; padding: 10px 20px; border: 1px dashed #ccc; margin: 20px 0px 0px; box-sizing:border-box;
+}
+.areah1{ width: 100%; height: 20px; float: left; border-bottom: 1px solid #ccc; padding: 0px 0px 2px 0px; 
+}
+.areah1 li{  line-height: 20px; float: left; margin: 0px 50px 0px 0px;
+}
+.ever a{ color: #d84a12;
+}
+/* 接单区 */
+.bas_taking{ width: 100%; height:auto; display: block; overflow: hidden; float: left; 	
+}
+.bas_taking li{ margin: 10px 0px 10px; float: left; border: 1px dashed #ccc; border-radius: 5px; width: 100%; box-shadow: 1px 2px 5px #ccc; padding: 20px; box-sizing:border-box;	
+}
+.taling_top{ width: 100%; height: 30px; line-height: 30px; display: block; overflow: hidden;float: left;padding: 0px 0px 20px 0px; 
+}
+.taling_top img{ float: left; margin: 0px 20px 0px 0px;
+}
+.taling_top span{ margin: 0px 40px 0px 0px; color: #666;
+}
+.taling_top b{ float: right; 
+}
+.taling_top b a{ font-weight: 300;
+}
+.taling_top b a i{ margin: 0px 10px 0px 0px;
+}
+.taling_top span a{ padding: 2px 10px; border: 1px solid #ccc; border-radius: 3px;
+}
+.bas_taking li p{ line-height: 40px; float: left; width: 100%; margin: 20px 0px 0px;
+}
+.bas_taking li p b{ float: left; color: #FF0000; font-weight: 300; margin: 0px 40px 0px 0px;
+}
+.bas_taking li p span{ float: left; margin: 0px 60px ; line-height: 20px;text-align: center; color: #666;
+}
+.bas_taking li p span a{padding: 2px 10px; background: #db1c21; border-radius: 3px; color: #FFf; margin: 10px 0px;
+}
+/* 我的订单 */
+.oder_list{ width: 100%; height: 40px; float: left; margin: 10px 0px; background:#eeefef; border-bottom: 1px solid #ccc;
+}
+.oder_list li{ width: 82px; height: 42px; text-align: center; float: left; height: 40px;  line-height: 37px;
+}
+.oder_list li a{ width: 100%; display: block;
+}
+.oder_list li:hover{ border-bottom: 2px solid #FF0000; height: 39px !important;
+}
+.lover{ border-bottom: 2px solid #FF0000; height: 39px !important;
+}
+.list_page{ width: 100%; height: 20px; margin: 30px 0px; text-align: center; float: left; font-size: 12px;
+}
+.list_page a{ padding: 2px 5px; margin: 0px 5px 0px 0px; border: 1px solid #ccc;
+}
+.list_page span{ padding: 2px 5px; margin: 0px 5px 0px 0px; border: 1px solid #ff8155; color: #ff0000;
+}
+/* 留言管理 */
+.words{ width: 100%; height:  auto; display: block; overflow:  hidden; box-sizing:border-box; margin:10px 0px; float: left; padding: 20px; border: 1px solid #e4e4e4;
+}
+.words h1{ margin: 0px; line-height: 40px; text-align: left; border-bottom: 1px solid #ccc;
+}
+.words textarea{min-width: 100%; max-width: 100%; min-height: 100px; padding: 10px; box-sizing:border-box; margin: 10px 0px 20px; border: 1px solid #e4e4e4;
+}
+.words textarea:focus{ outline:none;
+}
+.submit_words{ width: 100px; height: 30px; float: right; border: none; background: #ff0000; border-radius: 3px; color: #fff; font-size: 14px;
+}
+/* 订单详情 */
+.datails{ width: 100%; height:  auto; display: block; overflow:  hidden; box-sizing:border-box; margin:10px 0px; float: left; padding: 10px 20px 10px 10px; border: 1px solid #e4e4e4;
+}
+.datails li{ line-height: 30px; float: left; width: 100%; padding: 10px 0px 5px 0px; margin:0px 0px 5px 0px; border-bottom: 1px dashed #ccc; color: #666;
+}
+.datails li b{ width: 100px; float: left; text-align: right; height: 20px;  margin: 0px 10px 0px 0px; color: #333;
+}
+.datails li i{ color: #ff8155;
+}
+.datails li red{ color: #ff0000;
+}
+.datails li blue{ color: #ff0000; 
+}
+.back{ background: #ccc !important; 
+}
+.back a{ color: #333 !important;
+}
+.red{ background: #ff0000 !important; 
+}
+.red a{ color: #fff !important;
+}
+.datails li span{ width: 100px; height: 30px;  margin: 0px 20px 0px 0px; background: #ff8155 ; display: block; float: left; text-align: center; border-radius: 3px;
+}
+.datails li span a{ display: block; width: 100%; color: #fff;
+}
+.collapse{ border-collapse: collapse; width: 100%; text-align: center; float: left; margin: 0px 0px 10px 0px; 
+}
+.tr1 td{ color: #ff8155 !important; font-weight: 700;
+}
+.collapse td{ border: 1px solid #ccc; height: 46px; color: #666;  
+}
+.remarks{ text-align: left; padding: 0px 10px; box-sizing:border-box; color: #333 !important;
+}
+.remarks span{ color: #ff0000;
+}
+.parts{ width: 100%; height:  auto; display: block; overflow:  hidden; box-sizing:border-box; margin:10px 0px; float: left; padding: 10px 20px 10px 10px; border: 1px solid #e4e4e4;
+}
+.parts h1{ width: 100%; margin: 0px;  font-size: 16px; line-height: 30px; display: block; height: 30px; border-bottom: 1px solid #ccc; 
+}
+.parts h1 span{  border-bottom: 2px solid #ff0000; height: 28px; float:left; padding: 0px 10px; 
+}
+.parts h1 b{ float: right; font-size: 16px; font-weight: 400; 
+}
+.parts h1 b a{ color: #ff0000; text-decoration: underline;
+}
+.parts li{ line-height: 30px; float: left; width: 100%; padding: 10px 0px 5px 0px; margin:0px 0px 5px 0px; border-bottom: 1px dashed #ccc; color: #666;
+}
+.parts li b{ width: 100px; float: left; text-align: right; height: 20px;  margin: 0px 10px 0px 0px; color: #333;
+}
+.follower{ width: 100%; height:  auto; display: block; overflow:  hidden; box-sizing:border-box; margin:10px 0px; float: left; padding: 10px 20px 10px 10px; border: 1px solid #e4e4e4;
+}
+.follow{ width: 100%; height: 40px; float: left; text-align:center; border-bottom: 1px solid #ccc;
+}
+.follow li{ width: 160px; float: left; line-height: 40px;
+}
+.follow li a{ width: 100%; display: block; letter-spacing: 1px;
+}
+.dataer{  border-bottom: 2px solid #ff0000;  color: #ff8155  !important;  font-weight: 700;  
+}
+.foolow_show{ width: 100%; height: auto; display: block; overflow: hidden; float: left; margin: 40px 0px 40px;
+}
+.foolow_show h1{ width: 100%; line-height: 40px; text-align: left; font-size: 14px; font-weight: 300; padding: 0px 20px; box-sizing:border-box; margin: 0px;
+}
+.foolow_show h1 b{ margin: 0px 30px 0px 0px; 
+}
+.foolow_show h1 i{ color: #ff8155; margin:0px 0px 0px 5px; font-size: 16px;
+}
+.foolow_show h1 span{ margin: 0px 40px 0px 0px; color: #666;
+}
+.foolow_show h1 red{ color: #f86f3f;
+}
+.foolow_show li{ width: 100%;  height: auto; display: block; overflow:  hidden; float: left; padding: 0px 20px; box-sizing:border-box; position: relative;
+}
+.follow_left{ width: 18%; float: left; color: #666; text-align: left; font-size: 12px; min-height: 1px; 
+}
+.follow_left p{ line-height: 20px;
+}
+.follow_right{ width: 75%; min-height: 15px; float: left; padding: 0px 0px 0px 40px; box-sizing:border-box; border-left: 1px solid #e4e4e4; position: relative; text-align: left;
+}
+.follow_right span{ width: 10px; height: 10px; position: absolute; top:3px; left: -6px; display: inline-block; background: url(../images/span_to.png) center no-repeat; background-size: 100%;
+}
+.follow_right h4{ margin: 0px; font-weight: 300; line-height: 20px;
+}
+.follow_right p{ padding: 15px 0px 40px; color: #666; font-size: 12px;
+}
+.follow_right p red{ color: #f86f3f;
+}
+.foolow_show  li:last-child .follow_right span{background: url(../images/span_up.png) center no-repeat; background-size: 100%;
+}
+.datails li .data_sh{ float: right; background: none; width: auto;
+}
+.datails li span i{ margin: 0px 5px 0px 0px;
+}
+.datails li .data_sh a{  color: #ff0000 ;
+}
+.datails li .data_sh b{  color: #ff0000 ; font-weight:300;
+}
+/* 接单 */
+
+/* 完结工单 */
+.finish_show{ width: 100%; height: auto; display: black; overflow: hidden; margin: 30px 0px; float: left;
+}
+.finish_show h1{ margin: 0px; text-align: left; border-bottom: 1px  dashed #ccc;
+}
+.finish_show h1 input{ margin: 0px 0px 0px 10px; width: 200px; padding: 2px 5px; border: none;
+}
+.finish_show h1 input:focus{ outline:none;
+}
+/* 退单 */
+.back_show{ width: 100%; height: 50px; margin:30px 0px;
+}
+.back_show li{ width: 100%; border:none; line-height: 30px; margin: 0px 0px 10px; padding: 0px 30px; box-sizing:border-box; float: left; text-align: left;  
+}
+/* 改派师傅 */
+#layer_reass{ width: 100%; height: auto; display: block; overflow: hidden; margin: 20px 0px; padding: 0px 20px; box-sizing:border-box; 
+}
+.reass_show{ width:100%; height:420px; float: left; overflow: auto; margin: 10px 0px; 
+}
+.reass_show li{ width: 100%;  height: auto; display: block; overflow:  hidden; float: left; padding: 5px 0px 10px; line-height: 40px; margin: 10px 0px 5px 0px; border-bottom: 1px solid #ccc; 
+}
+.reass_show li img{ float: left; width: 40px; margin: 0px 10px 0px 0px;
+}
+.reass_show li b{ width: 60px; float: left; margin: 0px 10px 0px 0px;
+}
+.reass_show li span{ background: none; width: 100px; float: left; margin: 0px 0px 0px 20px; text-align: center;
+}
+.reass_show li wq{ background: none;overflow: hidden;  text-overflow: ellipsis; white-space: nowrap;  course:hand; width: 130px; float: left; margin: 0px 0px 0px 20px; text-align: center;
+}
+.reass_show li span a{ color: #fff;
+}
+.black{ background: #f86f3f !important; margin: 5px 0px 0px 30px !important; line-height: 30px; color: #fff;
+}
+/*物流信息*/
+.wuliu_show{ width: 100%; height: auto; display: block; overflow: hidden; margin: 30px 0px; text-align: left;
+}
+.wuliu_show li{ width: 100%; height: 30px; line-height: 30px; margin: 10px 0px 5px 0px; float: left;
+}
+.wuliu_show li b{ width: 100px; float: left; font-weight: 400; text-align: right; margin: 0px 5px 0px 0px;
+}
+.wuliu_show li input{ width: 240px; float: left; padding: 5px 2px; margin: 2px 10px 0px 0px; border:none;
+}
+.wuliu_show li input:focus{ outline:none;
+}
+.wuliu{ width: 200px;
+}
+/* 服务电话 */
+.tele_show{ width: 100%; height: auto; display: black; overflow: hidden; margin: 30px 0px; text-align: left;
+}
+.tele_show h1{ line-height: 40px; margin: 0px; 
+}
+.tele_show li{ width: 50%; float: left;
+}
+.tele_show li i{ margin: 0px 5px 0px 0px;
+}
+/* 配件图 */
+.layui-layer-content img{ max-width: 500px;	
+}
+.collapse td img{ width: 67px; height: 50px; margin: 25px 0px 0px 50px; float: left;
+}
+.collapse td h1{ width: 100%; margin: 0px; font-size: 16px; border: none; padding: 20px 0px;
+}
+.collapse td li{ border: none; padding: 5px 30px; box-sizing:border-box;  float: left; line-height: 20px;
+}
+.collapse td a{ width: 100%; display: black;
+}
+.collapse td a i{ line-height: 100px; margin: 0px 0px 0px 0px; color: #ec5004 ; font-size: 20px;
+}
+/* 修改配件或服务项 */
+.add_fit_to{ width: 100%; height: auto; display: black; overflow: hidden; margin: 0px 0px 10px;
+}
+.add_fit_to li{ width: 100%; float: left; line-height: 30px; text-align: left;
+}
+.add_fit_to li input{ width: 15px; float: left; margin: 8px 5px 0px;
+}
+.vender{ width: 100%; height: auto; display: black; overflow: hidden; margin: 10px 0px 10px;
+}
+.vender h1{ margin: 0px; padding: 10px 0px; text-align: center; font-size: 12px; font-weight: 400;
+}
+.vender h1 span a{ color:#fff;  padding: 4px 20px; background: #ec5004; border-radius: 3px;
+}
+.vender_show{ width: 100%; height: 60px; line-height: 60px; display: block; overflow: hidden; margin: 20px 0px; padding: 0px 30px; box-sizing:border-box;
+}
+.vender_show img{ width: 60px; height: 60px; float: left; margin: 0px;
+}
+.vender_show span{ margin: 0px 0px 0px 100px; font-size: 16px;
+}
+.vender_show b{ float: right; font-weight: 400; height: 30px; margin: 15px 0px ; line-height: 30px;
+}
+.vender_show b a{ width: 60px; height: 30px; display: block; float: left; text-align: center; margin: 0px 0px 0px 20px; background: #ccc; border:none; border-radius: 3px;
+}
+.vender_list{ width: 100%; height: auto;  display: block; overflow: hidden; margin: 20px 0px; padding: 0px 30px; box-sizing:border-box; text-align: center;
+}
+.vender_list p{ line-height: 30px; width: 100%; 
+}
+#vender_edit{background: #ec5004;  color: #fff;
+}
+.layui-layer-demo{ width: 900px !important;
+}
+.peijian{ width: 100%; height: auto; display:  black; overflow: hidden; margin: 0px; padding: 10px 0px; border-top: 1px solid #ccc;
+}
+.peijian li{ line-height: 30px; float: left; width: 100%; padding: 0px 20px; box-sizing:border-box;
+}
+.peijian li b{ width: 80px; float: left;
+}
+.peijian li select{ width: 200px;
+}
+.peijian_li_b{ width: 200px !important;
+}
+.peijian li input{  width: 200px;
+}
+.peijian li p span{ color: #ec5004;
+}
+.peijian .undid { width: 100%; height: auto; display: block; float:left; padding: 10px 20px 10px; box-sizing:border-box; margin: 10px 0px 0px; border-bottom: 1px solid #ccc;
+}
+.peijian .undid li{ width: 160px; float: left; height: 120px; margin: 0px 40px 20px 0px; padding: 0px; 
+}
+.peijian .undid li img{ width: 160px; height:120px;
+}
+.pjimg_sh{  background: url(../images/dataimg.png); position: relative; margin: -120px 0px 0px; z-index: 22; width: 160px; height: 120px;  
+} 
+.pjimg_sh h1{ margin: 0px; height: 30px; background:rgba(22,22,22,0.4); text-align: right; line-height: 30px; font-weight: 300;
+}
+.pjimg_sh h1 i{ width: 20px; float: right; margin: 5px 5px 0px 0px;
+}
+.pjimg_sh h1 a{ color: #fff;  font-weight: 300;
+}
+.pjimg_sh h1 a:hover{ color: #ec5004;
+}
+.pjimg_sh h6{ margin: 0px; height: 30px; font-size: 14px; line-height: 30px; color: #fff; text-align: center; font-weight: 300; position: absolute; bottom: 5px; width: 100%;
+}
+.gog{ float: left; margin: 20px 0px 0px; 
+}
+/* 我的账户 */
+.wallet_list{ width: 100%; height: auto; display: black; overflow: hidden; margin: 20px 0px 0px; float: left;
+}
+.wallet_purse{ width: 100%; height: auto; display: block; overflow: hidden; padding: 10px 20px 0px; box-sizing:border-box; border:1px solid #ccc; float: left;
+}
+.purse_ours{ width: 376px; float: left; height: auto; display: block; overflow: hidden; padding: 20px 0px 20px 20px; box-sizing:border-box; 
+}
+.purse_ours li{ width: 100px; float: left; 
+}
+.purse_ours li:nth-child(1){ width: 156px;
+}
+.purse_ours li h1{ margin: 0px 0px 10px; font-size: 14px;  font-weight: 400; line-height: 20px;
+}
+.purse_ours li h1 b{ width: 20px; height: 20px; float: left; border: 2px solid #55a92c; box-sizing:border-box; border-radius: 20px ; margin: 0px 10px 0px 0px;
+}
+.purse_ours li h1 b i{ color: #55a92c; font-size: 14px; margin: 2px 0px 0px 4px;
+}
+.purse_ours li p{ text-align: left; margin: 0px; font-size: 14px; color: #999;
+}
+.purse_ours li p b{ color: #ec5004; font-size: 20px; margin: 0px 5px 0px 0px;
+}
+.purse_ours li a{ width: 80px; height: 30px; line-height: 30px; border-radius: 3px; text-align: center; background: #ec5004; color: #fff;  display: block;
+}
+.recharge{ width: 80px; height: 30px; line-height: 30px; border-radius: 3px; text-align: center; border:1px solid #ccc; color: #333 !important; background: none !important; display: block;
+}
+.purse_the{ width: 200px; float: left;  height: auto; display: block; overflow: hidden; margin: 0px 0px 0px 20px;  padding: 20px 0px 20px 50px; box-sizing:border-box; border-left: 1px dashed #ccc; 
+}
+.purse_the h1{ margin: 0px 0px 10px; font-size: 14px;  font-weight: 400; line-height: 20px;
+}
+.purse_the h1 b{width: 20px; height: 20px; float: left; border: 2px solid #55a92c; box-sizing:border-box; border-radius: 20px ; margin: 0px 10px 0px 0px;
+}
+.purse_the h1 b i{ color: #55a92c; font-size: 14px; margin: 2px 0px 0px 4px;
+}
+.purse_the p{ text-align: left; margin: 0px; font-size: 14px; color: #999;
+}
+.purse_the p b{ color: #333; font-size: 20px; margin: 0px 5px 0px 0px; font-weight: 300;
+}
+.purse_over{ width: 100%; float: left;  height: auto; display: block; overflow: hidden; border-top: 1px solid #ccc;
+}
+.purse_over li{ width: 250px; height: 50px; float: left; line-height: 50px;  text-align: center; padding: 10px 0px;
+}
+.purse_over li:nth-child(2){ margin: 0px 43px;
+}
+.purse_over li b{ width: auto; height: 50px; border-bottom: 2px solid #ff0000; padding: 0px 10px 10px 10px; font-size: 14px; font-weight: 300; color: #888;
+}
+.purse_over li b span{ color: #ec5004; margin: 0px 5px; font-size: 18px;
+}
+/* 流水账 */
+.wallet_burse{ width: 100%; height: auto; display: block; overflow: hidden; margin: 20px 0px 0px; box-sizing:border-box; border:1px solid #ccc; float: left;
+}
+.wallet_burse h1{ margin: 0px; font-size: 16px; line-height: 40px; padding: 0px 0px 0px 30px; box-sizing:border-box; color: #111;
+}
+.wallet_burse h1 span{ color: #ff0000;
+}
+.wallet_burse li{ line-height: 40px; padding: 10px 0px 0px 0px; border-top: 1px solid #e4e4e4; text-align: center; float: left; width: 100%;
+}
+.wallet_burse li:last-child{ border-bottom: 1px solid #e4e4e4;
+}
+.wallet_burse li span{  width: 200px; display: block; float: left;
+}
+.wallet_burse li b{ width: 125px; color: #ec5004; font-weight: 300; display: block; float: left;
+}
+.wallet_burse li strong{ width: 256px; display: block; float: left; font-weight: 400;
+}
+.wallet_burse li i{ width: 130px; display: block; float: left; color: #666;
+}
+/* 提现 */
+.withdraw_list{ width: 100%; height: auto; display: block; overflow: hidden; margin: 20px 0px 0px; box-sizing:border-box; border:1px solid #ccc; float: left;
+}
+.withdraw_list h1{ margin: 20px 0px 10px; font-size: 14px; line-height: 20px; padding: 0px 30px 20px; box-sizing:border-box; border-bottom: 1px dashed #ccc;
+}
+.withdraw_list h1 b{width: 20px; height: 20px; float: left; border: 2px solid #55a92c; box-sizing:border-box; border-radius: 20px ; margin: 0px 10px 0px 0px;
+}
+.withdraw_list h1 b i{ color: #55a92c; font-size: 14px; margin: 2px 0px 0px 4px;
+}
+.withdraw_list h1 span{ color: #ec5004; margin: 0px 5px; font-size: 20px; 
+}
+.withdraw_list h4{ line-height: 40px; padding: 0px 30px 0px; box-sizing:border-box; margin: 20px 0px 0px;
+} 
+.withdraw_list h4 span{ color: #ff0000; margin: 0px 5px;
+}
+.withdraw_list li{ width: 100%; line-height: 30px;  padding: 0px 30px 0px; box-sizing:border-box; color: #666; 
+}
+.withdraw_list li input{ float: left; margin: 8px 5px 0px 0px;
+}
+.withdraw_list li span{ margin: 0px 0px 0px 50px;
+}
+.withdraw_list h6{  margin: 30px 0px;   padding: 0px 30px 0px; box-sizing:border-box; font-size: 14px; 
+}
+.withdraw_list h6 input{ margin: 0px 10px 0px 0px; padding: 2px 5px;
+}
+.withdraw_list h5{ margin: 20px 0px;  padding: 0px 100px 0px; box-sizing:border-box; font-size: 14px; 
+}
+.withdraw_list h5 input{ width: 150px; height: 30px; background: #ff0000; border:none; border-radius: 3px; color: #fff;
+}
+.withdraw_list h3{  margin: 30px 0px;   padding: 0px 30px 0px; box-sizing:border-box; font-size: 14px;  color: #ec5004;
+}
+.withdraw_list h3 input{ margin: 0px 10px 0px 0px; padding: 2px 5px;
+} 
+.withdraw_list p{ width: 100%; height: 60px; padding: 20px 0px 20px 30px; line-height: 60px;
+}
+.withdraw_list p span{ float: left; color: #ec5004; font-size: 16px;font-weight: 700;  margin: 0px 0px 0px 0px;
+}
+.withdraw_list p a{ width: 60px; height: 60px; float: left; margin: 0px 0px 0px 30px; border:1px solid #e4e4e4; border-radius: 3px;
+}
+.withdraw_list p a img{ width: 100%; padding: 10px; box-sizing:border-box;
+}
+.withdraw_list p a:hover{ border:1px solid #ec5004;
+}
+.withdraw_list #recharge{  border:1px solid #ec5004;
+}
+/* 我的银行卡 */
+.card_list{ width: 100%; height: auto; display: block; overflow: hidden; margin: 20px 0px 0px; float: left;
+}
+.card_list li{ width: 420px; float: left; height: 140px; margin: 0px 0px 20px 0px; border:1px solid #ccc; box-sizing:border-box; padding: 10px 20px; border-radius: 3px;
+}
+.card_list li:nth-child(2n+2){ margin: 0px 0px 20px 37px;
+}
+.card_list h1{ margin: 10px 0px; line-height: 60px; height: 60px; width: 100%; 
+}
+.card_list h1 img{width: 60px; height: 60px; float: left;
+}
+.card_list h1 span{ font-size: 14px; color: #666; font-weight: 400; margin: 0px 0px 0px 20px;
+} 
+.card_list h4{ width: 100%; height: 20px; line-height: 20px; text-align: right; margin: 0px;
+}
+.card_list span a{ padding: 2px 10px; border:1px solid #ccc; font-size: 12px; font-weight: 300; border-radius: 3px; 
+}
+.card_list li:last-child h2{  margin: 10px 0px; line-height: 60px; height: 60px; width: 100%;  text-align: center;
+}
+.card_list li:last-child h2 i{ font-size: 24px; margin: 20px 0px 0px;
+}
+.card_list li:last-child p{ margin: 0px; line-height: 20px; text-align: center; color: #666;
+}
+/* 流水明细 */
+.income_list{ width: 100%; height: auto; display: block; overflow: hidden; padding: 10px; box-sizing:border-box;float: left; margin: 20px 0px 0px; border:1px solid #ccc;
+}
+.income_purse{ width: 100%; height: 50px; float: left; margin: 0px 0px 10px 0px; border-bottom:1px solid #ff0000;
+}
+.income_purse li{ width: 100px; float: left; margin: 14px 0px 0px 10px;  text-align: center; height: 35px;  line-height: 35px;
+}
+.income_purse li a{ border-top:1px solid #e4e4e4; border-left:1px solid #e4e4e4; border-right:1px solid #e4e4e4; width: 100%; display: block; box-sizing:border-box;
+}
+.income_data{ background:#ec5004; width: 100%; color: #fff; display: block;  
+}
+.income_burse{ width: 100%; height: auto;  display: block; overflow: hidden; margin: 10px 0px;
+}
+.income_burse h1{ width: 100%; height: 30px; line-height: 30px; padding: 15px 0px; margin: 0px; border-bottom: 1px dashed #e4e4e4; text-align: center;
+}
+.income_burse h1 span{ width: 49%; float: left;
+}
+.income_burse h1 span b{ color: #666; font-weight: 300; font-size:14px;
+}
+.income_burse h1 span b i{ color: #ec5004; margin: 0px 5px; font-size: 24px; 
+}
+.income_burse h1 strong{ width: 2%; float: left; border-right: 1px dashed #ec5004; height: 30px; box-sizing:border-box;
+}
+.income_burse li{ line-height: 40px; padding: 10px 0px 0px 0px; border-bottom: 1px solid #e4e4e4; text-align: center; float: left; width: 100%;
+}
+.income_burse li span{  width: 200px; display: block; float: left;
+}
+.income_burse li b{ width: 125px; color: #ec5004; font-weight: 300; display: block; float: left;
+}
+.income_burse li strong{ width: 256px; display: block; float: left; font-weight: 400;
+}
+.income_burse li i{ width: 130px; display: block; float: left; color: #666;
+}
+/* 申请成员 详情 */
+.apply_show{ width: 100%; height: auto;  display: block; overflow: hidden; margin: 10px 0px; float: left;
+}
+.apply_show h1{ width: 100%; margin: 0px; padding: 10px 0px 0px 0px; height: 25px; border-bottom:1px solid #ccc; font-size: 16px; letter-spacing: 2px;
+}
+.apply_show h1 span{ border-bottom: 2px solid #ff0000; padding: 0px 5px 3px 5px;
+}
+.apply_list{  width: 100%; height: auto;  display: block; overflow: hidden; margin: 10px 0px;  float: left;
+}
+.apply_list li{ line-height: 30px; padding: 10px 0px 3px 0px; width: 100%; float: left; color: #999;
+}
+.apply_list li b{ width: 120px; text-align:right; float: left; margin: 0px 10px 0px 0px; font-weight: 400; color: #333;
+}
+.apply_list li span{ margin: 0px 0px 0px 30px; 
+}
+.apply_list li span a{ color: #ff0000;
+}
+.apply_list li img{ width: auto; height: 30px; margin: 0px 10px 0px 0px; float: left;
+}
+.apply_agree{ width: 100%; display: block; overflow: hidden; height: auto; margin: 20px 0px; float: left; text-align: center;
+}
+.apply_agree h2{ margin: 20px 0px; line-height: 30px; color: #333;
+}
+.apply_agree h2 span{ color: #ec5004; margin: 0px 5px 0px 0px;
+}
+.apply_agree h2 span i{ margin: 0px 10px 0px 0px; font-size: 24px;
+}
+.apply_agree h4{ width: 100%; line-height: 30px; margin: 0px;
+}
+.apply_agree h4 span a{ padding: 5px 20px; border:1px solid #ccc; margin: 0px 0px 0px 20px;
+}
+#agree_ok{ background: #ff0000; color: #fff;
+}
+/* 修改利率*/
+.rate_show{  width: 100%; display: block; overflow: hidden; height: auto; margin: 20px 0px; float: left; text-align: center;
+}
+.rate_show h1{ width: 100%; line-height: 40px; padding: 20px 0px; height: 40px; border:none;
+}
+.rate_show h1 input{ width: 200px; padding: 5px;
+}
+#rate{ color: #d84a12; margin: 0px 20px 0px 0px;
+}
+/* 累计单量 */
+.singular{ width: 100%; display: block; overflow: hidden; height: auto; margin: 20px 0px; float: left; text-align: center;
+}
+.singular li{ width: 260px; float: left;
+}
+.singular li:nth-child(2){ margin: 0px 49px;
+}
+.singular li h1{ margin: 20px 0px; font-size: 16px; 
+}
+.singular li h1 i{ color: #ff0000; margin: 0px 5px 0px 0px; font-weight: 24px;
+}
+.singular li h1 b{ color: #666; font-size: 14px; font-weight: 300;
+}
+.singular li h1 b span{ color: #ec5004; margin: 0px 2px; font-size: 24px;
+}
+/* 消息通知 */
+.news_list{ width: 100%; display: block; overflow: hidden; height: auto; margin: 20px 0px; float: left;
+}
+.list_ne li{ width: 100%; float: left; line-height: 35px;  border-bottom: 1px solid #e4e4e4; color: #666; font-weight: 400;
+}
+.list_ne li b{ text-align: center;  width: 470px; float: left; border-left: 1px solid #e4e4e4;  border-right: 1px solid #e4e4e4;
+}
+.list_ne li span{ float: left; width: 200px; text-align: center; 
+}
+.list_ne li:nth-child(1n+2) b{  text-align: left; padding: 0px 10px; box-sizing:border-box;  font-weight: 400; 
+}
+.list_ne li a{ text-decoration: underline;
+}
+.list_ne{  width: 100%; display: block; overflow: hidden; height: auto; margin: 20px 0px; float: left; border:1px solid #e4e4e4; box-sizing:border-box;
+}
+.news_list h1{ width: 100%; margin: 0px; padding: 10px 0px 0px 0px; height: 25px; border-bottom:1px solid #ccc; font-size: 16px; letter-spacing: 2px;
+}
+.news_list h1 span{ border-bottom: 2px solid #ff0000; padding: 0px 5px 3px 5px;
+}
+.list_show{  width: 100%; display: block; overflow: hidden; height: auto; margin: 20px 0px; float: left; text-align: center;
+}
+.list_show h1{ width: 100%; border:none; line-height: 40px; margin: 20px 0px; text-align: center; padding: 0px;
+}
+.list_show p{ line-height: 30px; text-indent: 30px; font-size: 14px; color: #333; margin: 0px 0px 10px 0px; text-align: left;
+}
+.list_show img{ max-width: 800px;
+}
+/* 政策规章 */
+.policy_nav li{ width: 175px !important; 
+}
+.policy_list{ width: 100%; display: block; overflow: hidden; height: auto; margin: 20px 0px; float: left; padding: 0px 10px; box-sizing:border-box;
+}
+.policy_list p{ line-height: 40px; text-align: left;font-size: 14px; color: #333; padding: 0px 10px; box-sizing:border-box;
+} 
+.policy_list h1{ margin: 0px; line-height: 50px; font-size: 16px; font-weight: 400;
+}
+ /*15328019873* 13064323969 */ 
+/* 收费标准 */
+.charge_list{ width: 100%; height: auto; display: block; overflow: hidden; margin: 20px 0px; border:1px solid #ccc; box-sizing:border-box; float: left;
+}
+.charge_nav{ width: 100%; height: auto; display: block; margin: 20px 0px 0px;  padding: 20px 100px 40px; border-bottom: 1px solid #ccc; float: left; box-sizing:border-box; 
+}
+.charge_nav li{ float:left; position:relative; width: 100px; height: 40px; margin: 0px 10px; border:1px solid #ccc; line-height: 40px; text-align: center;
+} 
+.charge_nav li a{ width: 100%; display: block;
+}
+.charge_dl{ width: 400px; height: auto; padding: 10px 10px;  border:1px solid #ccc; display:none; position:absolute; z-index:4000; background-color:#fff; 
+}
+.charge_dl-r{ right:-1px;
+}
+.charge_dl dl{ margin: 0px 20px 10px 0px; width: auto; float: left;
+}
+.charge_show{ width: 100%; display: block; overflow: hidden; height: auto;  float: left;
+}
+.show_nav{ width: 100%; display: block; overflow: hidden; height: 40px; float: left; border-bottom: 1px solid #dedede;
+}
+.show_nav li{ line-height: 40px; float: left; width: 160px; text-align: center; border-right: 1px solid #d6d6d6; color: #444;
+}
+.show_nav li:nth-child(2){ width: 230px;
+}
+.show_nav li:nth-child(5){ width: 230px;
+}
+.show_nav li:nth-child(6){ width: 250px; border:none;
+}
+.show_main{  width: 100%; display: block; overflow: hidden; height: auto; float: left; 
+}
+.charge_title{ width: 160px; float: left; height: auto; display: block; overflow: hidden;
+}
+.charge_title h1{ font-size: 14px; font-weight: 300; padding: 0px 10px; box-sizing:border-box; 
+}
+.charge_style{ width: 1037px; float: left; height: auto; display: block; overflow: hidden;  border-left: 1px solid #d6d6d6; 
+}
+.charge_class{ width: 100%; display: block; overflow: hidden; height: auto; float: left; border-bottom: 1px solid #d6d6d6; 
+}
+.charge_more{ width: 230px;  float: left; height: auto; display: block; overflow: hidden;
+}
+.charge_more h1{ font-size: 14px; font-weight: 300; padding: 0px 10px; box-sizing:border-box; 
+}
+.charge_cent{ width: 806px; float: left; height: auto; display: block; overflow: hidden;  border-left: 1px solid #d6d6d6;
+}
+.charge_cent .cent_table{ width: 100%; border-collapse: collapse; text-align: center;
+}
+.charge_cent .cent_table tr{ width: 100%; border-bottom: 1px solid #d6d6d6; padding: 10px 0px; line-height: 40px;
+}
+.charge_cent .cent_table tr:last-child{ border:none;
+}
+.charge_cent .cent_table tr td{ border-right: 1px solid #d6d6d6; box-sizing:border-box; padding: 0px 5px;
+}
+.charge_cent .cent_table tr td:last-child{ border-right: 0px;
+}

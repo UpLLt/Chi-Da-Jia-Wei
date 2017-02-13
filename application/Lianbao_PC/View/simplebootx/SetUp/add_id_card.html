@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lianbao_PC/js/jquery.leanModal.min.js"></script>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/fadancp.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/goumaidl.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/xiaofeimx.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/set.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/set_yhkgl.css">
+<script src="__PUBLIC__/Lianbao_PC/js/layer.js"></script>
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+
+            <div class="user_right">
+                <div class="anzhuang">
+                    <div class="middle_inner_right">
+                        <div class="middle_inner_right">
+                            <div class="guide">
+                                <ul>
+                                    <li class=""><a href="{:U('Lianbao_PC/SetUp/index')}">基本资料设置</a></li>
+                                    <li class="unique  selected"><a href="{:U('Lianbao_PC/SetUp/id_card')}">银行卡管理</a></li>
+                                    <li class=""><a href="{:U('Lianbao_PC/SetUp/address')}">收货地址管理</a></li>
+                                    <li class=""><a href="{:U('Lianbao_PC/SetUp/set_password')}">密码设置</a></li>
+                                </ul>
+                            </div>
+
+							
+          <div class="list_content">
+            <div class="add_yhk"><a href="javascript:;" id="modaltrigger" onclick="openLayer('modaltrigger','layer_add_yhk')"><img src="__PUBLIC__/Lianbao_PC/images/add_yhk.png" /><span>添加银行卡</span></a></div>
+
+          </div>
+						
+
+			<!--添加银行卡-->
+<div id="layer_add_yhk" style="display:none" >
+  <div class="layer_show">
+    <div class="layer_top">
+      <div class="layer_title"><p>添加银行卡</p></div>
+      <div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="images/close.png" /></a></div>
+    </div>
+    <div class="add_yhk_show">
+		 <form action="{:U('Lianbao_PC/SetUp/add_id_card')}" method="post">
+      <li><b>现在开户行：</b><select class="bank" id="bank" name="bank">
+              <option>请选择开户行</option><option value="北京银行">北京银行</option><option value="工商银行">工商银行</option><option value="光大银行">光大银行</option><option value="广发银行">广发银行</option><option value="华夏银行">华夏银行</option><option value="建设银行">建设银行</option><option value="交通银行">交通银行</option><option value="民生银行">民生银行</option><option value="农业银行">农业银行</option><option value="平安银行">平安银行</option><option value="浦发银行">浦发银行</option><option value="上海银行">上海银行</option><option value="兴业银行">兴业银行</option><option value="邮政储蓄">邮政储蓄</option><option value="招商银行">招商银行</option><option value="中国银行">中国银行</option><option value="中信银行">中信银行</option></select></li>
+      <li><b>开户人姓名：</b><input type="text"  onblur="f()"  id="bankcardname" name="bankcardname" placeholder="请输入开户人姓名"></li>
+      <li><b>银行卡账号：</b><input type="text" onblur="g()" id="bankcardnum" name="bankcardnum" placeholder="请输入银行卡账号"></li>
+    </div>
+    <div class="ensure"><input type="button" href="javascript:void(0);"  onclick="add_card();" value="确 定"></div>
+  </div>
+</div>			
+
+                            <div class="list_content">
+                               <foreach name="user_card" item="vo">
+                                <li><img src="__PUBLIC__/Lianbao_PC/images/nh.png" /><b>{$vo.card_bank}</b> <span>{$vo.card_name}</span><span>卡号：{$vo.card_number}</span><dele><a href="{:U('Lianbao_PC/SetUp/del_id_card',array('id'=>$vo['id']))}">删除</a></dele></li>
+                               </foreach>
+                            </div>
+                          
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+    <script type="text/javascript">
+        $(function(){
+
+            $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+        });
+        function f(){
+            var v_bankcardname = $('#bankcardname').val();
+            if(v_bankcardname.length<=0){
+              $('#ver_bankcardname').show();
+                $('#ver_bankcardname').html("持卡人姓名不能为空");
+            }else{
+                $('#ver_bankcardname').hide();
+            }
+        }
+        function g(){
+            var v_bankcardnum = $('#bankcardnum').val();
+            if(v_bankcardnum.length<=0){
+                $('#ver_bankcardnum').show();
+                $('#ver_bankcardnum').html("银行卡卡号不能为空");
+            }else{
+                $('#ver_bankcardnum').hide();
+            }
+
+        }
+        function quxiao(){
+            $('#loginmodal').hide();
+        }
+        function add_card(){
+            var v_bank = $('#bank').val();
+            var v_bankcardname = $('#bankcardname').val();
+            var v_bankcardnum = $('#bankcardnum').val();
+            var action = "{:U('Lianbao_PC/SetUp/add_id_card')}";
+            if(v_bank == "0"){
+                alert('请选择您银行卡所在的银行');
+                return false;
+            }else {
+                if (v_bankcardname.length <= 0 || v_bankcardnum.length <= 0) {
+                    alert("提交信息不全，请补全信息");
+                    return false;
+                }
+                $.post(action, {
+                    bank: v_bank,
+                    bankcardname: v_bankcardname,
+                    bankcardnum: v_bankcardnum
+                }, function (data) {
+                    if (data == 1) {
+                        alert("添加成功");
+                        window.location.href = "{:U('Lianbao_PC/SetUp/id_card')}";
+                    } else {
+                        alert("添加失败");
+                    }
+
+                })
+            }
+
+        }
+
+
+
+    </script>
+<script>
+    $('#h_h').addClass('hve');
+</script>
+    </body></html>

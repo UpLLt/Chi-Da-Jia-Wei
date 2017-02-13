@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Lianbao_PC/css/wallet.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+		<div class="user_right">
+      <div class="anzhuang">
+
+        <div class="guide">
+          <ul>
+            <li class="selected"><a href="{:U('Lianbao_PC/Wallet/index')}">账号总额</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/recharg_history')}">充值记录</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/danliang')}">单量记录</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/month_bill')}">每月账单</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/other_pay')}">其他支出</a></li>       
+			<li class=""><a href="{:U('Lianbao_PC/Wallet/bond')}">保证金</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/frozen_money')}">冻结金额</a></li>
+ 
+          </ul>
+        </div>
+        <div class="total_mm" style="min-width: 312px;">
+          <ul>
+            <li>可用余额（减去冻结金额）：<font class="one">{$data.balance}</font><font>元</font></li>
+            <li class="mm_li">余额（包含冻结金额）：<font class="one">{$data.frozen_balance}</font><font>元</font></li>
+          </ul>
+        </div>
+        <div class="total_mm" style="min-width: 312px;">
+          <ul>
+            <li class="mm_li" style="margin-left: 10px;">其中 : 赠送金额：<font class="one">{$data.present_money}</font><font>元</font></li>
+          </ul>
+        </div>
+        <div class="total_show">
+          <ul>
+            <li class="one_show">
+              <dl class="dl_one">
+                <dt>保证金</dt>
+                <dd>{$data.bond}</dd>
+              </dl>
+            </li>
+            <li>
+              <dl class="dl_one">
+                <dt>充值总额</dt>
+                <dd>{$data.recharge_money}</dd>
+              </dl>
+            </li>
+            
+            <li>
+              <dl class="dl_one">
+                <dt>冻结金额</dt>
+                <dd>{$data.frozen_money}</dd>
+              </dl>
+            </li>
+            <li>
+              <dl class="dl_one">
+                <dt>总支出</dt>
+                <dd>{$data.use_money}</dd>
+              </dl>
+            </li>
+          </ul>
+        </div>
+        <p class="tips"><font>注：</font>可用余额=充值总额-冻结金额-总支出-保证金<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;充值总额=实际充值金额+赠送金额 </p>
+      </div>
+
+ </div> </div>
+     
+           
+
+        <!-- middle_inner_left_body end --></div>
+      <!-- 左边结束 -->
+      
+         
+     
+
+      <!-----------------------------middle_inner_right end------------------></div>
+    </div>
+
+  <!-- 页脚开始 -->
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+<script>
+  $('#c_c').addClass('hve');
+</script>
+</body>
+</html>

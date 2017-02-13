@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<title>驰达家维</title>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Service/js/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.layer.js"></script>
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+
+		<div class="user_right">
+			<div class="gd_list">
+				<li><a href="{:U('Lianbao_PC/Userindex/userindex')}">所有工单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/wait')}">待接单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/cancel')}">已取消</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/end')}">已完结</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/distance')}">远程费单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/parts')}">配件单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/wait_pay')}">待支付</a></li>
+
+			</div>
+			<div class="gd_mores">
+				<div class="gdmos">
+					<h1 class="gdmos_h1"><a href="#">工单详情</h1>
+					<h1><a href="{:U('Lianbao_PC/Userindex/leaving_message',array('order_number'=>$order['order_number']))}">留言</a></h1>
+				</div>
+			<input type="hidden" id="test" value="{$status}">
+			<div class="gd_mores">
+				<input type="hidden" id="order_number" value="{$order.order_number}">
+				<div class="gongdxq">
+					<input type="hidden" id="far_status" value="{$far_status}" >
+					<h1>工单信息</h1>
+					<li>工单编号：{$order.order_number}</li>
+					<li>工单状态：<span>{$order.status}</span></li>
+					<li>保修类型： <red>{$order_pro.baoxiu_type}</red></li>
+					<li>工单类型：{$order_pro.order_type}</li>
+					<li>发单时间：{$order.create_time|date='Y-m-d',###}</li>
+					<li id="far_price_list">远程费用：{$order.far_price}</li>
+					<li>备注：{$order_pro.remarks}</li>
+				</div>
+
+
+				<div class="gongdxq">
+					<h1>消费者信息</h1>
+					<li>姓名：{$order_user.user_name}</li>
+					<li>手机号码：<span>{$order_user.user_phone}</span></li>
+					<li>联系地址： <span>{$order_user.user_city}/{$order_user.user_address}</span></li>
+				</div>
+
+				<div class="gongdxq" id="far_price">
+					<h1>远程费单</h1>
+					<table class="coapse">
+						<tr>
+							<td>远程费用</td>
+							<td width="200" colspan="2">远程图片</td>
+						</tr>
+						<tr>
+							<input id="far_status_a" type="hidden" value="{$order_far_order.status}">
+							<td>{$order_far_order.far_price}</td>
+							<td><img src="{$order_far_order.picture}" href="javascript:;" id="far_picture" onclick="openLayer('far_picture','layer_far_picture')"/></td>
+
+						</tr>
+					</table>
+				</div>
+				<form id="isisiis" action="{:U('Lianbao_PC/Userindex/agree_far_order')}" method="post">
+					<input type="hidden" name="order_number" value="{$order.order_number}">
+					<input type="hidden" name="far_price" value="{$order_far_order.far_price}">
+				<div class="cliss"><input type="submit" value="同意远程费用"></div>
+				</form>
+				<div class="gongdxq">
+					<h1>工单总价</h1>
+					<div class="gdprice">
+						<table class="collapse">
+							<tr>
+								<td>品牌</td>
+								<td>品类</td>
+								<td>型号</td>
+								<td>下单数量</td>
+								<td>工单总价</td>
+							</tr>
+							<tr>
+								<td>{$order_pro.pro_xinhao}</td>
+								<td>{$order_pro.pro_product}</td>
+								<td>{$order_pro.pro_property}</td>
+								<td>{$order_pro.pro_count}</td>
+								<td>{$order.repair_price}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="pejixq" id="test_1">
+					<h1>配件详情</h1>
+					<table class="pejixq_table">
+						<tr>
+							<td width="260">配件收件地址</td>
+							<td>收件人姓名</td>
+							<td>收件人电话</td>
+							<td width="60" >配件价格</td>
+							<td width="60">配件数量</td>
+							<td width="80">配件名称</td>
+							<td width="110">配件申请时间</td>
+						</tr>
+						<foreach name="parts" item="vo">
+						<tr>
+							<td>{$vo.address}</td>
+							<td>{$vo.real_name}</td>
+							<td>{$vo.phone}</td>
+							<td>{$vo.parts_price}</td>
+							<td>{$vo.parts_count}</td>
+							<td>{$vo.parts_name}</td>
+							<td>{$vo.create_time|date="Y-m-d",###}</td>
+
+
+						</tr>
+						</foreach>
+					</table>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+				<div class="gongdxq" id="gongdxq">
+					<h2>产品完结信息</h2>
+					<table class="coapse">
+						<tr>
+							<td>产品描述</td>
+							<td width="150">产品数量</td>
+							<td width="150">完结图片(条码)</td>
+							<td width="150">购期凭证</td>
+						</tr>
+						<tr>
+							<td>{$order_pro.pro_xinhao}/{$order_pro.pro_product}/{$order_pro.pro_property}</td>
+							<td>{$order_pro.pro_count}</td>
+							<td><img src="{$order.wanjiema}" href="javascript:;" id="tiaoma" onclick="openLayer('tiaoma','layer_tiaoma')" /></td>
+							<td><img src="{$order.wanjiema}" href="javascript:;" id="pinzheng" onclick="openLayer('pinzheng','layer_pinzheng')" /></td>
+						</tr>
+					</table>
+				</div>
+
+
+				<!-- 公共部分 -->
+				<div class="gongdxq" id="service">
+					<h2>工单服务项</h2>
+					<table class="coapse">
+						<tr>
+							<td width="160">服务项名称</td>
+							<td>{$add_service.add_service}</td>
+							<td width="160">服务项价格</td>
+							<td>{$order.service_price}</td>
+						</tr>
+
+					</table>
+				</div>
+
+
+				<div class="gongdxq" id="order_end">
+					<h2>产品完结信息(附加)</h2>
+					<table class="coapse">
+						<tr>
+							<td>产品描述</td>
+							<td width="150">数量</td>
+							<td width="200" colspan="2">完结图片</td>
+						</tr>
+						<tr>
+							<td>{$order_pro.pro_xinhao}/{$order_pro.pro_product}/{$order_pro.pro_property}</td>
+							<td>{$order_pro.pro_count}</td>
+							<td><img src="{$order.end_picture_1}" href="javascript:;" id="zhengji" onclick="openLayer('zhengji','layer_zhengji')"/></td>
+							<td><img src="{$order.end_picture_2}" href="javascript:;" id="peijian" onclick="openLayer('peijian','layer_peijian')"/></td>
+						</tr>
+					</table>
+				</div>
+				<!-- 未接单状态 -->
+				<form action="{:U('Lianbao_PC/Userindex/cancel_order')}" id="gdqu" method="post">
+				<div class="gdqu"   >
+					<h1>厂商关闭理由</h1>
+					<input type="hidden" name="order_number" value="{$order.order_number}">
+					<li><input name="reason" value="1" type="radio" />工单信息资料有误（地址/电话号码/工单类型/保修类型/数量/）厂商修改后从新下单</li>
+					<li><input name="reason" value="2" type="radio" />用户已自行处理/用户暂不处理/无法联系上用户（3天内）/用户无服务需求</li>
+					<li><input name="reason" value="3" type="radio" />重复下单，厂商确认关闭</li>
+					<li><input name="reason" value="4" type="radio" />厂商自主原因要求关闭</li>
+					<li><input name="reason" value="5" type="radio" />受理前无网点关闭</li>
+					<li><input name="reason" value="6" type="radio" />受理后无网点关闭</li>
+				</div>
+
+				<!-- 未接单状态 -->
+				<div class="cliss"><input type="submit" value="关闭订单"></div>
+				</form>
+
+				<!--返件信息-->
+				<div class="pejixq" style="display: none" id="fanjian">
+					<h1>返件信息</h1>
+					<table class="pejixq_table">
+						<tr>
+							<td width="260">订单号</td>
+							<td>返件单号</td>
+							<td>收件人姓名</td>
+							<td width="60" >快递公司</td>
+							<td width="60">快递费用</td>
+							<td width="80">支付方式</td>
+							<td width="110">创建时间</td>
+						</tr>
+
+							<tr>
+								<td>{$receive_perts.order_number}</td>
+								<td>{$receive_perts.logistics_danhao}</td>
+								<td>{$receive_perts.phone}</td>
+								<td>{$receive_perts.parts_price}</td>
+								<td>{$receive_perts.parts_count}</td>
+								<td>{$receive_perts.parts_name}</td>
+								<td>{$receive_perts.create_time|date="Y-m-d",###}</td>
+							</tr>
+
+					</table>
+				</div>
+
+				<!-- 公共部分 -->
+				<div class="gongdxq" id="parts_mess">
+					<h2>配件信息(附加)</h2>
+					<table class="coapse">
+						<foreach name="parts" item="vo">
+						<tr>
+							<td>产品描述</td>
+							<td width="150">数量</td>
+							<td width="150">配件类型</td>
+							<td width="200" colspan="2">配件图片</td>
+						</tr>
+						<tr>
+							<td>{$order_pro.pro_xinhao}/{$order_pro.pro_product}/{$order_pro.pro_property}</td>
+							<td>{$vo.parts_count}</td>
+							<td width="150">{$vo.type}</td>
+							<td><img src="{$vo.parts_picture}" href="javascript:;" id="parts_{$vo.id}" onclick="openLayer('parts_{$vo.parts_picture}','part_{$vo.id}')" /></td>
+							<td><img src="{$vo.all_picture}" href="javascript:;" id="parts_all_{$vo.id}" onclick="openLayer('parts_all_{$vo.id}','part_all_{$vo.id}')" /></td>
+						</tr>
+
+
+							<div id="part_all_{$vo.id}" style="display:none" >
+								<div class="layer_show_tu">
+									<div class="layer_top">
+										<div class="layer_title"><p>远程费单图片</p></div>
+										<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+									</div>
+									<div class="tiaomatu">
+										<img src="{$vo.all_picture}" />
+									</div>
+								</div>
+							</div>
+
+							<!--远程费单图片(条码)-->
+							<div id="part_{$vo.id}" style="display:none" >
+								<div class="layer_show_tu">
+									<div class="layer_top">
+										<div class="layer_title"><p>远程费单图片</p></div>
+										<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+									</div>
+									<div class="tiaomatu">
+										<img src="{$vo.parts_picture}" />
+									</div>
+								</div>
+							</div>
+
+
+
+
+
+
+						</foreach>
+					</table>
+
+					<!-- 确认发件状态 -->
+
+				</div>
+
+				<a class="cliss" id="fahuo" href="{:U('Lianbao_PC/Userindex/send_parts_list')}"><input type="submit" id="querwn" value="需发货配件"></a>
+				<!-- 未支付状态 -->
+
+
+
+				<a class="cliss" style="display: none" id="fajiandan" href="{:U('Lianbao_PC/Userindex/receive_parts',array('order_number'=>$order['order_number']))}"><input type="submit" id="receive_parts" value="已收到配件"></a>
+
+
+				<!-- 未支付状态 -->
+				<div class="cliss"><a href="javascript:;" id="pay_zf" onclick="openLayer('pay_zf','layer_pay')" >立即支付</a></div>
+		</div>
+	</div>
+	</div>
+</div>
+
+	<!--远程费单图片(条码)-->
+	<div id="layer_far_picture" style="display:none" >
+		<div class="layer_show_tu">
+			<div class="layer_top">
+				<div class="layer_title"><p>远程费单图片</p></div>
+				<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+			</div>
+			<div class="tiaomatu">
+				<img src="{$order_far_order.picture}" />
+			</div>
+		</div>
+	</div>
+
+
+<!--完结图片(条码)-->
+<div id="layer_tiaoma" style="display:none" >
+	<div class="layer_show_tu">
+		<div class="layer_top">
+			<div class="layer_title"><p>完结图片(条码)</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<div class="tiaomatu">
+			<img src="{$order.wanjiema}" />
+		</div>
+	</div>
+</div>
+	<!--购期凭证(条码)-->
+	<div id="layer_pinzheng" style="display:none" >
+		<div class="layer_show_tu">
+			<div class="layer_top">
+				<div class="layer_title"><p>购期凭证(条码)</p></div>
+				<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+			</div>
+			<div class="tiaomatu">
+				<img src="{$order.buying_picture}" />
+			</div>
+		</div>
+	</div>
+<!--完结图片(整机)-->
+<div id="layer_zhengji" style="display:none" >
+	<div class="layer_show_tu">
+		<div class="layer_top">
+			<div class="layer_title"><p>完结图片(整机)</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<div class="tiaomatu">
+			<img src="{$order.end_picture_1}" />
+		</div>
+	</div>
+</div>
+<!--完结图片(配件)-->
+<div id="layer_peijian" style="display:none" >
+	<div class="layer_show_tu">
+		<div class="layer_top">
+			<div class="layer_title"><p>完结图片(配件)</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<div class="tiaomatu">
+			<img src="{$order.end_picture_2}" />
+		</div>
+	</div>
+</div>
+
+<!--请输入支付密码-->
+<div id="layer_pay" style="display:none" >
+	<div class="layer_pay_tu">
+		<div class="layer_top">
+			<div class="layer_title"><p>请输入支付密码</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<form action="{:U('Lianbao_PC/Userindex/examine_price')}" method="post">
+		<div class="zhifu_pay">
+			<input type="hidden" name="order_number" value="{$order.order_number}"/>
+			<input type="password" name="pay_password"  placeholder="请输入支付密码" />
+		</div>
+		<div class="ensure"><input type="submit" value="确 定"></div>
+		</form>
+	</div>
+</div>
+
+
+<include file="./Application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+	<script>
+		$('#a_a').addClass('hve');
+		$('#My_a').addClass('mover');
+	</script>
+<script>
+	$(function(){
+		var far_status = $('#far_status').val();
+		var far_status_a = $('#far_status_a').val();
+		var status = $('#test').val();
+		if(far_status_a == 2){
+			$('#isisiis').hide();//远程费用
+		}
+		if(far_status_a == ''){
+			$('#isisiis').hide();
+			$('#far_price').hide();
+		}
+
+
+		if(far_status==1){
+		}
+		if(status==1){
+		$('#far_price_list').hide();//远程费用
+		$('#test_1').hide();//配件详情
+		$('#parts_mess').hide();//配件信息带图片
+		$('#gongdxq').hide();//产品完结信息
+		$('#service').hide();//产品服务项目
+		$('#order_end').hide();//产品完结项目带图片
+		$('#fahuo').hide();//发货按钮
+		$('#pay_zf').hide();//立即支付
+		}
+		if(status==2){
+			$('#far_price_list').hide();//远程费用
+			$('#test_1').hide();//配件详情
+			$('#parts_mess').hide();//配件信息带图片
+			$('#gongdxq').hide();//产品完结信息
+			$('#service').hide();//产品服务项目
+			$('#order_end').hide();//产品完结项目带图片
+			$('#gdqu').hide();//取消订单
+			$('#fahuo').hide();//发货按钮
+			$('#pay_zf').hide();//立即支付
+		}
+		if(status==7){
+			$('#gdqu').hide();//取消订单
+			$('#fahuo').hide();//发货按钮
+			$('#pay_zf').hide();//立即支付
+		}
+		if(status==8){
+			$('#test_1').hide();//配件详情
+			$('#parts_mess').hide();//配件信息带图片
+			$('#gongdxq').hide();//产品完结信息
+
+			$('#order_end').hide();//产品完结项目带图片
+			$('#gdqu').hide();//取消订单
+			$('#fahuo').hide();//发货按钮
+			$('#pay_zf').hide();//立即支付
+		}
+		if(status==9){
+			$('#test_1').hide();//配件详情
+			$('#parts_mess').hide();//配件信息带图片
+			$('#gongdxq').hide();//产品完结信息
+
+			$('#order_end').hide();//产品完结项目带图片
+			$('#gdqu').hide();//取消订单
+			$('#fahuo').hide();//发货按钮
+			$('#pay_zf').hide();//立即支付
+		}
+		if(status==10){
+			$('#far_price_list').hide();//远程费用
+			$('#test_1').hide();//配件详情
+			$('#parts_mess').hide();//配件信息带图片
+			$('#gongdxq').hide();//产品完结信息
+
+			$('#order_end').hide();//产品完结项目带图片
+			$('#gdqu').hide();//取消订单
+			$('#fahuo').hide();//发货按钮
+			$('#pay_zf').hide();//立即支付
+		}
+		if(status==11){
+			$('#far_price_list').hide();//远程费用
+			$('#gongdxq').hide();//产品完结信息
+
+			$('#order_end').hide();//产品完结项目带图片
+			$('#gdqu').hide();//取消订单
+			$('#fahuo').hide();//发货按钮
+			$('#pay_zf').hide();//立即支付
+		}
+		if(status==12){
+			$('#far_price_list').hide();//远程费用
+			$('#gongdxq').hide();//产品完结信息
+
+			$('#order_end').hide();//产品完结项目带图片
+			$('#gdqu').hide();//取消订单
+			$('#pay_zf').hide();//立即支付
+		}
+		if(status==13){
+			$('#fahuo').hide();//发货按钮
+			$('#gdqu').hide();//取消订单
+		}
+		if(status==16){
+			$('#far_price_list').hide();//远程费用
+			$('#test_1').hide();//配件详情
+			$('#parts_mess').hide();//配件信息带图片
+			$('#gongdxq').hide();//产品完结信息
+		
+			$('#order_end').hide();//产品完结项目带图片
+			$('#pay_zf').hide();//立即支付
+			$('#fahuo').hide();//发货按钮
+			$('#gdqu').hide();//取消订单
+		}
+
+		if(status==20){
+			$('#fahuo').hide();//发货按钮
+			$('#gdqu').hide();//取消订单
+			$('#pay_zf').hide();//立即支付
+			$('#fajiandan').show();
+		}
+
+	});
+
+</script>
+<script src="__PUBLIC__/Lianbao_PC/js/index.js"></script>
+
+
+</body></html>

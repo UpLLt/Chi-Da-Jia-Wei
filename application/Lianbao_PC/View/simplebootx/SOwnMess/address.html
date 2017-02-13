@@ -1,0 +1,205 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<link href="__PUBLIC__/Service/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Service/css/city-picker.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" media="all" href="__PUBLIC__/Service/css/style.css">
+<script type="text/javascript" src="__PUBLIC__/Service/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Service/js/jquery.leanModal.min.js"></script>
+<style>
+	#Myown{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+	<div class="user_right">
+		<div class="postian"><p>账号设置＞<a href="index.html">基本信息</a></p></div>
+		<div class="basic">
+			<div class="bas_nav">
+				<li><a href="{:U('Lianbao_PC/SOwnMess/index')}">基本资料</a></li>
+				<li><a href="{:U('Lianbao_PC/SOwnMess/setting')}">安全设置</a></li>
+				<li class="hove"><a href="{:U('Lianbao_PC/SOwnMess/address')}">收货地址</a></li>
+				<!-- <li><a href="{:U('Lianbao_PC/SOwnMess/business')}">业务信息</a></li> -->
+			</div>
+			<div class="adress_list">
+				<!--<h1>收货地址</h1>-->
+				<li>
+					<h1>{$default_address.rec_name} <span>{$default_address.rec_phone}</span> <b>已设为默认地址</b></h1>
+					<p>{$default_address.rec_address} <span>
+						<a href="#layer_edit" id="layer_edits" >编辑</a>
+						<a href="{:U('Lianbao_PC/SOwnMess/del_address',array('id'=>$default_address['id']))}" id="delete">删除</a>
+					</span></p>
+				</li>
+
+				{$str_address}
+
+
+				<li class="add_to">
+					<a href="{:U('Lianbao_PC/SOwnMess/add_address_list')}"><i class="fa fa-plus"></i></a>
+				</li>
+			</div>
+		</div>
+	</div>
+</div>
+
+<include file="./public/Service/Sfooter.html"/>
+
+
+<!--收货地址 编辑-->
+<div id="layer_edit" style="display:none" >
+	<div class="layer_show edit">
+		<div class="layer_top">
+			<div class="layer_title"><p>修改收货地址</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<div class="layer_address">
+			<form class="form-inline" method="post" action="{:U('Lianbao_PC/SOwnMess/edit')}" >
+				<div id="distpicker">
+					<div class="form-group">
+						<div style="position: relative;">
+							<input id="city-picker3" class="form-control" readonly type="text" value="四川省/成都市/高新区" data-toggle="city-picker">
+						</div>
+					</div>
+					
+				</div>
+				<div class="addre">
+
+					<li><b>详细地址：</b><input type="text" name="rec_address" value="{$default_address.rec_address}" /></li>
+					<li><b>收 货 人：</b><input type="text" name="rec_name" value="{$default_address.rec_name}" /></li>
+					<li><b>手机号码：</b><input type="text" name="rec_phone" value="{$default_address.rec_phone}" /></li>
+					<li><span>默认地址</span> <input type="radio" value="1" name="status" class="checkboxs" checked="cheched" />
+						<span>不是默认地址</span> <input type="radio" value="0" name="status" class="checkboxs"  />
+					</li>
+					<li><input type="hidden" value="{$default_address.id}" name="id"></li>
+
+				</div>
+				<div class="ensure"><input type="submit"  value="确 定"></div>
+			</form>
+		</div>
+
+	</div>
+</div>
+
+<foreach name="_address" item="vo">
+
+<div id="layer_edit_{$vo.number}" style="display:none" >
+	<div class="layer_show edit">
+		<div class="layer_top">
+			<div class="layer_title"><p>修改收货地址</p></div>
+			<div class="tel_colse" onclick="closeLayer_{$vo.number}()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<div class="layer_address">
+			<form class="form-inline" method="post" action="{:U('Lianbao_PC/SOwnMess/edit')}" >
+				<div id="distpicker_{$vo.number}">
+					<div class="form-group">
+						<div style="position: relative;">
+							<input id="city-picker3_{$vo.number}" class="form-control" readonly type="text" value="{$vo.rec_city}" data-toggle="city-picker">
+						</div>
+					</div>
+
+				</div>
+				<div class="addre">
+
+					<li><b>详细地址：</b><input type="text" name="rec_address" value="{$vo.rec_address}" /></li>
+					<li><b>收 货 人：</b><input type="text" name="rec_name" value="{$vo.rec_name}" /></li>
+					<li><b>手机号码：</b><input type="text" name="rec_phone" value="{$vo.rec_phone}" /></li>
+					<li><span>默认地址</span> <input type="radio" value="1" name="status" class="checkboxs"/>
+						<span>不是默认地址</span> <input type="radio" value="0" name="status" class="checkboxs"  checked="cheched"  />
+					</li>
+					<li><input type="hidden" value="{$vo.id}" name="id"></li>
+
+				</div>
+				<div class="ensure"><input type="submit"  value="确 定"></div>
+			</form>
+		</div>
+	</div>
+</div>
+</foreach>
+
+<script type="text/javascript">
+$(function(){
+  $('#form-inline').submit(function(e){
+    return false;
+  });
+  
+  $('#layer_edits').leanModal({ top: 110, overlay: 0.45, closeButton: ".sadsdas" });
+});
+//关闭弹出层
+function closeLayer(){
+document.getElementById("layer_edit").style.display = "none";
+document.getElementById("lean_overlay").style.display = "none";
+return false;
+}
+$(function(){
+	$('#form-inline_0').submit(function(e){
+		return false;
+	});
+	$('#layer_edits_0').leanModal({ top: 110, overlay: 0.45, closeButton: ".sadsdas" });
+});
+//关闭弹出层
+function closeLayer_0(){
+	document.getElementById("layer_edit_0").style.display = "none";
+	document.getElementById("lean_overlay").style.display = "none";
+	return false;
+}
+$(function(){
+	$('#form-inline_1').submit(function(e){
+		return false;
+	});
+	$('#layer_edits_1').leanModal({ top: 110, overlay: 0.45, closeButton: ".sadsdas" });
+});
+//关闭弹出层
+function closeLayer_1(){
+	document.getElementById("layer_edit_1").style.display = "none";
+	document.getElementById("lean_overlay").style.display = "none";
+	return false;
+}
+$(function(){
+	$('#form-inline_2').submit(function(e){
+		return false;
+	});
+	$('#layer_edits_2').leanModal({ top: 110, overlay: 0.45, closeButton: ".sadsdas" });
+});
+//关闭弹出层
+function closeLayer_2(){
+	document.getElementById("layer_edit_2").style.display = "none";
+	document.getElementById("lean_overlay").style.display = "none";
+	return false;
+}
+$(function(){
+	$('#form-inline_3').submit(function(e){
+		return false;
+	});
+	$('#layer_edits_3').leanModal({ top: 110, overlay: 0.45, closeButton: ".sadsdas" });
+});
+//关闭弹出层
+function closeLayer_3(){
+	document.getElementById("layer_edit_3").style.display = "none";
+	document.getElementById("lean_overlay").style.display = "none";
+	return false;
+}
+$(function(){
+	$('#form-inline_4').submit(function(e){
+		return false;
+	});
+	$('#layer_edits_4').leanModal({ top: 110, overlay: 0.45, closeButton: ".sadsdas" });
+});
+//关闭弹出层
+function closeLayer_4(){
+	document.getElementById("layer_edit_4").style.display = "none";
+	document.getElementById("lean_overlay").style.display = "none";
+	return false;
+}
+
+
+
+
+</script>
+<script src="__PUBLIC__/Service/js/bootstrap.js"></script>
+<script src="__PUBLIC__/Service/js/city-picker.data.js"></script>
+<script src="__PUBLIC__/Service/js/city-picker.js"></script>
+<script src="__PUBLIC__/Service/js/main.js"></script>
+
+
+</body>
+</html>

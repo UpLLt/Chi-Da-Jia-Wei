@@ -1,0 +1,119 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<script type="text/javascript" src="__PUBLIC__/Service/js/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.layer.js"></script>
+<style>
+	#Mychengyuan{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+
+	<!--13064323969-->
+	<div class="user_right">
+		<div class="postian"><p>我的成员＞<a>{$repairer.type}</a></p></div>
+		<div class="basic">
+			<div class="apply_show">
+				<h1><span>编辑成员</span></h1>
+				<div class="apply_list">
+					<li><b>真实姓名：</b>{$repairer.real_name} <span><a style="display: none" href="javascript:;" id="rate" onclick="openLayer('rate','layer_rate')">修改利率</a><a href="javascript:;" id="unfriend">解除关系</a></span></li>
+					<li><b>身份证号：</b>{$repairer.id_card}</li>
+					<li><b>身份证照：</b><img src="{$repairer.id_card_picture_1}" /><img src="{$repairer.id_card_picture_2}" /></li>
+					<li><b>联系电话：</b>{$repairer.phone}</li>
+					<li><b>公司地址：</b>{$repairer.address}</li>
+					<li><b>Q  Q号码：</b>{$repairer.qq}</li>
+					<input type="hidden" value="{$repairer.member_status}" id="judge_status">
+					<input type="hidden" value="{$repairer.user_id}" id="user_id">
+				</div>
+				<div class="area_ar">
+					<div class="areah1 ">
+						<foreach name="repairer.service" item="vo">
+						<li id="one{$vo.number}" class="ever" onMouseOver="setTab('one','{$vo.number}',11)" ><a href="#" >{$vo.service_pinlei}</a></li>
+						</foreach>
+					</div>
+					<foreach name="repairer.service" item="vo">
+					<div class="area" id="con_one_{$vo.number}" style="display: none">
+						<foreach name="vo.service_address" item="vq">
+							<li><i></i><span>{$vq}</span></li>
+						</foreach>
+					</div>
+					</foreach>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div id="layer_rate" style="display:none" >
+	<div class="layer_show">
+		<form action="{:U('Lianbao_PC/SMember/xiugaililv')}" method="post">
+		<div class="layer_top">
+			<div class="layer_title"><p>修改利率</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="__PUBLIC__/Service/images/close.png" /></a></div>
+		</div>
+		<div class="rate_show">
+			<input type="hidden" name="repair_person_id" value="{$repairer.user_id}">
+			<h1>利率：<select name="proportion">
+				<option value="0.05">0.05</option>
+				<option value="0.10">0.10</option>
+				<option value="0.15">0.15</option>
+				<option value="0.20">0.20</option>
+				<option value="0.25">0.25</option>
+				<option value="0.30">0.30</option>
+				<option value="0.35">0.35</option>
+				<option value="0.40">0.40</option>
+				<option value="0.45">0.45</option>
+				<option value="0.50">0.50</option>
+			</select>
+
+			</h1>
+
+		</div>
+		<div class="ensure"><input type="submit" value="确 定"></div>
+		</form>
+	</div>
+</div>
+
+<include file="./public/Service/Sfooter.html"/>
+
+
+<script>
+	$(function(){
+		var judge_status = $('#judge_status').val();
+		if(judge_status==2){
+			$('#rate').show();
+		}
+		$('#con_one_1').show();
+
+	});
+	function setTab(name,cursel,n){
+		for(i=1;i<=n;i++){
+			var menu=document.getElementById(name+i);
+			var con=document.getElementById("con_"+name+"_"+i);
+
+			menu.className=i==cursel?"ever":"";
+			con.style.display=i==cursel?"block":"none";
+		}
+	}
+
+	$('#unfriend').on('click', function(){
+		var user = $('#user_id').val();
+		var action  = "{:U('Lianbao_PC/SMember/jiechuguanxi')}";
+		layer.confirm('您是否要解除附属关系！', {
+			btn: ['确定','取消'] //按钮
+		}, function(){
+			$.post(action,{user_id:user},function(data){
+				if(data==1){
+					layer.msg('已为您解除关系！');window.location.href="{:U('Lianbao_PC/SMember/index')}";
+				}else{
+					layer.msg('解除关系失败！', {icon: 1});
+				}
+			})
+		});
+	});
+
+
+</script>
+</body></html>

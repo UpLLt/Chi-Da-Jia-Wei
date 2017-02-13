@@ -1,0 +1,88 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+	<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.layer.js"></script>
+<style>
+	#Mychengyuan{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+
+	<!--13064323969-->
+	<div class="user_right">
+		<div class="postian"><p>我的成员＞<a>{$repairer.type}</a></p></div>
+		<div class="basic">
+			<div class="apply_show">
+				<h1><span>编辑成员</span></h1>
+				<div class="apply_list">
+					<li><b>真实姓名：</b>{$repairer.real_name} <span><a href="javascript:;" id="unfriend">解除关系</a></span></li>
+					<li><b>身份证号：</b>{$repairer.id_card}</li>
+					<li><b>身份证照：</b><img src="{$repairer.id_card_picture_1}" /><img src="{$repairer.id_card_picture_2}" /></li>
+					<li><b>联系电话：</b>{$repairer.phone}</li>
+					<li><b>公司地址：</b>{$repairer.address}</li>
+					<li><b>Q  Q号码：</b>{$repairer.qq}</li>
+					<input type="hidden" value="{$repairer.user_id}" id="user_id">
+				</div>
+				<div class="area_ar">
+					<div class="areah1 ">
+						<foreach name="repairer.service" item="vo">
+						<li id="one{$vo.number}" class="ever" onMouseOver="setTab('one','{$vo.number}',11)" ><a href="#" >{$vo.service_pinlei}</a></li>
+						</foreach>
+					</div>
+					<foreach name="repairer.service" item="vo">
+					<div class="area" id="con_one_{$vo.number}" style="display: none">
+						<foreach name="vo.service_address" item="vq">
+							<li><i></i><span>{$vq}</span></li>
+						</foreach>
+					</div>
+					</foreach>
+				</div>
+				<div class="apply_agree">
+					<h2><span><i class="fa fa-exclamation-circle"></i>{$repairer.real_name}</span>申请成为您的成员</h2>
+					<h4><span><a href="javascript:;" id="agree_ok">同意</a></span><span><a href="javascript:;" id="agree_no">不同意</a></span></h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<include file="./public/Service/Sfooter.html"/>
+
+<script>
+	$(function(){
+		$('#con_one_1').show();
+
+	});
+	function setTab(name,cursel,n){
+		for(i=1;i<=n;i++){
+			var menu=document.getElementById(name+i);
+			var con=document.getElementById("con_"+name+"_"+i);
+
+			menu.className=i==cursel?"ever":"";
+			con.style.display=i==cursel?"block":"none";
+		}
+	}
+	var user = $('#user_id').val();
+	var action = "{:U('Lianbao_PC/SMember/agree_apply')}";
+	var z_action = "{:U('Lianbao_PC/SMember/not_agree_apply')}";
+	$('#agree_ok').on('click', function(){
+		$.post(action,{user_id:user},function(data){
+			if(data==1){
+				layer.msg('对方已成为您的附属成员！');window.location.href="{:U('Lianbao_PC/SMember/apply')}";
+			}
+		})
+	});
+
+	$('#agree_no').on('click', function(){
+		$.post(z_action,{user_id:user},function(data){
+			if(data==1){
+				layer.msg('已驳回对方申请！');window.location.href="{:U('Lianbao_PC/SMember/apply')}";
+			}
+		})
+
+	});
+</script>
+</body></html>

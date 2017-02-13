@@ -1,0 +1,56 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Service/js/jquery.layer.js"></script>
+<style>
+	#Mycaiwu{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+	<div class="user_right">
+		<div class="postian"><p>我的财务＞<a>我的钱包</a></p></div>
+		<div class="basic">
+			<div class="bas_nav">
+				<li><a href="{:U('Lianbao_PC/SWallet/index')}">我的钱包</a></li>
+				<li class="hove"><a href="{:U('Lianbao_PC/SWallet/card')}">我的银行卡</a></li>
+				<li><a href="{:U('Lianbao_PC/SWallet/income')}">财务流水明细</a></li>
+			</div>
+			<div class="card_list">
+				<!--<h1>我的银行卡</h1>-->
+				<foreach name="list" item="vo">
+				<li>
+						<h1><img src="__PUBLIC__/Service/images/nhyh.png" /><span>{$vo.card_bank}</span><span>尾号：{$vo.card_number}</span> <span>持卡人：{$vo.card_name}</span></h1>
+						<h4><span><a href="{:U('Lianbao_PC/SWallet/del_card',array('id'=>$vo['id']))}" id="delete">删除</a></span></h4>
+				</li>
+				</foreach>
+
+
+
+				<li><a href="{:U('Lianbao_PC/SWallet/add_card')}">
+					<h2><i class="fa fa-plus"></i></h2>
+					<p>添加银行卡</p>
+				</a></li>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<include file="./public/Service/Sfooter.html"/>
+
+</div>
+
+<script>
+	$('#delete').on('click', function(){
+		layer.confirm('您确定要删除此银行卡？', {
+		    btn: ['确定','取消'] //按钮
+		}, function(){
+		    layer.msg('已删除！', {icon: 1});
+		});
+	});
+</script>
+
+</body>
+</html>

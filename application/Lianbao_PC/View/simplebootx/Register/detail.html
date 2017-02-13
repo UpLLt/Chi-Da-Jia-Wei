@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"> 
+<title>全国联保</title>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css"></head>
+
+<style>
+	span.current{margin-right:10px}
+</style>
+<include file="./application/Lianbao_PC/View/simplebootx/Index/header.html"/>
+<div class="wmain">
+	<div class="user_login">
+		<h1>填写用户详细信息<span>| Address in detail</span><strong><b><a href="login.html">会员登录</a></b>已有<i>3500</i>位用户入驻了驰达家维 </strong></h1>
+		<div class="address_list">
+			<form action="{:U('Lianbao_PC/Register/add_detail')}" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="user_id" value="{$user_id}">
+				<li><b><span>*</span>法人姓名：</b><input type="text" onchange="a()" name="name" id="name" placeholder="请输入法人姓名"  /></li>
+				<li><b><span>*</span>公司名称：</b><input type="text" onchange="b()" name="company" id="company" placeholder="请输入公司名称"  /></li>
+				<li><b><span>*</span>联系手机：</b><input type="text" onchange="c()" name="user_phone" id="user_phone" placeholder="请输入联系电话" maxlength="11" /></li>
+				<li><b><span>*</span>技术电话：</b><input type="text" onchange="d()" name="skill_phone" id="skill_phone" placeholder="请输入技术电话" /></li>
+				<li><b><span>*</span>客服电话：</b><input type="text" onchange="e()" name="service_phone" id="service_phone" placeholder="请输入客服电话" /></li>
+				<li><b><span>*</span>详细地址：</b><input type="text" onchange="f()" name="com_address" id="com_address" placeholder="请输入公司地址" /></li>
+				<li><b><span>*</span>公司地址：</b><input type="text"  name="detail_address" id="detail_address" placeholder="请输入详细地址" /></li>
+				<li><b><span>*</span>Q     Q：</b><input type="text" onchange="i()" name="qq" id="qq" placeholder="请输入QQ号码" /></li>
+				<li><b><span></span>营业执照：</b><input  type="file" name="business_license" id="business_license" class="file_img" /></li>
+
+				
+				<div class="tijiao"><h4><a href="#"><input type="submit" style="background:#ec5004;border: none;color: white;font-size: 20px; " value="立即提交" ></a></h4></div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+<script>
+function a(){
+	var name = $('#name').val();
+	var reg =  /^[\u4e00-\u9fa5]+$/;
+	if(!reg.test(name)){
+		alert('姓名只能输出中文');
+	}
+}
+function b(){
+	var name = $('#company').val();
+	var reg =  /^[\u4e00-\u9fa5]+$/;
+	if(!reg.test(name)){
+		alert('公司名称只能输出中文');
+	}
+}
+function c(){
+	var name = $('#user_phone').val();
+	var reg =  /(1[3-9]\d{9}$)/;
+	if(!reg.test(name)){
+		alert('请输入正确的手机号码');
+	}
+}
+
+function d(){
+	var name = $('#skill_phone').val();
+	if(isNaN(name)){
+		alert('请输入正确的技术电话号码');
+	}
+}
+function e(){
+	var name = $('#service_phone').val();
+	if(!isNaN(name)){
+		alert('请输入正确的服务电话号码');
+	}
+}
+function f(){
+	var name = $('#com_address').val();
+
+	if(name.length<=0){
+		alert('地址不能为空');
+	}
+}
+function e(){
+	var name = $('#qq').val();
+	var reg =   /^[0-9]*$/;
+	if(isNaN(name)){
+		alert('请输入正确的QQ号码');
+	}
+}
+</script>
+</body></html>

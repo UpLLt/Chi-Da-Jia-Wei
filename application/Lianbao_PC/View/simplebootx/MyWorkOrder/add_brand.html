@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/fadancp.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/fadancp_tjcp.css">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+
+        <div class="user_right">
+
+            <div class="anzhuang">
+                <div class="middle_inner_right">
+                    <div class="middle_inner_right">
+
+                        <div class="list_nav_left">
+                            <ul>
+                                <li class=""><a href="{:U('Lianbao_PC/MyWorkOrder/product_index')}">产品列表</a></li>
+                                <li class="specail"><a href="{:U('Lianbao_PC/MyWorkOrder/brand_list_index')}">品牌列表</a></li>
+                            </ul>
+                            <p><a href="{:U('Lianbao_PC/MyWorkOrder/add_product_index')}" class="add_pro">添加产品</a></p>
+                        </div>
+                        <form method="post" action="{:U('Lianbao_PC/MyWorkOrder/add_brand')}">
+                            <p class="add_pro_show ww">品牌：
+                                <input value="" onblur="leave()" class="input_width" name="brand" id="title" type="text">
+                                <span id="ver_brand" style="color: red;font-size: 14px;display: none"></span>
+                            </p>
+                            <div class="sub sub2">
+                                <input class="sub_but sub_but2" id="addpro" onclick="but()" value="确定" type="button">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-----------------------------middle_inner_right end------------------></div>
+        </div>
+
+    </div>
+
+
+</div>
+</div>
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+<script>
+    function leave(){
+        var title = $("#title").val();
+        if(title.length<=0){
+            $('#ver_brand').html('品牌不能为空');
+            return false;
+        }
+    }
+    function but(){
+        var action ="{:U('Lianbao_PC/MyWorkOrder/add_brand')}";
+        var title = $("#title").val();
+        if(title.length<=0){
+            $('#ver_brand').html('品牌不能为空');
+            return false;
+        }
+        $.post(action,{brand:title},function(data){
+            if(data==1){
+                alert('添加品牌成功');window.location.href='{:U('Lianbao_PC/MyWorkOrder/brand_list_index')}';
+            }else{
+                alert('添加品牌失败');
+            }
+
+        })
+
+    }
+
+</script>
+<script>
+    $('#e_e').addClass('hve');
+</script>
+</body></html>

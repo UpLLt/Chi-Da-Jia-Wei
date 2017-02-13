@@ -1,0 +1,60 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<link href="__PUBLIC__/Service/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Service/css/city-picker.css" rel="stylesheet" type="text/css" />
+<style>
+	#Myown{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+	<div class="user_right">
+		<div class="postian"><p>账号设置＞<a href="{:U('Lianbao_PC/SOwnMess/index')}">基本信息</a></p></div>
+		<div class="basic">
+			<div class="bas_nav">
+				<li><a href="{:U('Lianbao_PC/SOwnMess/setting')}">基本资料</a></li>
+				<li><a href="{:U('Lianbao_PC/SOwnMess/setting')}">安全设置</a></li>
+				<li class="hove"><a href="{:U('Lianbao_PC/SOwnMess/address')}">收货地址</a></li>
+				<!-- <li><a href="{:U('Lianbao_PC/SOwnMess/business')}">业务信息</a></li> -->
+			</div>
+			<div class="add_adress_list">
+				<!--<h1>增加收货地址</h1>-->
+				<form class="form-inline" method="post" action="{:U('Lianbao_PC/SOwnMess/add_address')}" id="form-inline">
+					<li><b>所在区域：</b><div id="distpicker" class="distpicker">
+						<div class="form-group">
+							<div style="position: relative;">
+								<input id="city-picker3" class="form-control" name="rec_city" readonly type="text" value="四川省/成都市/高新区" data-toggle="city-picker">
+							</div>
+						</div>
+					</div></li>
+					<li><b>详细地址：</b><input type="text" name="rec_address" id="sdad"></li>
+					<li><b>收 货 人：</b><input type="text" name="rec_name" ></li>
+					<li><b>手机号码：</b><input type="text" name="rec_phone" ></li>
+					<li><b class="divlib">默认地址</b> <input type="radio" value="1" name="status" class="divlibcheck" checked="cheched" />
+						<b style="padding-left: 10px" class="divlib">不是默认地址</b><input type="radio" name="status" value="0" class="divlibcheck"  />
+					</li>
+					<input type="hidden" value="{$user_id}" name="user_id">
+					<div class="ensure lef"><input type="submit"  value="保 存"></div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+<include file="./public/Service/Sfooter.html"/>
+
+
+<script src="__PUBLIC__/Service/js/jquery.js"></script>
+<script src="__PUBLIC__/Service/js/bootstrap.js"></script>
+<script src="__PUBLIC__/Service/js/city-picker.data.js"></script>
+<script src="__PUBLIC__/Service/js/city-picker.js"></script>
+<script src="__PUBLIC__/Service/js/main.js"></script>
+
+
+</body>
+</html>

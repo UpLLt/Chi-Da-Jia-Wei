@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" type="text/css" media="all" href="__PUBLIC__/Lianbao_PC/style.css">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lianbao_PC/js/jquery.leanModal.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/jeDate/jedate.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Lianbao_PC/css/wallet.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/wallet_czjl.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/wallet_dljl.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/wallet_myzd.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/wallet_qtzc.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/wallet_bzj.css">
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+		<div class="user_right">
+      <div class="anzhuang">
+
+        <div class="guide">
+          <ul>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/index')}">账号总额</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/recharg_history')}">充值记录</a></li>
+		    <li class=""><a href="{:U('Lianbao_PC/Wallet/danliang')}">单量记录</a></li>        
+		    <li class=""><a href="{:U('Lianbao_PC/Wallet/month_bill')}">每月账单</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/other_pay')}">其他支出</a></li>
+			<li class="selected"><a href="{:U('Lianbao_PC/Wallet/bond')}">保证金</a></li>
+		   <li class=""><a href="{:U('Lianbao_PC/Wallet/frozen_money')}">冻结金额</a></li>
+          </ul>
+        </div>
+        <div class="list_nav_left">
+          <ul>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/bond')}">全部保证金记录</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/bond_extract')}">提取保证金记录</a></li>
+            <li class="specail"><a href="{:U('Lianbao_PC/Wallet/bond_pay')}">缴纳保证金记录</a></li>
+          </ul>
+        </div>
+        <form action="{:U('Lianbao_PC/Wallet/bond_pay')}" method="post">
+          <div class="input_box"><span>时间：</span><span>
+            <input id="cal1" class="input_width get_time" name="start_time" value="{$time.start_time|date="Y-m-d",###}" type="text">
+            </span><span>&nbsp;至：</span><span>
+            <input id="cal2" class="input_width get_time" name="end_time" value="{$time.end_time|date="Y-m-d",###}" type="text">
+            &nbsp;</span><span>
+            <input class="search_but" value="查询" type="submit">
+            </span>
+            <p><a href="#loginmodal" id="modaltrigger" class="theme-login2 list_nav_right">马上缴纳保证金</a></p>
+            <!--<span><input  class="search_but"  name="daochu" value="导出EXCEL" type="submit"/></span>--></div></form>
+          <table class="box_line box_line2">
+            <tbody>
+              <tr class="odd">
+                <th>编号</th>
+                <th>保证金金额</th>
+                <th>时间</th>
+                <th>类型</th>
+              </tr>
+			   <foreach name="list" item="vo">
+			  <tr class="odd">
+                <th>{$vo.bond_number}</th>
+                <th>{$vo.bond}</th>
+                <th>{$vo.create_time|date="Y-m-d",###}</th>
+                <th>{$vo.pay_type}</th>
+              </tr>
+			   </foreach>
+            </tbody>
+          </table>
+          <div class="page2"> {$page}</div>
+       
+ </div> </div>
+     
+           
+
+        <!-- middle_inner_left_body end --></div>
+      <!-- 左边结束 -->
+      
+         
+     
+
+      <!-----------------------------middle_inner_right end------------------></div>
+    </div>
+
+  <!-- 页脚开始 -->
+
+
+
+  <div id="loginmodal" style="display:none;width:400px;height:400px;padding:20px;">
+	<div style="width:368px;height:35px;padding-left:30px;margin-top:20px;font:25px;text-align: left;color:#f00;border-bottom:1px solid red" >缴纳保证金</div>
+	<div style="height:40px;font:20px;padding-top:20px">缴纳保证金优势</div>
+	<div style="height:40px;padding-top:30px;text-align:left;margin-left:20px;">优势1：冻结金额为该品类的平均价格小于最大维修</div>
+	<div style="height:40px;padding-top:20px;text-align:left;padding-left:70px;">价格，可以让您下更多的单。</div>
+	<div style="height:40px;padding-top:15px;text-align:left;margin-left:20px;">优势2：旧件返回时可以选择现付，节省15%-30%的快</div>
+	<div style="height:40px;padding-top:10px;text-align:left;padding-left:70px;">递费</div>
+	<div style="height:40px;text-align:left;margin-left:20px;">我要缴纳<font style="color:red">1000元</font>保证金</div>
+	<form id="loginform" name="loginform" method="post" action="{:U('Lianbao_PC/Wallet/jiao_bond')}">
+ 	<div id="button_button" style="padding-left:200px;">
+		<button type="button" id="button" style="width:70px;height:30px;line-height:30px;display:inline-block;text-align:center;font-size: 14px;color:rgb(255,255,255);background:rgb(219,28,33) none repeat scroll 0% 0%;" >确认</button>
+		<input type="hidden" value="1000" id="hid_one" />
+		<button type="button" id="close" style="width:70px;height:30px;line-height:30px;display:inline-block;text-align:center;font-size: 14px;color:rgb(255,255,255);background:rgb(219,28,33) none repeat scroll 0% 0%;">取消</button>
+	</div>
+	
+	</form>
+  </div>
+  <include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+<script type="text/javascript">
+	jeDate({
+		dateCell:"#cal1",//isinitVal:true,
+		format:"YYYY-MM-DD",
+		isTime:true, //isClear:false,
+		isinitVal:false,	
+	
+	})
+	jeDate({
+		dateCell:"#cal2",//isinitVal:true,
+		format:"YYYY-MM-DD",
+		isTime:true, //isClear:false,
+		isinitVal:false,
+	})
+$(function(){
+  $('#loginform').submit(function(e){
+    return false;
+  });
+  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+  $('#button').click(function(){
+	var  money_one = $('#hid_one').val();
+	var  action    = $('#loginform').attr('action');
+	$.post(action,{money:money_one},function(data){
+		if(data==1){
+			alert('余额不足');window.location.href="{:U('Lianbao_PC/Wallet/bond')}";
+		}
+		if(data==0)
+		{
+			alert('缴纳保证金成功');window.location.href="{:U('Lianbao_PC/Wallet/bond')}";
+		}
+		if(data==2)
+		{
+			alert('缴纳保证金失败');window.location.href="{:U('Lianbao_PC/Wallet/bond')}";
+		}
+	}) 
+  })
+ $('#close').click(function(){
+	window.location.href="{:U('Lianbao_PC/Wallet/bond')}";
+ }) 
+});
+</script>
+<script>
+    $('#c_c').addClass('hve');
+</script>
+</body>
+</html>

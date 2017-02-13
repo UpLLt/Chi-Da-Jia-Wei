@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" charset="utf-8" async="" src="__PUBLIC__/Lianbao_PC/js/crmqq.txt"></script>
+<script type="text/javascript" charset="utf-8" async="" src="__PUBLIC__/Lianbao_PC/js/contains.js"></script>
+<script type="text/javascript" charset="utf-8" async="" src="__PUBLIC__/Lianbao_PC/js/localStorage.js"></script>
+<script type="text/javascript" charset="utf-8" async="" src="__PUBLIC__/Lianbao_PC/js/Panel.js"></script>
+
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"> 
+<title>驰达家维</title>
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/banner.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/slider.js"></script>
+<include file="./application/Lianbao_PC/View/simplebootx/Index/index_header.html"/>
+
+
+
+<!--banner-->
+<div class="header-content home banner">
+    <div class="slide-main" id="touchMain">
+        <div class="slide-box" id="slideContent">
+            <div class="slide" id="bgstylec">
+                <img src="{$banner.link_image}" />
+            </div>
+            <div class="slide" id="bgstylea">
+                <img src="{$banner_b.link_image}" />
+                
+            </div>
+            <div class="slide" id="bgstyleb">
+                <img src="{$banner_c.link_image}" />
+            </div>
+        </div>
+        <div class="item">
+            <a class="cur" href="javascript:;"></a>
+            <a href="javascript:;" ></a>
+            <a href="javascript:;" ></a>
+        </div>
+    </div>
+</div>
+
+
+<div class="clear"></div>
+<div class="middle_box liang" >
+	<!--<div class="wmain">-->
+		<!--<li><h1>用户下单量</h1><p>——</p><h4>{$count.order_count}</h4><p>平台现有用户{$count.user}位，成功发布订单量{$count.order_count}单</p></li>-->
+		<!--<li><h1>已完成订单量</h1><p>——</p><h4>{$count.end}</h4><p>来自100个地区的师傅已经完成了{$count.end}单</p></li>-->
+		<!--<li><h1>平台现有任务</h1><p>——</p><h4>{$count.order_ing}</h4><p>来自100个地区的师傅已经完成了{$count.end}单</p></li>-->
+    <!--</div>-->
+</div>
+<!--板块开始-->
+<div class="wmain">
+	<div class="clear" style="padding-top:1px;"></div>
+	<!--Middle-->
+    
+
+    <div class="section_365 mtp30 f2" align="center">
+	            <div class="box_365 f2" >
+        	<div class="T yh"><a href="{:U('Lianbao_PC/Userindex/userindex')}"><h4>我要发单</br><p style="font-weight: 300;">快速注册，即点即发</p></h4></a></div>
+            <div class="C">
+            	<a href="{:U('Lianbao_PC/Userindex/userindex')}"><img style="width=266px;height:213px;" src="{$fadan.link_image}"></a>
+                <p>{$fadan.post_title}</p>
+                <!--<span class="block"><a href="{:U('Lianbao_PC/Userindex/userindex')}">点击发单</a></span>-->
+            </div>
+        </div>
+		        <div class="box_365 f2">
+        	<div class="T yh"><a href="{:U('Lianbao_PC/AccessOrder/index')}"><h4>我要接单</br><p style="font-weight: 300;">实时接单，预约上门</p></h4></a></div>
+            <div class="C">
+            	<a href="{:U('Lianbao_PC/AccessOrder/index')}"><img style="width=266px;height:213px;" src="{$jiedan.link_image}" ></a>
+                <p>{$jiedan.post_title}</p>
+                <!--<span class="block"><a href="{:U('Lianbao_PC/AccessOrder/index')}">点击接单</a></span>-->
+            </div>
+        </div>
+		        <div class="clear"></div>
+    </div>
+	
+	
+    <!--新闻-->
+    <div class="news mtp30 fr" style="display: none">
+    	<div class="T"><a href="{:U('Lianbao_PC/NoviceGuide/index')}" class="more yh fr"> More&gt;&gt;</a><a href=""><img src="__PUBLIC__/Lianbao_PC/images/news_t_bg.gif" alt=""></a></div>
+        <div class="C">
+        	<ul>
+			  <foreach name="novice_guild" item="vo">
+				 <li><a href="{:U('Lianbao_PC/NoviceGuide/detail',array('id'=>$vo['id']))}">{$vo.post_title}</a></li>
+			</foreach>	
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <!--case-->
+	
+    <div class="case mtp30" style="display: none">
+    	<div class="index_line"></div>
+    	<div class="index_T"><a href="{:U('Lianbao_PC/SetShop/index')}" class="more fr">More&gt;&gt;</a><a href="#"><img src="__PUBLIC__/Lianbao_PC/images/case_T_bg.gif" alt=""></a><div class="clear"></div></div>
+	
+        <div class="clear"></div>
+        <ul class="yh">
+		
+		 <foreach name="collaborate_shop" item="vo">
+				<li><a href="{:U('Lianbao_PC/SetShop/setshop_detail',array('id'=>$vo['id']))}"><img src="{$vo.smeta}" alt=""><p>{$vo.title}</p></a></li>
+		 </foreach>				
+		 </ul>
+        <div class="clear"></div>
+    </div>
+    <!--service-->
+    <div class="service" style="display: none">
+    	<div class="index_line"></div>
+    	<div class="index_T"><a href="{:U('Lianbao_PC/TradeShow/index')}" class="more fr">More&gt;&gt;</a><a href=""><img src="__PUBLIC__/Lianbao_PC/images/service_t_bg.gif" alt=""></a><div class="clear"></div></div>
+        <ul>
+		<foreach name="trade_show" item="vo">
+				<li><a href="{:U('Lianbao_PC/TradeShow/tradeshow_detail',array('id'=>$vo['id']))}">
+					<div class="ser_img fl"><img src="{$vo.smeta}" alt=""></div>
+					<h4 class="fr">{$vo.post_title}&gt;&gt;</h4>
+					<div class="clear"></div></a>
+				</li>
+		</foreach>	
+	   </ul>
+        <div class="clear"></div>
+    </div>
+    <!--join us-->
+    <div class="join_us mtp30">
+    	<div class="index_line"></div>
+    	<div class="index_T"><a href="{:U('Lianbao_PC/Advantage/index')}" class="more fr">More&gt;&gt;</a><a href="#"><img src="__PUBLIC__/Lianbao_PC/images/join_t_bg.gif" alt=""></a><div class="clear"></div></div>
+        <div class="join_all fl">
+		
+		    <a target="_blank" href="{:U('Lianbao_PC/Advantage/index')}"><div class="join_banner"><img src="{$advantage.smeta}" alt=""></div></a>
+           
+          
+        </div>
+       
+    </div>
+    <!--合作伙伴-->
+    <div class="partner" align="center" style="display: none">
+    	<div class="index_line"></div>
+    	<div class="index_T"><a href="{:U('Lianbao_PC/SetShop/index')}" class="more fr">More&gt;&gt;</a><a href="#"><img src="__PUBLIC__/Lianbao_PC/images/partner_t_bg.gif" alt=""></a><div class="clear"></div></div>
+        <ul>
+            <foreach name="collaborate_shop" item="vo">
+				<li><a href="{:U('Lianbao_PC/SetShop/setshop_detail',array('id'=>$vo['id']))}"><img src="{$vo.smeta}" alt=""></a></li>
+			</foreach>
+                </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<!--板块结束-->
+<div class="clear"></div>
+<!--foot_section-->
+ <div class="foot_section mtp30">
+    <div class="wmain">
+        <ul>
+            <li class="li1">
+                <span class="fl pic_T block"><img src="__PUBLIC__/Lianbao_PC/images/foot_T_icon1.png" alt=""></span>
+                <div class="word fl">
+                    <span class="T yh block"><h4>官方平台</h4><i>{$pingtai.link_name}</i></span>
+                    <span class="C block">
+                    <div class="weibo erweima_btn">
+                             <a target="_blank" href="{$pingtai.link_url}"><img src="__PUBLIC__/Lianbao_PC/images/foot_sina_icon.png" alt=""></a>
+
+                    </div>
+                    <div class="weixin erweima_btn">
+                        <a href="javascript:void(0)"><img src="__PUBLIC__/Lianbao_PC/images/foot_weixin_icon.png" alt=""></a>
+                        <div class="show_box">
+                            <img src="__PUBLIC__/Lianbao_PC/images/WX_EWM.png" alt="">
+                        </div>
+                    </div>
+                   
+                    </span>
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="li2 yh">
+                <span class="fl pic_T block"><img src="__PUBLIC__/Lianbao_PC/images/foot_T_icon2.png" alt=""></span>
+                <div class="word fl">
+                    <span class="T block"><h4>公司地址</h4><i>ADDRESS</i></span>
+                    <span class="C block">
+                        <p>总　部:{$dizhi.link_description}</p>
+                    </span>
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li class="li3">
+                <span class="fl pic_T block"><img src="__PUBLIC__/Lianbao_PC/images/foot_T_icon3.png" alt=""></span>
+                <div class="word fl">
+                    <span class="T yh block"><h4>咨询热线</h4><i>HOTLINE</i></span>
+                    <span class="C yh block"><b><a tel="400-400-4000">{$rexian.link_description}</a></b></span>
+                </div>
+                <div class="clear"></div>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+</body></html>

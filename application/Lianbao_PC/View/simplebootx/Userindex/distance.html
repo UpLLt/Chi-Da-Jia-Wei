@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/jeDate/jedate.js"></script>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+		<div class="user_right">
+				<div class="gd_list">
+				<li><a href="{:U('Lianbao_PC/Userindex/userindex')}">所有工单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/wait')}">待接单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/cancel')}">已取消</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/end')}">已完结</a></li>
+				<li class="move"><a href="{:U('Lianbao_PC/Userindex/distance')}">远程费单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/parts')}">配件单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/wait_pay')}">待支付</a></li>
+
+			</div>
+			<form method="post" action="{:U('Lianbao_PC/Userindex/distance')}">
+		   <div class="search">
+				时间：<input type="text" id="indate" style="width:168px;height:30px;"  name="start_time" value="{$time.start_time|date="Y-m-d",###}" />至：<input type="text" id="indat" style="width:168px;height:30px;"  name="end_time" value="{$time.end_time|date="Y-m-d",###}" /> <input type="text" class="gh" name="key" placeholder="请输入工单或客户姓名或手机号码"  /><input class="but" type="submit" value="查 询" /> 
+			</div>
+			</form>
+			<div class="dingd">
+				<li>订单编号</li>
+				<li>客户信息</li>
+				<li>客户地址</li>
+				<li>价格</li>
+				<li>状态</li>
+				<li>操作</li>
+			</div>
+			
+			<div class="didang">
+				<foreach name="list" item="vo">
+				<div class="xiang">
+					<li><a href="#">{$vo.order_number}</a></li>
+					<li>{$vo.user_name}</li>
+					<li>{$vo.user_city}</li>
+					<li>{$vo.repair_price}</li>
+					<li>{$vo.status}</li>
+					<li><a href="{:U('Lianbao_PC/Userindex/detail',array('order_number'=>$vo['order_number'],'far_status'=>$vo['far_status']))}">订单详情</a></li>
+				</div>
+				</foreach>
+				{$page}
+			</div>
+			
+		</div>
+	</div>
+</div>   
+   
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+<script>
+	$('#a_a').addClass('hve');
+	$('#My_a').addClass('mover');
+</script>
+<script type="text/javascript">
+	jeDate({
+		dateCell:"#indate",//isinitVal:true,
+		format:"YYYY-MM-DD",
+		isTime:true, //isClear:false,
+		isinitVal:false,	
+	
+	})
+	jeDate({
+		dateCell:"#indat",//isinitVal:true,
+		format:"YYYY-MM-DD",
+		isTime:true, //isClear:false,
+		isinitVal:false,
+	})
+</script>
+
+</body></html>

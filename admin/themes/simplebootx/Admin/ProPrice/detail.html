@@ -1,0 +1,55 @@
+<admintpl file="header"/>
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#" target="_self">查看价格</a></li>
+    </ul>
+    <form action="{:U('AdminPost/add_post')}" method="post" class="form-horizontal js-ajax-forms"
+          enctype="multipart/form-data">
+        <div class="row-fluid">
+            <div class="span9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>产品名称</th>
+                        <td>{$pro_price.product}</td>
+
+                    </tr>
+
+                    <tr>
+                        <th>产品类别</th>
+                        <td>{$pro_price.pro_pinlei}</td>
+
+                    </tr>
+                    <tr>
+                        <th>产品属性</th>
+                        <td>{$pro_price.pro_property}</td>
+
+                    </tr>
+                    <tr>
+                        <th>产品价格</th>
+                        <td>{$pro_price.pro_price}</td>
+                    </tr>
+                    <tr>
+                        <th>产品id</th>
+                        <td>{$pro_price.id}</td>
+                    </tr>
+                    <tr>
+                        <th>创建时间</th>
+                        <td>{$pro_price.create_time|date="Y-m-d",###}</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

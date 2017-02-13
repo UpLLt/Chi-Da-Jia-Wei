@@ -1,0 +1,39 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:U('ProPrice/pinlei_list')}">品类列表</a></li>
+			<li><a href="{:U('ProPrice/add_pinlei_list')}">添加品类</a></li>
+		</ul>
+			<php>$status=array("1"=>L('DISPLAY'),"0"=>L('HIDDEN'));</php>
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th width="50">id</th>
+						<th width="50">品类名</th>
+						<th>品类图片</th>
+						<th>创建时间</th>
+						<th width="120">{:L('ACTIONS')}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<foreach name="pinlei" item="vo">
+
+					<tr>
+						<td>{$vo.id}</td>
+						<td>{$vo.pro_pinlei}</td>
+						<td> <a href="{:sp_get_asset_upload_path($vo['pinlei_picture'])}" target='_blank'><img style="height: 40px;height: 40px" src="{$vo.pinlei_picture}"></a></td>
+						<td>{$vo.create_time|date='Y-m-d',###}</td>
+						<td>
+							<a href="{:U('ProPrice/pinlei_edit',array('id'=>$vo['id']))}">{:L('EDIT')}</a>|
+							<a href="{:U('ProPrice/pinlei_delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:L('DELETE')}</a>
+						</td>
+					</tr>
+					</foreach>
+				</tbody>
+			</table>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/fadancp.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/fadancp_tjcp.css">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+
+    <div class="user_right">
+
+      <div class="anzhuang">
+      <div class="middle_inner_right">
+     <div class="middle_inner_right">
+     
+        <div class="list_nav_left">
+          <ul>
+            <li class="specail"><a href="{:U('Lianbao_PC/MyWorkOrder/product_index')}">产品列表</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/MyWorkOrder/brand_list_index')}">品牌列表</a></li>
+          </ul>
+           <p><a href="{:U('Lianbao_PC/MyWorkOrder/add_product_index')}" class="add_pro">添加产品</a></p>
+        </div>
+		<form method="post" action="{:U('Lianbao_PC/MyWorkOrder/add_product')}">
+        <p class="add_pro_show ww">名称及规格型号：
+          <input value="" id="new_name" class="input_width"  name="pro_name"  type="text">
+        </p>
+        <p class="add_pro_show">品牌：
+          <select class="choose_band" id="choose_brand" name="band_id" >
+		  <foreach name="brand" item="vo">
+            <option value="{$vo.brand}">{$vo.brand}</option>
+		  </foreach>
+          </select>
+        </p>
+        <p class="add_pro_show">品类： <span class="choose_band kind_list" style="display: none;">品类</span>
+          <select class="choose_band kind_list" id="pro_pinlei" onchange="pinlei()" name="brand_type">
+		  <foreach name="type" item="vo">
+            <option id="pro_pinlei_lei" value="{$vo.pro_pinlei}">{$vo.pro_pinlei}</option>
+          </foreach>
+          </select>
+		  <select class="choose_band kind_list" id="pro_product" onchange="product()" name="xiao_lei" style="visibility:hidden;">		       
+          </select>
+        <p style="visibility:hidden;" class="add_pro_show" id="add_pro_one"><span id="span_one"> </span>：<span class="choose_band kind_list" style="display: none;">1</span>
+		  <select class="choose_band kind_list" id="pro_product_one"  name="perpoty_one" >		       
+          </select>
+		 
+		</p>
+		<p style="visibility:hidden;" class="add_pro_show" id="add_pro_two"><span id="span_two"> </span>： <span class="choose_band kind_list" style="display: none;">2</span>
+		  <select class="choose_band kind_list" id="pro_product_two"   name="perpoty_two" >		       
+          </select>
+		 
+		</p>
+		   <p style="visibility:hidden;" class="add_pro_show" id="add_pro_three"><span id="span_three"> </span>： <span class="choose_band kind_list" style="display: none;">3</span>
+		  <select class="choose_band kind_list" id="pro_product_three"  name="perpoty_three">		       
+          </select>
+		 
+		</p>
+		   <p style="visibility:hidden;" class="add_pro_show" id="add_pro_four"><span id="span_four"> </span>： <span class="choose_band kind_list" style="display: none;">4</span>
+		  <select class="choose_band kind_list" id="pro_product_four"   name="perpoty_four" >		       
+          </select>
+		 
+		</p>
+
+        <div class="sub sub2">
+          <input class="sub_but sub_but2" id="addpro"  onclick="submit_judge()" value="确定" type="button">
+        </div>
+		</form>
+      </div>
+      </div>
+      <!-----------------------------middle_inner_right end------------------></div>
+  </div>
+  
+</div>
+<!-- ------------------购买服务end------------------- -->
+<div class="loading-modal" style="display: none;">
+  <div class="loading-con">
+    <p>正在加载</p>
+  </div>
+</div>
+<div id="lhgcalendar" class="lhgcal" style="display: none;">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+      <tr>
+        <td class="lhgcal_leftTop"></td>
+        <td class="lhgcal_top"></td>
+        <td class="lhgcal_rightTop"></td>
+      </tr>
+      <tr>
+        <td class="lhgcal_left"></td>
+        <td><div class="lhgcal_head">
+            <div id="lhgPreYear" class="lhgcal_head_preyear"><a href="###"></a></div>
+            <div class="lhgcal_head_premonth"><a id="lhgPreMonth" href="###"></a></div>
+            <div class="lhgcal_head_year">
+              <input value="" id="lhgYearBox">
+              年</div>
+            <div class="lhgcal_head_month">
+              <input value="" id="lhgMonthBox">
+              月</div>
+            <div class="lhgcal_head_nextyear"><a id="lhgNextYear" href="###"></a></div>
+            <div class="lhgcal_head_nextmonth"><a id="lhgNextMonth" href="###"></a></div>
+          </div>
+          <div class="lhgcal_body">
+            <table border="0" cellpadding="0" cellspacing="1" width="100%">
+              <thead>
+                <tr>
+                  <td>日</td>
+                  <td>一</td>
+                  <td>二</td>
+                  <td>三</td>
+                  <td>四</td>
+                  <td>五</td>
+                  <td>六</td>
+                </tr>
+              </thead>
+              <tbody id="lhgDayBox">
+              </tbody>
+            </table>
+          </div>
+          <div class="lhgcal_foot">
+            <div class="lhgcal_foot_button"><a id="lhgTodayBox" href="###">今天</a></div>
+            <div class="lhgcal_foot_button"><a id="lhgDelBox" href="###">清空</a></div>
+            <div id="lhgDateBox" class="lhgcal_foot_date">
+              <input value="" id="lhgHourBox">
+              :
+              <input value="" id="lhgMinuteBox">
+              :
+              <input value="" id="lhgSecondBox">
+            </div>
+          </div></td>
+        <td class="lhgcal_right"></td>
+      </tr>
+      <tr>
+        <td class="lhgcal_leftBottom"></td>
+        <td class="lhgcal_bottom"></td>
+        <td class="lhgcal_rightBottom"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+    </div>
+  </div>
+</div>   
+   
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+<script>
+	$('#e_e').addClass('hve');
+</script>
+<script>
+function pinlei(){
+ var action  = "{:U('Lianbao_PC/MyWorkOrder/select_price')}";
+ $('#pro_product').css("visibility","visible");
+ var pinlei_name  = $("#pro_pinlei").val();
+
+  $('.band_band').remove();
+	$.ajax({
+		type:"post",
+		url:action,
+		data:{pinlei:pinlei_name},
+		datatype:"json",
+		success:function(data){	
+		 for(var i=0;i<data.length;i++){
+				$('#add_pro_one').css("visibility","hidden");
+				$('#add_pro_two').css("visibility","hidden");
+				$('#add_pro_three').css("visibility","hidden");
+				$('#add_pro_four').css("visibility","hidden");
+				$("#pro_product").append("<option class='band_band' value="+data[i]+">"+data[i]+"</option>");
+		 } 	
+		}
+	})
+}
+function product(){
+var action =  "{:U('Lianbao_PC/MyWorkOrder/product_price')}";
+var pinlei_name  = $("#pro_pinlei").val();
+var product_name = $("#pro_product").val();
+
+	$.ajax({	
+		type:"post",
+		url:action,
+		data:{pinlei:pinlei_name,product:product_name},
+		datatype:"json",
+		success:function(data){			
+			if(data['property_name_one']!=null){
+			$('#add_pro_one').css("visibility","visible");
+
+			var produc_one = $("#pro_product_one").val();			
+			$("#pro_product_one >option ").remove();						
+			    var arr1= data['property_one'];
+				var arr = arr1.split(',');
+				$("#span_one").html(data['property_name_one']);
+			    for(var i in arr){
+					$("#pro_product_one").append("<option class='band_band' value="+arr[i]+">"+arr[i]+"</option>");
+				}
+			}
+			if(data['property_name_two']!=null){
+			$('#add_pro_two').css("visibility","visible");
+			$("#pro_product_two >option ").remove();	
+			    var arr1= data['property_two'];
+				var arr = arr1.split(',');
+				$("#span_two").html(data['property_name_two']);
+			    for(var i in arr){
+					$("#pro_product_two").append("<option class='band_band' value="+arr[i]+">"+arr[i]+"</option>");
+				}
+			}else{
+			$('#add_pro_two').css("visibility","hidden");
+			}
+			if(data['property_name_three']!=null){
+			$('#add_pro_three').css("visibility","visible");
+			$("#pro_product_three >option ").remove();	
+			    var arr1= data['property_three'];
+				var arr = arr1.split(',');
+				$("#span_three").html(data['property_name_three']);
+			    for(var i in arr){
+					$("#pro_product_three").append("<option class='band_band' value="+arr[i]+">"+arr[i]+"</option>");
+				}
+			}else{
+			$('#add_pro_three').css("visibility","hidden");
+			}
+			if(data['property_name_four']!=null){
+			$('#add_pro_four').css("visibility","visible");
+			$("#pro_product_four >option ").remove();	
+			    var arr1= data['property_four'];
+				var arr = arr1.split(',');
+				$("#span_four").html(data['property_name_four']);
+			    for(var i in arr){
+					$("#pro_product_four").append("<option class='band_band' value="+arr[i]+">"+arr[i]+"</option>");
+				}
+			}else{
+			$('#add_pro_four').css("visibility","hidden");
+			}
+		}
+	})
+
+}
+function submit_judge(){
+	var name_name		  = $('#new_name').val();
+	var band_id_di		  = $('#choose_brand').val();
+	var pro_product_one   = $('#pro_product_one').val();
+	var pro_product_two   = $('#pro_product_two').val();
+	var pro_product_three = $('#pro_product_three').val();
+	var pro_product_four  = $('#pro_product_four').val();
+	var pinlei_name  = $("#pro_pinlei").val();
+	var product_name = $("#pro_product").val();
+	var pro_product_four  = $('#pro_product_four').val();
+	var action        = "{:U('Lianbao_PC/MyWorkOrder/add_product')}";
+	if(name_name.length<=0){
+	alert("名称不能为空");
+	return false;
+	}
+	if(pro_product_one==null){
+		alert("属性不能为空");
+		return false;
+	}
+	if(band_id_di == "请选择"){
+		alert("请选择品牌");
+		return false;
+	}
+
+
+	$.post(action,{perpoty_one:pro_product_one,perpoty_two:pro_product_two,perpoty_three:pro_product_three,perpoty_four:pro_product_four,product:product_name,pinlei:pinlei_name,name:name_name,band_id:band_id_di},function(data){
+			if(data==1){
+			alert("输入的产品型号不存在，请重新输入");
+			return false;
+			}
+			if(data==2){
+			alert("添加产品成功");window.location.href="{:U('Lianbao_PC/MyWorkOrder/product_index')}";
+			return false;
+			}
+		
+	})
+}
+
+</script>
+
+</body></html>

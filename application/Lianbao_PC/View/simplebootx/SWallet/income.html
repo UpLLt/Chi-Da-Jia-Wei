@@ -1,0 +1,138 @@
+﻿<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<style>
+	.click{border: 1px red solid;color: red
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+	<div class="user_right">
+		<div class="postian"><p>我的财务＞<a>我的钱包</a></p></div>
+		<div class="basic">
+			<div class="bas_nav">
+				<li><a href="{:U('Lianbao_PC/SWallet/index')}">我的钱包</a></li>
+				<li ><a href="{:U('Lianbao_PC/SWallet/card')}">我的银行卡</a></li>
+				<li class="hove"><a href="{:U('Lianbao_PC/SWallet/income')}">财务流水明细</a></li>
+			</div>
+			<div class="income_list">
+				<!--<h1>财务流水明细</h1>-->
+				<div class="income_purse">
+					<li><a id="one1" class="income_data"  onmousedown="setTab('one',1,11)" href="javascript:;">本月账单</a></li>
+					<li><a id="one2"  onmousedown="setTab('one',2,11)" href="javascript:;">2016年7月</a></li>
+					<li><a id="one3"  onmousedown="setTab('one',3,11)" href="javascript:;">2016年6月</a></li>
+					<li><a id="one4"  onmousedown="setTab('one',4,11)" href="javascript:;">2016年5月</a></li> 
+					<li><a id="one5"  onmousedown="setTab('one',5,11)" href="javascript:;">2016年4月</a></li>
+					<li><a id="one6"  onmousedown="setTab('one',6,11)" href="javascript:;">2016年3月</a></li>
+					<li><a id="one7"  onmousedown="setTab('one',7,11)" href="javascript:;">全部账单</a></li> 
+				</div>
+
+				<div class="income_burse" id="con_one_1">
+					<h1><span>本月收入：<b><i>{$shouru.service}</i>元</b></span><strong></strong><span>本月提现：<b><i>{$shouru.tixian}</i>元</b></span></h1>
+					<div id="con_1" >
+						<foreach name="now_list" item="vo">
+
+							<li><i>{$vo.create_time|date='Y-m-d',###}</i><b>{$vo.type}</b><b>{$vo.service_shouru}元</b><strong>{$vo.liushuihao}</strong><span>{$vo.type}:{$vo.service_shouru}元</span></li>
+
+						</foreach>
+						<div class="list_page">{$now_page}</div>
+					</div>
+				</div>
+
+				<div class="income_burse" id="con_one_2" style="display:none;">
+					<h1><span>本月收入：<b><i>{$last_shouru.service}</i>元</b></span><strong></strong><span>本月提现：<b><i>{$last_shouru.tixian}</i>元</b></span></h1>
+					<div id="con_2" >
+						<foreach name="last_list" item="vo">
+							<li><i>{$vo.create_time|date='Y-m-d',###}</i><b>{$vo.type}</b><b>{$vo.service_shouru}元</b><strong>{$vo.liushuihao}</strong><span>{$vo.type}:{$vo.service_shouru}元</span></li>
+						</foreach>
+						<div class="list_page">{$last_page}</div>
+					</div>
+				</div>
+
+				<div class="income_burse" id="con_one_3" style="display:none;">
+					<h1><span>本月收入：<b><i>{$two_shouru.service}</i>元</b></span><strong></strong><span>本月提现：<b><i>{$two_shouru.tixian}</i>元</b></span></h1>
+					<div id="con_3" >
+						<foreach name="two_list" item="vo">
+							<li><i>{$vo.create_time|date='Y-m-d',###}</i><b>{$vo.type}</b><b>{$vo.service_shouru}元</b><strong>{$vo.liushuihao}</strong><span>{$vo.type}:{$vo.service_shouru}元</span></li>
+						</foreach>
+						<div class="list_page">{$two_page}</div>
+					</div>
+					</div>
+
+				<div class="income_burse" id="con_one_4" style="display:none;">
+					<h1><span>本月收入：<b><i>{$three_shouru.service}</i>元</b></span><strong></strong><span>本月提现：<b><i>{$three_shouru.tixian}</i>元</b></span></h1>
+					<div id="con_4" >
+						<foreach name="three_list" item="vo">
+							<li><i>{$vo.create_time|date='Y-m-d',###}</i><b>{$vo.type}</b><b>{$vo.service_shouru}元</b><strong>{$vo.liushuihao}</strong><span>{$vo.type}:{$vo.service_shouru}元</span></li>
+						</foreach>
+
+						<div class="list_page">{$three_page}</div>
+					</div>
+				</div>
+
+				<div class="income_burse" id="con_one_5" style="display:none;">
+					<h1><span>本月收入：<b><i>{$four_shouru.service}</i>元</b></span><strong></strong><span>本月提现：<b><i>{$four_shouru.tixian}</i>元</b></span></h1>
+					<div id="con_5" >
+						<foreach name="four_list" item="vo">
+							<li><i>{$vo.create_time|date='Y-m-d',###}</i><b>{$vo.type}</b><b>{$vo.service_shouru}元</b><strong>{$vo.liushuihao}</strong><span>{$vo.type}:{$vo.service_shouru}元</span></li>
+						</foreach>
+
+						<div class="list_page">{$four_page}</div>
+					</div>
+				</div>
+
+				<div class="income_burse" id="con_one_6" style="display:none;">
+					<h1><span>本月收入：<b><i>{$five_shouru.service}</i>元</b></span><strong></strong><span>本月提现：<b><i>{$five_shouru.tixian}</i>元</b></span></h1>
+					<div id="con_6" >
+						<foreach name="five_list" item="vo">
+							<li><i>{$vo.create_time|date='Y-m-d',###}</i><b>{$vo.type}</b><b>{$vo.service_shouru}元</b><strong>{$vo.liushuihao}</strong><span>{$vo.type}:{$vo.service_shouru}元</span></li>
+						</foreach>
+
+						<div class="list_page">{$five_page}</div>
+					</div>
+				</div>
+
+				<div class="income_burse" id="con_one_7" style="display:none;">
+					<h1><span>全部收入：<b><i>{$all_shouru.service}</i>元</b></span><strong></strong><span>全部提现：<b><i>{$all_shouru.tixian}</i>元</b></span></h1>
+					<div id="con_7" >
+					<foreach name="all_list" item="vo">
+						<li><i>{$vo.create_time|date='Y-m-d',###}</i><b>{$vo.type}</b><b>{$vo.service_shouru}元</b><strong>{$vo.liushuihao}</strong><span>{$vo.type}:{$vo.service_shouru}元</span></li>
+					</foreach>
+					<div class="list_page">{$all_page}</div>
+						</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<include file="./public/Service/Sfooter.html"/>
+
+</div>
+
+<script>
+	function setTab(name,cursel,n){
+		 for(i=1;i<=n;i++){
+		  var menu=document.getElementById(name+i);
+		  var con=document.getElementById("con_"+name+"_"+i);
+		 
+		  menu.className=i==cursel?"income_data":"";
+		  con.style.display=i==cursel?"block":"none";
+		 }
+	}
+	function a(ob){
+		var now_page   = $(ob).attr("name");
+		var now_type   = $(ob).attr("set");
+		var action = "{:U('Lianbao_PC/SWallet/change_page')}";
+		$.post(action,{page:now_page,type:now_type},function(data){
+			$('#con_'+now_type).html(data);
+			$(ob).attr("class","click");
+		})
+	}
+
+
+</script>
+
+</body>
+</html>

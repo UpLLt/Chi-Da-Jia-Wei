@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lianbao_PC/js/jquery.leanModal.min.js"></script>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/fadancp.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/goumaidl.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/xiaofeimx.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/set.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/set_yhkgl.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/set_shdzgl.css">
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+
+        <div class="user_right">
+            <div class="anzhuang">
+                <div class="middle_inner_right">
+                    <div class="middle_inner_right">
+                        <div class="guide">
+                            <ul>
+                                <li class=""><a href="{:U('Lianbao_PC/SetUp/index')}">基本资料设置</a></li>
+                                <li class=""><a href="{:U('Lianbao_PC/SetUp/id_card')}">银行卡管理</a></li>
+                                <li class="unique  selected"><a href="{:U('Lianbao_PC/SetUp/address')}">收货地址管理</a></li>
+                                <li class=""><a href="{:U('Lianbao_PC/SetUp/set_password')}">密码设置</a></li>
+                            </ul>
+                        </div>
+
+                        <a href="#loginmodal" id="modaltrigger" class="theme-login2">
+                            <div class="gain_bank">添加新地址</div>
+                        </a>
+                        <div class="list_content_zgl">
+
+                            <foreach name="list" item="vo">
+                            <li><red>收货人：{$vo.rec_name}</red><red>联系电话：{$vo.rec_phone}</red><span>收货地址：{$vo.rec_city}/{$vo.rec_address}</span><red>邮编：{$vo.rec_postal}</red><dele><a href="{:U('Lianbao_PC/SetUp/del_rec_address',array('id'=>$vo['id']))}">删除</a></dele></li>
+                            </foreach>
+                        </div>
+
+                        <div class="list_content"></div>
+
+                        <div style="display: none; height: 922px;" class="theme-popover-mask"></div>
+                        <div style="display: none;margin-top: 20px;margin-left:240px;" class="more_choices more_choices2 theme-popover-addr3" id="loginmodal">
+                            <p class="tan_title">新增收货信息</p>
+                            <form action="{:U('Lianbao_PC/SetUp/add_address')}" method="post">
+                                <table class="address_table">
+                                    <tbody>
+                                    <tr class="addr_z">
+                                        <td class="addr_one">收货城市：</td>
+                                        <td><input value="" class="input_width addre" onblur="a()" id="city" name="city" type="text">
+                                            <span id="ver_city" style="color: red;font-size: 16px; display: none"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="addr_one">详细地址：</td>
+                                        <td><input value="" class="input_width addre" id="addre" onblur="b()" name="addre" type="text">
+                                            <span id="ver_addre" style="color: red;font-size: 16px; display: none"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="addr_one">收货人：</td>
+                                        <td><input value="" class="input_width people" id="people" onblur="c()" name="people" type="text">
+                                            <span id="ver_people" style="color: red;font-size: 16px; display: none"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="addr_one">手机：</td>
+                                        <td><input value="" class="input_width phone" id="phone" onblur="d()" name="phone" type="text">
+                                            <span id="ver_phone" style="color: red;font-size: 16px; display: none"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="addr_one">邮编：</td>
+                                        <td><input value="" class="input_width poxcode" id="poxcode" onblur="e()" name="poxcode" type="text">
+                                            <span id="ver_poxcode" style="color: red;font-size: 16px; display: none"></span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p class="sub" style="margin-top: 0px;margin-left: 55px;">
+                                    <a href="javascript:void(0);" class="sub_but2 close2" onclick="quxiao()">取消</a>
+                                    <a href="javascript:void(0);" class="sub_but2 agree" onclick="add_card();">确认</a>
+                                </p>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+<script type="text/javascript">
+    $(function(){
+
+        $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+    });
+
+    function a(){
+        var add_city    = $("#city").val();
+        if(add_city.length<=0){
+            $("#ver_city").show();
+            $("#ver_city").html("城市值不能为空");
+            return false;
+
+        }else{
+            $("#ver_city").hide();
+        }
+    }
+    function b(){
+        var add_addre    = $("#addre").val();
+        if(add_addre.length<=0){
+            $("#ver_addre").show();
+            $("#ver_addre").html("地址不能为空");
+            return false;
+        }else{
+            $("#ver_addre").hide();
+        }
+    }
+    function c(){
+        var add_people    = $("#people").val();
+        if(add_people.length<=0){
+            $("#ver_people").show();
+            $("#ver_people").html("收货人不能为空");
+            return false;
+        }else{
+            $("#ver_people").hide();
+        }
+    }
+    function d(){
+        var add_phone    = $("#phone").val();
+        var reg = /(1[3-9]\d{9}$)/;
+        if (!reg.test(add_phone)){
+            $("#ver_phone").show();
+            $("#ver_phone").html("请输入正确格式的手机号码");
+            return false;
+        }else{
+            $("#ver_phone").hide();
+        }
+
+    }
+    function e(){
+        var add_poxcode    = $("#poxcode").val();
+        var reg = /([0-9]\d{5}$)/;
+        if (!reg.test(add_poxcode)){
+            $("#ver_poxcode").show();
+            $("#ver_poxcode").html("请输入正确的邮箱格式");
+            return false;
+        }else{
+            $("#ver_poxcode").hide();
+        }
+
+    }
+    function add_card(){
+        var action= "{:U('Lianbao_PC/SetUp/add_address')}";
+        var add_city    = $("#city").val();
+        var add_addre   = $("#addre").val();
+        var add_people  = $("#people").val();
+        var add_phone   = $("#phone").val();
+        var add_poxcode = $("#poxcode").val();
+        if(add_city.length<=0 || add_addre.length<=0 || add_people.length<=0 || add_phone.length<=0 || add_poxcode.length<=0){
+            alert("提交信息不全，请补全信息");
+            return false;
+        }
+        $.post(action,{city:add_city,addre:add_addre,people:add_people,phone:add_phone,poxcode:add_poxcode},function(data){
+          if(data==1){
+
+              alert("地址添加成功");window.location.href="{:U('Lianbao_PC/SetUp/address')}";
+          }else{
+              alert("添加失败");
+
+          }
+
+        })
+
+    }
+
+    function quxiao(){
+        $('#loginmodal').hide();
+
+    }
+</script>
+
+<script>
+    $('#h_h').addClass('hve');
+</script>
+</body></html>

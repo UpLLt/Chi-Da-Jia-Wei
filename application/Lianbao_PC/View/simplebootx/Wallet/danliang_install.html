@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/jeDate/jedate.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Lianbao_PC/css/wallet.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/wallet_czjl.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/wallet_dljl.css">
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+
+<div class="user_right">
+      <div class="anzhuang">
+
+        <div class="guide">
+          <ul>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/index')}">账号总额</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/recharg_history')}">充值记录</a></li>
+            <li class="selected"><a href="{:U('Lianbao_PC/Wallet/danliang')}">单量记录</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/month_bill')}">每月账单</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/other_pay')}">其他支出</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/bond')}">保证金</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/frozen_money')}">冻结金额</a></li>
+ 
+          </ul>
+        </div>
+        <div class="list_nav_left">
+          <ul>
+            <li class="specail"><a href="{:U('Lianbao_PC/Wallet/danliang_install')}">安装单量</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/danliang_repair')}">维修单量</a></li>
+            <li class=""><a href="{:U('Lianbao_PC/Wallet/danliang_send')}">送修单量</a></li>
+            <li class="   "><a href="{:U('Lianbao_PC/Wallet/danliang')}">全部单量记录</a></li>
+          </ul>
+        </div>
+        <form action="{:U('Lianbao_PC/Wallet/danliang_install')}" method="post">
+          <div class="input_box"><span>时间：</span><span>
+            <input id="cal1" class="input_width get_time" name="start_time" value="{$time.start_time|date="Y-m-d",###}" type="text">
+            </span><span>&nbsp;至：</span><span>
+            <input id="cal2" class="input_width get_time" name="end_time" value="{$time.end_time|date="Y-m-d",###}" type="text">
+            &nbsp;</span><span>
+            <input class="search_but" value="查询" type="submit">
+            </span><span>
+            <input class="search_but" name="daochu" value="导出EXCEL" type="submit">
+            </span></div>
+			<table class="box_line box_line2">
+            <tbody>
+              <tr class="odd">
+                <th>编号</th>
+                <th>数量</th>
+                <th>单量类型</th>
+                <th>时间</th>
+
+              </tr>
+			  <foreach name="data" item="vo">
+			  <tr class="odd">
+                <th>{$vo.buy_number}</th>
+                <th>{$vo.buy_count}</th>
+                <th>{$vo.buy_type}</th>
+                <th>{$vo.create_time|date="Y-m-d",###}</th>
+
+              </tr>
+			  </foreach>
+            </tbody>
+          </table>
+          <div class="page2">{$page}</div>
+        </form>
+ </div> </div>
+     
+           
+
+        <!-- middle_inner_left_body end --></div>
+      <!-- 左边结束 -->
+      
+         
+     
+
+      <!-----------------------------middle_inner_right end------------------></div>
+    </div>
+
+  <!-- 页脚开始 -->
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+<script type="text/javascript">
+	jeDate({
+		dateCell:"#cal1",//isinitVal:true,
+		format:"YYYY-MM-DD",
+		isTime:true, //isClear:false,
+		isinitVal:false,	
+	
+	})
+	jeDate({
+		dateCell:"#cal2",//isinitVal:true,
+		format:"YYYY-MM-DD",
+		isTime:true, //isClear:false,
+		isinitVal:false,
+	})
+</script>
+<script>
+    $('#c_c').addClass('hve');
+</script>
+</body>
+</html>

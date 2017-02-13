@@ -1,0 +1,111 @@
+<admintpl file="header" />
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#" target="_self">查看会员</a></li>
+    </ul>
+        <div class="row-fluid">
+            <div class="span9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="100px">用户账号</th>
+                        <td>
+                            <div>{$list.username}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>用户姓名</th>
+                        <td>
+                            <div>{$list.real_name}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>用户城市</th>
+                        <td>
+                            <div>{$list.city}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>用户地址</th>
+                        <td>
+                            <div>{$list.address}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>联系电话</th>
+                        <td>
+                            <div>{$list.phone}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>身份证号</th>
+                        <td>
+                            <div>{$list.id_card}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>用户QQ</th>
+                        <td>
+                            <div>{$list.qq}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>用户邮箱</th>
+                        <td>
+                            <div>{$list.email}</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>成员关系</th>
+                        <td>
+                            <div>{$list.type}</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>师傅技能</th>
+                        <td>
+                            <div>{$list.skill}</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>所属服务中心</th>
+                        <td>
+                            <div>{$list.parent_com}</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>身份证件正面照</th>
+                        <td>
+                            <a href="{:sp_get_asset_upload_path($list['id_card_picture_1'])}" target='_blank'>   <img style="width: 350px;height: 250px" src="{$list.id_card_picture_1}"></a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>身份证件反面照</th>
+                        <td>
+                           <a href="{:sp_get_asset_upload_path($list['id_card_picture_2'])}" target='_blank'> <img style="width: 350px;height: 250px"  src="{$list.id_card_picture_2}"></a>
+                        </td>
+                    </tr>
+
+
+                </table>
+            </div>
+
+        </div>
+        </div>
+
+</div>
+
+
+</body>
+</html>

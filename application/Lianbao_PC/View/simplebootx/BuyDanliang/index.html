@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" type="text/css" media="all" href="__PUBLIC__/Lianbao_PC/style.css">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Lianbao_PC/js/jquery.leanModal.min.js"></script>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/fadancp.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/goumaidl.css">
+
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+		<div class="user_right">
+			<div class="anzhuang">
+				<div class="middle_inner_right">
+					<form action="#" method="post">
+						<div class="middle_inner_right">
+
+							<div class="guide">
+								<ul>
+									<li class="selected "><a href="#">单量购买</a></li>
+								</ul>
+							</div>
+							<div class="list_nav_left">
+								<ul>
+									<li class="  specail "><a href="#">单个购买</a></li>
+								</ul>
+							</div>
+							<table class="box_line dange">
+								<tbody>
+								<tr class="odd">
+									<th width="20%">产品名称</th>
+									<th width="20%">单价</th>
+									<th width="20%">个数</th>
+									<th width="20%">小计</th>
+									<th width="20%">操作</th>
+								</tr>
+								<tr>
+									<td class="buy_name_infos" id="buy_name_infos">安装单量</td>
+									<td>10.00</td>
+									<td class="az_jiage_numbers"><input id="shuzu_get" onclick="shuzu_get()" class="nums shuzu_get" data="10.00" value="1" onkeyup="change_input_money(this);" type="text"></td>
+									<td class="az_jiage_nues" id="az_jiage_nues">10.00</td>
+									<td><a href="#loginmodal" class="buy" data="37" id="modaltrigger">立即购买</a></td>
+								</tr>
+								<tr>
+									<td class="buy_name_infos" id="buy_name_infos_two">维修单量</td>
+									<td>10.00</td>
+									<td class="az_jiage_numbers"><input class="nums shuzu_get" id="shuzu_get_two" onclick="shuzu_get_two()" data="10.00" value="1" onkeyup="change_input_money(this);" type="text"></td>
+									<td class="az_jiage_nues" id="az_jiage_nues_two">10.00</td>
+									<td><a href="#loginmodal_two" class="buy" data="40" id="modaltrigger_two" >立即购买</a></td>
+								</tr>
+								<tr>
+									<td class="buy_name_infos" id="buy_name_infos_three">送修单量</td>
+									<td>10.00</td>
+									<td class="az_jiage_numbers"><input class="nums shuzu_get" id="shuzu_get_three" data="10.00" onclick="shuzu_get_three()" value="1" onkeyup="change_input_money(this);" type="text"></td>
+									<td class="az_jiage_nues" id="az_jiage_nues_three">10.00</td>
+									<td><a href="#loginmodal_three" class="buy" data="41" id="modaltrigger_three" >立即购买</a></td>
+								</tr>
+								</tbody>
+							</table>
+							<div class="list_nav_left">
+								<ul>
+									<li class="specail"><a href="#">我的单量</a></li>
+								</ul>
+							</div>
+							<table class="box_line taocan_box">
+								<tbody>
+								<tr class="odd">
+									<th width="16%">安装单量</th>
+									<th width="16%">维修单量</th>
+									<th width="16%">送修单量</th>
+								</tr>
+								<tr>
+									<th>{$mydanliang.install}</th>
+									<th>{$mydanliang.repair}</th>
+									<th>{$mydanliang.send}</th>
+								</tr>
+								</tbody>
+							</table>
+							<div class="page2"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+  <include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+<div id="loginmodal" style="width:500px;height:250px;padding:20px;display:none" >
+	<form id="form_one" action="{:U('Lianbao_PC/BuyDanliang/add')}" method="post">
+		<div id="top" style="height:50px;border-bottom:1px solid red;padding-top:10px;font-size:18px;color:red">温馨提示</div>
+		<div id="button" style="height:180px;">
+			<div id="button_top" style="padding-top:25px;font-size:14px;fo">
+			<span>您正在购买的是<font id="type_buy">[安装单量]</font>，购买数量为 <font id="shuliang">1</font>,支付金额为<font id="money">10.00</font>元
+			</span>
+				<input type="hidden" value="1" id="install_num">
+				<input type="hidden" value="10" id="install_price">
+				<input type="hidden" value="安装单量" id="install_type">
+			</div>
+			<div id="button_1" style="padding-top:40px;padding-left:300px;">
+
+				<p class="sub" style="margin-top: 0px;margin-left: 55px;">
+					<a href="javascript:void(0);" id="button_one" style="  margin-left: -180px;float: left;width:110px; height: 40px;line-height: 40px;text-align: center; background: #DB1C21; font-size: 14px;color: #fff;"  class="sub_but2 agree" >确认</a>
+					<a href="javascript:void(0);" onclick="cancel()" style=" float: left;margin-left: -40px; width:110px; height: 40px;line-height: 40px;text-align: center; background: #DB1C21; font-size: 14px;color: #fff;"  class="sub_but2 close2">取消</a>
+
+				</p>
+			</div>
+		</div>
+	</form>
+</div>
+<div id="loginmodal_two" style="width:500px;height:250px;padding:20px;display: none">
+	<form id="form_one_two" action="{:U('Lianbao_PC/BuyDanliang/add')}" method="post">
+		<div id="top_two" style="height:50px;border-bottom:1px solid red;padding-top:10px;font-size:18px;color:red">温馨提示</div>
+		<div id="butto_two" style="height:180px;">
+			<div id="button_top_two" style="padding-top:25px;font-size:14px;fo">
+			<span>您正在购买的是<font id="type_buy_two">[维修单量]</font>，购买数量为 <font id="shuliang_two">1</font>,支付金额为<font id="money_two">10.00</font>元
+			</span>
+				<input type="hidden" value="1" id="repair_num_two">
+				<input type="hidden" value="10" id="repair_price_two">
+				<input type="hidden" value="维修单量" id="repair_type_two">
+			</div>
+			<div id="button_2" style="padding-top:40px;padding-left:300px;">
+				<p class="sub" style="margin-top: 0px;margin-left: 55px;">
+					<a href="javascript:void(0);" id="button_two" style="  margin-left: -180px;float: left;width:110px; height: 40px;line-height: 40px;text-align: center; background: #DB1C21; font-size: 14px;color: #fff;"  class="sub_but2 agree" >确认</a>
+					<a href="javascript:void(0);" onclick="cancel()" style=" float: left;margin-left: -40px; width:110px; height: 40px;line-height: 40px;text-align: center; background: #DB1C21; font-size: 14px;color: #fff;"  class="sub_but2 close2">取消</a>
+
+				</p>
+
+			</div>
+		</div>
+	</form>
+</div>
+<div id="loginmodal_three" style="width:500px;height:250px;padding:20px;display: none">
+	<form id="form_one_three" action="{:U('Lianbao_PC/BuyDanliang/add')}" method="post">
+		<div id="top_three" style="height:50px;border-bottom:1px solid red;padding-top:10px;font-size:18px;color:red">温馨提示</div>
+		<div id="butto_three" style="height:180px;">
+			<div id="button_top_three" style="padding-top:25px;font-size:14px;fo">
+			<span>您正在购买的是<font id="type_buy_three">[送修单量]</font>，购买数量为 <font id="shuliang_three">1</font>,支付金额为<font id="money_three">10.00</font>元
+			</span>
+				<input type="hidden" value="1" id="send_num_three">
+				<input type="hidden" value="10" id="send_price_three">
+				<input type="hidden" value="送修单量" id="send_type_three">
+			</div>
+			<div id="button_3" style="padding-top:40px;padding-left:300px;">
+				<p class="sub" style="margin-top: 0px;margin-left: 55px;">
+					<a href="javascript:void(0);" id="button_three" style="  margin-left: -180px;float: left;width:110px; height: 40px;line-height: 40px;text-align: center; background: #DB1C21; font-size: 14px;color: #fff;"  class="sub_but2 agree" >确认</a>
+					<a href="javascript:void(0);" onclick="cancel()" style=" float: left;margin-left: -40px; width:110px; height: 40px;line-height: 40px;text-align: center; background: #DB1C21; font-size: 14px;color: #fff;"  class="sub_but2 close2">取消</a>
+
+				</p>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+<script type="text/javascript">
+	$(function(){
+		$('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal"
+		});
+		$('#modaltrigger_two').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+		$('#modaltrigger_three').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+		$('#shuzu_get').blur(function(){
+			var shuliang        = $('#shuzu_get').val();
+			var type_buy        = $('#buy_name_infos').html();
+			var az_jiage_nues   = $('#az_jiage_nues').html();
+			var money           = shuliang*10.00;
+			var action          = $('#form_one').attr('action');
+			var s               = /^[0-9]*$/;
+			if(!s.test(shuliang)){
+				alert('请输入合法数字');
+				window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+			}
+			$('#az_jiage_nues').html(money);
+			$('#install_num').val(shuliang);
+			$('#install_type').val(type_buy);
+			$('#install_price').val(money);
+			$('#type_buy').html(type_buy);
+			$('#shuliang').html(shuliang);
+			$('#money').html(money);
+
+
+
+		});
+		$('#shuzu_get_two').blur(function(){
+			var shuliang_two        = $('#shuzu_get_two').val();
+			var type_buy_two        = $('#buy_name_infos_two').html();
+			var az_jiage_nues_two   = $('#az_jiage_nues_two').html();
+			var money_two           = shuliang_two*10.00;
+
+			var s               	= /^[0-9]*$/;
+			if(!s.test(shuliang_two)){
+				alert('请输入合法数字');
+				window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+			}
+			$('#az_jiage_nues_two').html(money_two);
+			$('#repair_num_two').val(shuliang_two);
+			$('#repair_type_two').val(type_buy_two);
+			$('#repair_price_two').val(money_two);
+			$('#type_buy_two').html(type_buy_two);
+			$('#shuliang_two').html(shuliang_two);
+			$('#money_two').html(money_two);
+
+
+
+		});
+		$('#shuzu_get_three').blur(function(){
+			var shuliang_three        = $('#shuzu_get_three').val();
+			var type_buy_three        = $('#buy_name_infos_three').html();
+			var az_jiage_nues_three   = $('#az_jiage_nues_three').html();
+			var money_three           = shuliang_three*10.00;
+
+			var s               	= /^[0-9]*$/;
+
+			if(!s.test(shuliang_three)){
+				alert('请输入合法数字');
+				window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+			}
+			$('#az_jiage_nues_three').html(money_three);
+			$('#send_num_three').val(shuliang_three);
+			$('#send_type_three').val(type_buy_three);
+			$('#send_price_three').val(money_three);
+			$('#type_buy_three').html(type_buy_three);
+			$('#shuliang_three').html(shuliang_three);
+			$('#money_three').html(money_three);
+
+
+		});
+	});
+
+	$('#button_one').click(function(){
+		var action          = $('#form_one').attr('action');
+		var install_num   = $('#install_num').val();
+		var install_type  = $('#install_type').val();
+		var install_price = $('#install_price').val();
+		$.post(action,{num:install_num,type:install_type,price:install_price},function(data){
+			if(data==1){
+				alert("购买成功");window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+				return false;
+			}
+			if(data==0){
+				alert("余额不足");window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+				return false;
+			}
+			if(data==2){
+				alert("购买失败");window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+				return false;
+			}
+		})
+	})
+	$('#button_two').click(function(){
+		var action        	 = $('#form_one_two').attr('action');
+		var repair_num_two   = $('#repair_num_two').val();
+		var repair_type_two  = $('#repair_type_two').val();
+		var repair_price_two = $('#repair_price_two').val();
+
+		$.post(action,{num:repair_num_two,type:repair_type_two,price:repair_price_two},function(data){
+			if(data==1){
+				alert("购买成功");window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+				return false;
+			}
+			if(data==0){
+				alert("余额不足");window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+				return false;
+			}
+			if(data==2){
+				alert("购买失败");window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+				return false;
+			}
+		})
+	})
+
+
+	$('#button_three').click(function(){
+		var action        	 = $('#form_one_three').attr('action');
+		var send_num_three   = $('#send_num_three').val();
+		var send_type_three  = $('#send_type_three').val();
+		var send_price_three = $('#send_price_three').val();
+
+		$.post(action,{num:send_num_three,type:send_type_three,price:send_price_three},function(data){
+			if(data==1){
+				alert("购买成功");window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+				return false;
+			}
+			if(data==0){
+				alert("余额不足");window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+				return false;
+			}
+			if(data==2){
+				alert("购买失败");window.location.href="{:U('Lianbao_PC/BuyDanliang/index')}";
+				return false;
+			}
+		})
+	})
+
+
+
+	function cancel(){
+		$('#loginmodal').hide();
+		$('#loginmodal_two').hide();
+		$('#loginmodal_three').hide();
+		$('#lean_overlay').hide();
+	}
+</script>
+<script>
+	$('#f_f').addClass('hve');
+</script>
+</body></html>

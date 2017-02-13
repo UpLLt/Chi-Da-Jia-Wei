@@ -1,0 +1,161 @@
+<admintpl file="header" />
+<style type="text/css">
+.pic-list li {
+	margin-bottom: 5px;
+}
+</style>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#" target="_self">添加价格</a></li>
+		</ul>
+		<form action="{:U('AdminPost/add_post')}" method="post" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+			<div class="row-fluid">
+				<div class="span9">
+					<table class="table table-bordered" style="width:1130px;">
+						<tr>
+							<th>订单信息</th>
+						</tr>
+						<tr>
+							<th>订单编号</th>
+							<td><div>{$order.order_number}</div></td>
+							<th>发单账号id</th>
+							<td><div>{$order.user_id}</div></td>
+							<th>发布时间</th>
+							<td><div>{$order.create_time|date='Y-m-d H:i:s',###}</div></td>
+
+						</tr>
+						<tr>
+							<th>订单状态</th>
+							<td><div>{$order.status}</div></td>
+							<th>订单类型</th>
+							<td><div>{$order.order_type}</div></td>
+							<th>维修价格</th>
+							<td><div>{$order.repair_price}</div></td>
+						</tr>
+						<tr>
+							<th>维修人</th>
+							<td><div>{$order.repair_person_id}</div></td>
+							<th>服务中心</th>
+							<td><div>{$order.repair_service_id}</div></td>
+							<th>维修产品</th>
+							<td><div>{$pro.pro_name}</div></td>
+						</tr>
+						<tr>
+							<th>产品型号</th>
+							<td><div>{$pro.pro_xinhao}</div></td>
+							<th>保修类型</th>
+							<td><div>{$pro.baoxiu_type}</div></td>
+							<th>远程费用</th>
+							<td><div>{$order.far_price}</div></td>
+						</tr>
+						<tr>
+							<th>产品属性</th>
+							<td><div>{$pro.pro_property}</div></td>
+							<th>产品型号</th>
+							<td><div>{$pro.pro_product}</div></td>
+							<th>用户姓名</th>
+							<td><div>{$user.user_name}</div></td>
+						</tr>
+						<tr>
+							<th>用户地址</th>
+							<td><div>{$pro.pro_name}</div></td>
+							<th>用户城市</th>
+							<td><div>{$user.user_city}</div></td>
+							<th>用户QQ</th>
+							<td><div>{$user.user_qq}</div></td>
+						</tr>
+						<tr>
+							<th>用户电话</th>
+							<td><div>{$user.user_phone}</div></td>
+							<th>接单时间</th>
+							<td><div>{$repair.taking_time|date='Y-m-d H:i:s',###}</div></td>
+							<th>预约时间</th>
+							<td><div>{$repair.yuyue_time}</div></td>
+						</tr>
+						<tr>
+							<th>开始服务时间</th>
+							<td  style="border-bottom: 1px solid #ddd"><div>{$repair.start_time|date='Y-m-d H:i:s',###}</div></td>
+							<th  style="border-bottom: 1px solid #ddd">派单时间</th>
+							<td  style="border-bottom: 1px solid #ddd"><div>{$repair.assign_time|date='Y-m-d H:i:s',###}</div></td>
+							<th  style="border-bottom: 1px solid #ddd">完结时间</th>
+							<td  style="border-bottom: 1px solid #ddd"><div>{$repair.end_time|date='Y-m-d H:i:s',###}</div></td>
+						</tr>
+						<tr>
+							<th>付款时间</th>
+							<td><div>{$repair.pay_time|date='Y-m-d',###}</div></td>
+							<th>服务项目</th>
+							<td><div>{$service}</div></td>
+
+						</tr>
+
+					</table>
+
+
+
+					<table class="table table-bordered" style="width:1130px;">
+						<tr>
+							<th>配件服务</th>
+						</tr>
+						<tr class="tr1">
+							<td width="200">配件所属服务项</td>
+							<td width="200">配件价格</td>
+							<td width="200">配件名称</td>
+							<td width="100">数量</td>
+							<td width="200">配件照片</td>
+							<td width="200">整机照片</td>
+						</tr>
+						<foreach name="parts" item="vo">
+							<tr>
+							<td width="200">跟换{$vo.parts_name}</td>
+							<td width="200">{$vo.parts_price}</td>
+							<td width="200">{$vo.parts_name}</td>
+							<td width="100">{$vo.parts_count}</td>
+							<td width="200"><a href="{:sp_get_asset_upload_path($vo['parts_picture'])}" target='_blank'>查看</a></td>
+							<td width="200"><a href="{:sp_get_asset_upload_path($vo['all_picture'])}" target='_blank'>查看</a></td>
+							</tr>
+						</foreach>
+
+					</table>
+
+
+
+					<table class="table table-bordered" style="width:1130px;">
+						<tr>
+							<th>返件单</th>
+						</tr>
+						<tr class="tr1">
+							<td width="200">订单号</td>
+							<td width="200">快递单号</td>
+							<td width="200">快递公司</td>
+							<td width="100">快递费用</td>
+							<td width="200">支付方式</td>
+							<td width="200">发货时间</td>
+						</tr>
+						<tr>
+							<td width="200">{$order_logistics.order_number}</td>
+							<td width="200">{$order_logistics.logistics_danhao}</td>
+							<td width="200">{$order_logistics.logistics_com}</td>
+							<td width="100">{$order_logistics.logistics_money}</td>
+							<td width="200">{$order_logistics.pay_fangshi}</td>
+							<td width="100">{$order_logistics.create_time|date='Y-m-d H:i:s',###}</td>
+
+						</tr>
+
+					</table>
+
+
+
+
+				</div>
+
+			</div>
+
+		</form>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+		<div class="user_right">
+			
+			<div class="gd_mores">
+				<div class="gdmos">
+					<h1 class="gdmos_h1"><a >需发货配件</a></h1>
+				</div>	
+				<div class="pejixq">
+					<table class="pejixq_table">
+						<tr>
+							<td>工单号</td>
+							<td width="220">收件地址</td>
+							<td>收件人姓名</td>
+							<td>收件人电话</td>
+							<td width="50">数量</td>
+							<td width="100">名称</td>
+							<td width="100">配件申请时间</td>
+							<td>操作</td>
+						</tr>
+					<foreach name="list" item="vo">
+
+						<foreach name="vo" item="v1">
+						<tr>
+							<td>{$v1.order_number}</td>
+							<td>{$v1.address}</td>
+							<td>{$v1.real_name}</td>
+							<td>{$v1.phone}</td>
+							<td>{$v1.parts_count}</td>
+							<td>{$v1.parts_name}</td>
+							<td>{$v1.create_time|date="Y-m-d",###}</td>
+							<td>{$v1.url} </td>
+						</tr>
+						</foreach>
+					</foreach>
+					</table>
+				</div>
+
+				
+				
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+<script src="js/index.js"></script>
+
+<script>
+	$('#a_a').addClass('hve');
+	$('#My_a').addClass('mover');
+</script>
+
+</body></html>

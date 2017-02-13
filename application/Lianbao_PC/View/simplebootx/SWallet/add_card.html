@@ -1,0 +1,76 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<link href="__PUBLIC__/Service/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Service/css/city-picker.css" rel="stylesheet" type="text/css" />
+<style>
+	#Mycaiwu{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+
+	<div class="user_right">
+		<div class="postian"><p>账号设置＞<a href="index.html">基本信息</a></p></div>
+		<div class="basic">
+			<div class="bas_nav">
+				<li><a href="{:U('Lianbao_PC/SWallet/index')}">我的钱包</a></li>
+				<li  class="hove"><a href="{:U('Lianbao_PC/SWallet/card')}">我的银行卡</a></li>
+				<li><a href="{:U('Lianbao_PC/SWallet/income')}">财务流水明细</a></li>
+			</div>
+			<div class="add_adress_list">
+				<!--<h1>增加银行卡</h1>-->
+				<form class="form-inline" id="form-inline" action="{:U('Lianbao_PC/SWallet/add_card_card')}" method="post">
+					<li><b>开 户 行：</b><select class="bank" name="card_bank" >
+						<option value="北京银行">北京银行</option>
+						<option value="工商银行">工商银行</option>
+						<option value="光大银行">光大银行</option>
+						<option value="广发银行">广发银行</option>
+						<option value="华夏银行">华夏银行</option>
+						<option value="建设银行">建设银行</option>
+						<option value="交通银行">交通银行</option>
+						<option value="民生银行">民生银行</option>
+						<option value="农业银行">农业银行</option>
+						<option value="平安银行">平安银行</option>
+						<option value="浦发银行">浦发银行</option>
+						<option value="上海银行">上海银行</option>
+						<option value="兴业银行">兴业银行</option>
+						<option value="邮政储蓄">邮政储蓄</option>
+						<option value="招商银行">招商银行</option>
+						<option value="中国银行">中国银行</option>
+						<option value="中信银行">中信银行</option></select></li>
+					<li><b>开户城市：</b><div id="distpicker" class="distpicker">
+						<div class="form-group">
+							<div style="position: relative;">
+								<input id="city-picker3" name="card_address" class="form-control" readonly type="text" value="四川省/成都市/高新区" data-toggle="city-picker">
+							</div>
+						</div>
+					</div></li>
+					<li><b>持卡人：</b><input type="text" name="card_name" placeholder="请输入持卡人 "></li>
+					<li><b>银行卡号：</b><input type="text" id="bank_card" name="card_number" placeholder="请输入银行卡号"></li>
+					<li><b>预留手机号码：</b><input type="text" id="phone" name="phone" placeholder="请输入银行预留手机号码"></li>
+					<input type="hidden" name="user_id" value="{$user_id}">
+					<li><b class="divlib">是默认银行卡</b> <input type="radio" name="card_status" class="divlibcheck" checked="cheched" value="1"/>
+						<b class="divlib">否默认银行卡</b> <input type="radio" name="card_status" class="divlibcheck" value="0" /></li>
+
+					<div class="ensure lef"><input type="submit"  value="保 存"></div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<include file="./public/Service/Sfooter.html"/>
+
+
+<script src="__PUBLIC__/Service/js/jquery.js"></script>
+<script src="__PUBLIC__/Service/js/bootstrap.js"></script>
+<script src="__PUBLIC__/Service/js/city-picker.data.js"></script>
+<script src="__PUBLIC__/Service/js/city-picker.js"></script>
+<script src="__PUBLIC__/Service/js/main.js"></script>
+
+
+</body>
+</html>

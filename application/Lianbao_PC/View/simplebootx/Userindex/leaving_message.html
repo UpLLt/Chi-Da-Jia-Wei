@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<script src="__PUBLIC__/Lianbao_PC/js/layer.js"></script>
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+
+
+<div class="user_right">
+			<div class="gd_list">
+				<li><a href="{:U('Lianbao_PC/Userindex/userindex')}">所有工单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/wait')}">待接单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/cancel')}">已取消</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/end')}">已完结</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/distance')}">远程费单</a></li>
+				<li class="move"><a href="{:U('Lianbao_PC/Userindex/parts')}">配件单</a></li>
+				<li><a href="{:U('Lianbao_PC/Userindex/wait_pay')}">待支付</a></li>
+
+			</div>
+
+			<div class="gd_mores">
+				<div class="gdmos"><h1 ><a href="{:U('Lianbao_PC/Userindex/detail',array('order_number'=>$order_number))}">工单详情</h1><h1 class="gdmos_h1"><a href="#">留言</a></h1></div>
+					<div class="foolow_show" >
+
+						<foreach name="list" item="vo">
+						<li><div class="follow_left"><p>{$vo.create_time|date="Y-m-d h:i:s",###}</p></div>
+							<div class="follow_right">
+								<span></span>
+								<h4>{$vo.content}</h4>
+								<p>执行人：<red>{$vo.person}</red></p>
+							</div>
+						</li>
+						</foreach>
+						<li>
+							<div class="follow_left"></div>
+							<div class="follow_right"><span></span></div>
+						</li>
+					</div>
+
+					<form action="{:U('Lianbao_PC/Userindex/add_message')}" method="post">
+					<div class="user_index_booK">
+						<h1>留言备注：</h1>
+						<textarea class="book_testarea" name="content" placeholder="请在此处输入留言内容"></textarea>
+					</div>
+						<input name="order_number" type="hidden" value="{$order_number}">
+  					<div class="cliss"><input type="submit" value="提交留言"></div>
+					</form>
+				
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+	<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+<script>
+	$('#a_a').addClass('hve');
+	$('#My_a').addClass('mover');
+</script>
+<script src="__PUBLIC__/Lianbao_PC/js/index.js"></script>
+<!--完结图片(条码)-->
+<div id="layer_tiaoma" style="display:none" >
+	<div class="layer_show_tu">
+		<div class="layer_top">
+			<div class="layer_title"><p>完结图片(条码)</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="images/close.png" /></a></div>
+		</div>
+		<div class="tiaomatu">
+			<img src="images/yzm.jpg" />
+		</div>
+	</div>
+</div>
+<!--完结图片(整机)-->
+<div id="layer_zhengji" style="display:none" >
+	<div class="layer_show_tu">
+		<div class="layer_top">
+			<div class="layer_title"><p>完结图片(整机)</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="images/close.png" /></a></div>
+		</div>
+		<div class="tiaomatu">
+			<img src="images/yzm.jpg" />
+		</div>
+	</div>
+</div>
+<!--完结图片(配件)-->
+<div id="layer_peijian" style="display:none" >
+	<div class="layer_show_tu">
+		<div class="layer_top">
+			<div class="layer_title"><p>完结图片(配件)</p></div>
+			<div class="tel_colse" onclick="closeLayer()"><a href="javascript:;"><img  src="images/close.png" /></a></div>
+		</div>
+		<div class="tiaomatu">
+			<img src="images/yzm.jpg" />
+		</div>
+	</div>
+</div>
+</body></html>

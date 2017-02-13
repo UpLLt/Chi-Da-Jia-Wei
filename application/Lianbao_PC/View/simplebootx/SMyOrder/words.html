@@ -1,0 +1,41 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<style>
+	#Myjiedan{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+	<div class="user_right">
+		<div class="postian"><p>我的订单 ＞<a >工单留言</a></p></div>
+		<div class="basic">
+			<div class="bas_datails">
+				<div class="words">
+					<h1>发布留言</h1>
+					<form action="{:U('Lianbao_PC/SMyOrder/add_message')}" method="post">
+						<input type="hidden" name="order_number" value="{$order_number}">
+						<textarea name="content" placeholder="请输入留言内容！"></textarea>
+						<input type="submit" class="submit_words" value="保 存" />
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<include file="./public/Service/Sfooter.html"/>
+<script>
+function setTab(name,cursel,n){
+ for(i=1;i<=n;i++){
+  var menu=document.getElementById(name+i);
+  var con=document.getElementById("con_"+name+"_"+i);
+ 
+  menu.className=i==cursel?"dataer":"";
+  con.style.display=i==cursel?"block":"none";
+ }
+}
+</script>
+</body></html>

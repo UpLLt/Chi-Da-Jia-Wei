@@ -1,0 +1,197 @@
+<admintpl file="header" />
+<style type="text/css">
+.pic-list li {
+	margin-bottom: 5px;
+}
+</style>
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">添加类型</a></li>
+		</ul>
+		<form action="{:U('ProPrice/property')}" method="post" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+			<div class="row-fluid">
+				<div class="span9">
+					<table class="table table-bordered">
+						<tr>
+							<th>产品品类</th>
+							<td>
+								<select name="pro_pinlei" id="title">
+									<foreach name="pinlei" item="vo">
+										<option>{$vo.pro_pinlei}</option>
+									</foreach>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>产品名称</th>
+							<td><input type="text" name="product" id="keywords" value="" style="width: 400px" placeholder="请输入关键字"> </td>
+						</tr>
+						<tr>
+							<th>属性一名称</th>
+							<td><input type="text" name="property_name_one" id="property_name_1" value="" style="width: 400px" placeholder="请输入产品第一项属性名称"></td>
+						</tr>
+						<tr>
+							<th>产品属性一</th>
+							<td><input type="text" name="property_one" id="property1" value="" style="width: 400px" placeholder="请输入产品第一项属性">中间以英文逗号隔开</td>
+						</tr>
+
+						<tr>
+							<th>属性二名称</th>
+							<td><input type="text" name="property_name_two" id="property_name_2" value="" style="width: 400px" placeholder="请输入产品第二项属性名称"></td>
+						</tr>
+						<tr>
+							<th>产品属性二</th>
+							<td><input type="text" name="property_two" id="property2" value="" style="width: 400px" placeholder="请输入产品第二项属性">中间以英文逗号隔开</td>
+						</tr>
+						<tr>
+							<th>属性三名称</th>
+							<td><input type="text" name="property_name_three" id="property_name_3" value="" style="width: 400px" placeholder="请输入产品第三项属性名称"></td>
+						</tr>
+						<tr>
+							<th>产品属性三</th>
+							<td><input type="text" name="property_three" id="property3" value="" style="width: 400px" placeholder="请输入产品第三项属性">中间以英文逗号隔开</td>
+						</tr>
+						<tr>
+							<th>属性四名称</th>
+							<td><input type="text" name="property_name_four" id="property_name_4" value="" style="width: 400px" placeholder="请输入产品第四项属性名称"></td>
+						</tr>
+						<tr>
+							<th>产品属性四</th>
+							<td><input type="text" name="property_four" id="property4" value="" style="width: 400px" placeholder="请输入产品第四项属性">中间以英文逗号隔开</td>
+						</tr>
+
+					</table>
+				</div>
+				<div class="span3">
+
+				</div>
+			</div>
+			<div class="form-actions">
+				<button class="btn btn-primary js-ajax-submit" type="submit">提交</button>
+				<a class="btn" href="{:U('ProPrice/index')}">返回</a>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js"></script>
+	<script type="text/javascript">
+		//编辑器路径定义
+		var editorURL = GV.DIMAUB;
+	</script>
+	<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+
+
+
+
+				var formloading = false;
+				//表单验证开始
+				form.validate({
+					//是否在获取焦点时验证
+					onfocusout : false,
+					//是否在敲击键盘时验证
+					onkeyup : false,
+					//当鼠标掉级时验证
+					onclick : false,
+					//验证错误
+					showErrors : function(errorMap, errorArr) {
+						//errorMap {'name':'错误信息'}
+						//errorArr [{'message':'错误信息',element:({})}]
+						try {
+							$(errorArr[0].element).focus();
+							art.dialog({
+								id : 'error',
+								icon : 'error',
+								lock : true,
+								fixed : true,
+								background : "#CCCCCC",
+								opacity : 0,
+								content : errorArr[0].message,
+								cancelVal : '确定',
+								cancel : function() {
+									$(errorArr[0].element).focus();
+								}
+							});
+						} catch (err) {
+						}
+					},
+					//验证规则
+					rules : {
+						'post[post_title]' : {
+							required : 1
+						},
+						'post[post_content]' : {
+							editorcontent : true
+						}
+					},
+					//验证未通过提示消息
+					messages : {
+						'post[post_title]' : {
+							required : '请输入标题'
+						},
+						'post[post_content]' : {
+							editorcontent : '内容不能为空'
+						}
+					},
+					//给未通过验证的元素加效果,闪烁等
+					highlight : false,
+					//是否在获取焦点时验证
+					onfocusout : false,
+					//验证通过，提交表单
+					submitHandler : function(forms) {
+						if (formloading)
+							return;
+						$(forms).ajaxSubmit({
+							url : form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+							dataType : 'json',
+							beforeSubmit : function(arr, $form, options) {
+								formloading = true;
+							},
+							success : function(data, statusText, xhr, $form) {
+								formloading = false;
+								if (data.status) {
+									setCookie("refersh_time", 1);
+									//添加成功
+									Wind.use("artDialog", function() {
+										art.dialog({
+											id : "succeed",
+											icon : "succeed",
+											fixed : true,
+											lock : true,
+											background : "#CCCCCC",
+											opacity : 0,
+											content : data.info,
+											button : [ {
+												name : '继续添加？',
+												callback : function() {
+													reloadPage(window);
+													return true;
+												},
+												focus : true
+											}, {
+												name : '返回列表页',
+												callback : function() {
+													location = "{:U('AdminPost/index')}";
+													return true;
+												}
+											} ]
+										});
+									});
+								} else {
+									isalert(data.info);
+								}
+							}
+						});
+					}
+				});
+			});
+			////-------------------------
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link href="__PUBLIC__/Lianbao_PC/address/css/city-picker.css" rel="stylesheet" type="text/css"/>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery-1.9.1.min.js"></script>
+<link href="__PUBLIC__/Lianbao_PC/address/css/city-picker.css" rel="stylesheet" type="text/css"/>
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+        <div class="user_right">
+            <div class="anzhuang">
+                <div class="zhua">
+                    <li class="zhv"><a href="{:U('Lianbao_PC/PublishWorkOrder/install_index')}">上门安装单</a></li>
+                    <li><a href="{:U('Lianbao_PC/PublishWorkOrder/repair_index')}">上门维修单</a></li>
+                    <li><a href="{:U('Lianbao_PC/PublishWorkOrder/send_repair_index')}">客户送修单</a></li>
+                </div>
+                <form method="post" action="{:U('Lianbao_PC/PublishWorkOrder/install_add')}">
+                    <div class="zhuang">
+                        <div class="neirli">
+                            <a href="{:U('Lianbao_PC/MyWorkOrder/add_product_index')}"><input type="button"
+                                                                                              class="imag"/></a>
+                            <h1>选择产品</h1>
+                            <li><span><i>*</i>选择产品：</span>
+                                <select onchange="find_price()" id="choose_product" name="product">
+                                    <foreach name="product" item="vo">
+                                        <option value="{$vo.id}">{$vo.product}</option>
+                                    </foreach>
+                                </select>
+                            </li>
+                        </div>
+                        <div class="neir">
+                            <h1>消费者信息</h1>
+                            <li><b><i>*</i>城市：</b>
+                                <div class="container">
+                                    <div id="distpicker">
+                                        <div style="position: relative;"  class="dizai">
+                                            <input id="city-picker3" name="city" class="form-control" readonly
+                                                   type="text" data-toggle="city-picker">
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-warning" id="reset" type="button">重置</button>
+                                            <button class="btn btn-danger" id="destroy" type="button">确定</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><b><i>*</i>详细地址：</b><input id="verify_address" onblur="a()" type="text"
+                                                                 name="address"/>
+                                <div id="address_tishi" style="color:red;"></div>
+                            </li>
+                            <li><b><i>*</i>客户姓名：</b><input id="verify_name" onblur="b()" type="text"
+                                                                 name="rel_name"/>
+                                <div id="name_tishi" style="color:red;"></div>
+                            </li>
+                            <li><b><i>*</i>客户手机：</b><input id="verify_phone" onblur="c()" type="text" name="tel"/>
+                                <div id="phone_tishi" style="color:red;"></div>
+                            </li>
+                        </div>
+
+                    </div>
+                    <!-- <产品信息> -->
+
+                    <div class="pro_information">
+                        <p class="xin">产品信息</p>
+                        <p class="xinAA"><span class="xinA_red">*</span>&nbsp;保修类型：
+                            <label onchange="change_zhi()">
+                                <input name="reference" value="1" class="radio_style" type="radio">
+                                &nbsp;&nbsp;保修期内
+
+                                <input name="reference" value="2" class="radio_style" type="radio">
+                                &nbsp;&nbsp;保修期外</label>
+                            </label>
+
+                        <p class="xinAA clearfix" style="width: 100%; height: auto;">
+                            <label class="opp"><span class="xinA_red">*</span>&nbsp;回收时间(小时)：</label>
+                            <label class="opp not_release_recycle" style="display: none; color: rgb(234, 70, 68);">您的工单所属区域在我们系统不承诺下单必完成区域内，我们会尝试完成该工单，但此单会默认在24小时内自动回收，如有不便，请多包涵。</label>
+                            <label class="opp">
+                                <span><font class="time_words">注：如无人接单，预计回收时间（{$huishou|date='Y-m-d H:i:s',###}）</font></span></label>
+                        </p>
+                    </div>
+                    <div class="remarks">
+                        <p class="xinAAA"><span class="xinAA_red"></span>备注/故障描述：</p>
+                        <textarea id="remaks" name="remaks" ></textarea>
+					</div>
+                    <p class="sub">
+                        <input type="hidden" id="money_product" name="money_product" value="">
+                        <input name="submit" id="submit" onclick="click_but()" class="sub_but" value="提交" type="button">
+                        <span id="total" class="total">￥<font id="money_pro" class="money">0</font>元</span><span
+                            class="finish"><font class="red">&nbsp;&nbsp;&nbsp;&nbsp;注：</font>完成产品型号及信息即可显示价格</span></p>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>
+</div>
+</div>
+<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+<script src="__PUBLIC__/Lianbao_PC/address/js/jquery.js"></script>
+<script src="__PUBLIC__/Lianbao_PC/address/js/city-picker.data.js"></script>
+<script src="__PUBLIC__/Lianbao_PC/address/js/city-picker.js"></script>
+<script src="__PUBLIC__/Lianbao_PC/address/js/main.js"></script>
+<script src="__PUBLIC__/Lianbao_PC/js/index.js"></script>
+<script>
+    function find_price(){
+        $("input[type='radio']").removeAttr('checked');
+    }
+
+    function change_zhi() {
+        var product_name = $('#choose_product').val();
+        var action = "{:U('Lianbao_PC/PublishWorkOrder/select_pro_install')}";
+        var z_type = $("input[name='reference']:checked").val();
+        $.post(action, {order_type: z_type, product: product_name}, function (data) {
+            $('#money_pro').html(data);
+            $('#money_product').val(data);
+        })
+
+    }
+    function a() {
+        var verify_address = $('#verify_address').val();
+        if (verify_address.length <= 0) {
+            $('#address_tishi').show();
+            $('#address_tishi').html("地址不能为空");
+            return false;
+        } else {
+            $('#address_tishi').hide();
+        }
+    }
+    function b() {
+        var verify_name = $('#verify_name').val();
+        if (verify_name.length <= 0) {
+            $('#name_tishi').show();
+            $('#name_tishi').html("姓名不能为空");
+            return false;
+        } else {
+            $('#name_tishi').hide();
+        }
+    }
+    function c() {
+        var verify_address = $('#verify_phone').val();
+        var reg = /(1[3-9]\d{9}$)/;
+        if (!reg.test(verify_address)) {
+            $('#phone_tishi').show();
+            $('#phone_tishi').html("请输入正确格式的手机号码");
+            return false;
+        } else {
+            $('#phone_tishi').hide();
+        }
+    }
+    function click_but() {
+        var action = "{:U('Lianbao_PC/PublishWorkOrder/install_add')}";
+        var z_city = $('#city-picker3').val();
+        var z_rel_name = $('#verify_name').val();
+        var z_money_product = $('#money_product').val();
+        var z_address = $('#verify_address').val();
+        var z_tel = $('#verify_phone').val();
+        var z_product = $('#choose_product').val();
+        var z_reference = $("input[name='reference']:checked").val();
+        var z_recover_time = $('#recycle_hour').val();
+        var z_remaks = $('#remaks').val();
+        var z_order_type = 1;
+        if (z_address.length <= 0 || z_tel.length <= 0 || z_rel_name.length <= 0 || z_city.length <= 0) {
+            alert("提交信息不全，请补全信息");
+            return false;
+        }
+        if(z_money_product== '' ){
+            alert('该产品不提供上门安装服务');
+            return false;
+        }
+		
+		if(z_remaks== '' ){
+			alert('请填写备注/故障描述');
+			return false;
+		}
+		
+        var z_action = "{:U('Lianbao_PC/PublishWorkOrder/judge_price')}";
+        $.post(z_action, {product: z_product, reference: z_reference, order_type: z_order_type}, function (data) {
+            if (data.status == 2) {
+                alert(data.content);
+                return false;
+            } else {
+
+                $.post(action, {
+                    city: z_city,
+                    rel_name: z_rel_name,
+                    money_product: z_money_product,
+                    address: z_address,
+                    tel: z_tel,
+                    id: z_product,
+                    reference: z_reference,
+                    recover_time: z_recover_time,
+                    remaks: z_remaks
+                }, function (data) {
+                    if (data == 1) {
+                        alert("订单添加成功");
+                        window.location.href = "{:U('Lianbao_PC/Userindex/userindex')}";
+                    }
+                    if(data ==2 ){
+                        alert("新用户审核未通过，请通过后再发单");
+                    }
+                })
+            }
+
+        });
+
+    }
+
+</script>
+<script>
+    $('#b_b').addClass('hve');
+</script>
+</body></html>

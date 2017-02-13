@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<link rel="shortcut icon" type="image/x-icon" href="__PUBLIC__/Lianbao_PC/favicon.ico"/>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+	<title>驰达家维</title>
+<body>
+<!--顶部-->
+<div class="top">
+	<div class="cent">
+		<div class="logo"><img src="__PUBLIC__/Service/images/foot_logo.png" /></div>
+		
+	</div>
+</div>
+
+<div class="nav">
+	<div class="cent">
+		<div class="menu">
+			<li id="Myjiedan"><a href="{:U('Lianbao_PC/STakingOrder/index')}">接单区</a></li>
+			<li id="Myorder"><a href="{:U('Lianbao_PC/SMyOrder/assig')}">我的订单</a></li>
+			<li id="Mycaiwu"><a href="{:U('Lianbao_PC/SWallet/index')}">我的财务</a></li>
+			<li id="Mychengyuan"><a href="{:U('Lianbao_PC/SMember/index')}">我的成员</a></li>
+			<li id="Myinform"><a href="{:U('Lianbao_PC/SNotification/index')}">通知管理</a></li>
+			<li id="Mypolicy"><a href="{:U('Lianbao_PC/Spolicy/policy')}">政策规章</a></li>
+			<li><a href="{:U('Lianbao_PC/SCharge/index')}">收费标准</a></li>
+			<li	id="Myown"><a href="{:U('Lianbao_PC/SOwnMess/index')}">个人中心</a></li>
+		</div>
+		<div class="user">
+			<li><p>{$username.username}</p></li>
+			<li><p><a href="{:U('Lianbao_PC/ServiceBase/login_out')}">安全退出</a></p></li>
+		</div>
+	</div>
+</div>
+
+<div class="main">
+	<div class="user_left">
+		<div class="user_name">
+			<div class="name_img">
+				<a href="{:U('Lianbao_PC/SOwnMess/index')}"><img src="{$own_mess.business_license}" /></a>
+				<p>{$own_mess.company}</p>
+			</div>
+			<div class="name_list">
+				<li><p>服务次数</p> <span>{$wallet.order_count}</span></li>
+				<li></li>
+				<li><p>累计收入</p> <span>{$wallet.all_money}元</span></li>
+			</div>
+		</div>
+		<div class="user_notice">
+			<li><a href="{:U('Lianbao_PC/SNotification/index')}"><i class="fa fa-volume-up"></i>系统通知<span><img src="__PUBLIC__/Service/images/more.png" /></span></a></li>
+			<li><a href="{:U('Lianbao_PC/SMember/index')}"><i class="fa fa-group"></i>我的成员<span><img src="__PUBLIC__/Service/images/more.png" /></span></a></li>
+			<li><a href="{:U('Lianbao_PC/SWallet/index')}"><i class="fa fa-folder-open"></i>我的钱包<span><img src="__PUBLIC__/Service/images/more.png" /></span></a></li>
+		</div>
+	</div>

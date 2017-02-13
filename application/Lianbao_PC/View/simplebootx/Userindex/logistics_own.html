@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/comm.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Lianbao_PC/css/user.css">
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Lianbao_PC/jeDate/jedate.js"></script>
+
+
+<include file="./application/Lianbao_PC/View/simplebootx/Index/order_header.html"/>
+
+
+		<div class="user_right">
+			<form action="{:U('Lianbao_PC/Userindex/logistics_own')}" method="post">
+			<div class="gd_mores" >
+				<div class="gdmos">
+					<h1 class="gdmos_h1"><a >发货配件物流信息</a></h1>
+				</div>	
+				<div class="gongdxq">
+					<h1>发货物流信息</h1>
+					<div class="lotser">
+						<input type="hidden"  value="{$order_number}" name="order_number">
+
+						<li><b>是否需要旧件返还：</b>是<input checked="checked" type="radio" value="1" id="check" onchange="a()" name="old_parts"  class="ckec" />
+							否 <input   type="radio" value="2" id="checkke" onchange="b()" name="old_parts"  class="ckec" />
+						</li>
+					</div>
+
+					<h1 id="h1" >收件信息</h1>
+					<div class="lotser" id="lotser"  >
+						<li><b>收件人：</b><input type="text" name="receive_person" placeholder="请填写收件人" /></li>
+						<li><b>联系电话：</b><input type="text" name="receive_phone" placeholder="请填写联系电话" /></li>
+						<li><b>收件地址：</b><input type="text" name="receive_address"  placeholder="请填写收件地址" ></li>
+						<li><b>支付方式：</b><input type="text"  name="pay_way" placeholder="请填写支付方式（到付/现付）" /></li>
+					</div>
+				</div>
+				<!-- 确认发货 -->
+				<div class="cliss"><a href="javascript:;"><input type="submit" value="同意自购件"></a></div>
+			</div>
+
+		</div>
+	</div>
+	</form>
+</div>
+
+	<include file="./application/Lianbao_PC/View/simplebootx/Index/footer.html"/>
+
+
+</body>
+</html>
+<script>
+	$('#a_a').addClass('hve');
+	$('#My_a').addClass('mover');
+</script>
+<script>
+function a(){
+	var z_type = $("input[name='old_parts']:checked").val();
+	if(z_type==1){
+		$('#lotser').show();
+		$('#h1').show();
+	}
+}
+
+function b(){
+	var z_type = $("input[name='old_parts']:checked").val();
+	if(z_type==2){
+		$('#lotser').hide();
+		$('#h1').hide();
+	}
+}
+
+</script>
+
+
+<script type="text/javascript">
+   
+    jeDate({
+		dateCell:"#dateinfo",
+		format:"YYYY年MM月DD日 hh:mm:ss",
+		isinitVal:true,
+		isTime:true, //isClear:false,
+		minDate:"2016-06-16 00:00:00",
+		okfun:function(val){alert(val)}
+	})
+
+    //alert("YYYY/MM".match(/\w+|d+/g).join("-"))
+</script>

@@ -1,0 +1,50 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<style>
+	#Myorder{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+<div class="user_right">
+	<div class="postian"><p>服务中心＞<a href="{:U('Lianbao_PC/SMyOrder/wait_send')}">我的订单</a></p></div>
+	<div class="basic">
+		<div class="oder_list">
+			<li><a href="{:U('Lianbao_PC/SMyOrder/assig')}">待指派</a></li>
+			<li><a href="{:U('Lianbao_PC/SMyOrder/wait_send')}">待预约</a></li>
+			<li  class="lover"><a href="{:U('Lianbao_PC/SMyOrder/recipient')}">待收件</a></li>
+			<li><a href="{:U('Lianbao_PC/SMyOrder/send')}">待寄件</a></li>
+			<li><a href="{:U('Lianbao_PC/SMyOrder/service')}">待服务</a></li>
+			<li><a href="{:U('Lianbao_PC/SMyOrder/gathering')}">待收款</a></li>
+			<li><a href="{:U('Lianbao_PC/SMyOrder/cancel')}">已取消</a></li>
+			<li><a href="{:U('Lianbao_PC/SMyOrder/complaint')}">已投诉</a></li>
+			<li><a href="{:U('Lianbao_PC/SMyOrder/end')}">已完结</a></li>
+			<li><a href="{:U('Lianbao_PC/SMyOrder/whole')}">全部</a></li>
+		</div>
+
+		<div class="bas_taking">
+			<!--<h1>我的订单</h1>-->
+			<foreach name="list" item="vo">
+				<li>
+					<div class="taling_top">
+						<img src="__PUBLIC__/Service/images/xiu.png" /><span>{$vo.pro_name}</span><span>价格:{$vo.repair_price}</span>
+						<span>订单号：{$vo.order_number}</span><span><a href="{:U('Lianbao_PC/SMyOrder/leaving_message',array('order_number'=>$vo['order_number']))}">留言</a></span>
+						<b><a href="{:U('Lianbao_PC/SMyOrder/recipient_detail',array('order_number'=>$vo['order_number']))}"><i class="fa fa-file-text-o"></i>查看详情</a></a></b>
+					</div>
+					<p><b>待收件</b>
+						<span>{$vo.user_name}</br>{$vo.user_phone}</span><span>{$vo.user_city}</span><span>执行人</br>{$vo.zhixinren}</span></p>
+				</li>
+			</foreach>
+
+			<div class="list_page">{$page}</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<include file="./public/Service/Sfooter.html"/>
+
+
+</body></html>

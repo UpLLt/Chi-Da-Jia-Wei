@@ -1,0 +1,57 @@
+﻿
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/main.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/index.css">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/Service/css/font-awesome.css">
+<script type="text/javascript" src="__PUBLIC__/Service/js/layer.js"></script>
+<style>
+	#Mycaiwu{ background: #860404;
+	}
+</style>
+<include file="./public/Service/Sheader.html"/>
+	
+	<div class="user_right">
+		<div class="postian"><p>我的财务＞<a>我的钱包</a></p></div>
+		<div class="basic">
+			<div class="bas_nav">
+				<li class="hove"><a href="{:U('Lianbao_PC/SWallet/index')}">我的钱包</a></li><li><a href="{:U('Lianbao_PC/SWallet/card')}">我的银行卡</a></li><li><a href="{:U('Lianbao_PC/SWallet/income')}">财务流水明细</a></li>
+			</div>
+			<div class="wallet_list">
+				<!--<h1>我的钱包</h1>-->
+				<div class="wallet_purse">
+					<div class="purse_ours">
+						<li><h1><b><i class="fa fa-rmb"></i></b>可提现金额</h1><p><b>{$data.balance}</b>元</p></li>
+						<li><span><a href="{:U('Lianbao_PC/SWallet/withdraw')}">提现</a></span></li>
+						<li><span><a href="{:U('Lianbao_PC/SWallet/recharge')}" class="recharge">充值</a></span></li>
+					</div>
+					<div class="purse_the">
+						<h1><b><i class="fa fa-rmb"></i></b>待收款</h1><p><b>{$data.wait_money}</b>元</p>
+					</div>
+					<div class="purse_the">
+						<h1><b><i class="fa fa-rmb"></i></b>保证金</h1><p><b>{$data.bond}</b>元</p>
+					</div>
+					<div class="purse_over">
+						<li><b>已提现待到账：<span>{$data.tixian_jinxinshi}</span>元</b></li>
+						<li><b>累计收入：<span>{$data.all_money}</span>元</b></li>
+						<li><b>累计提现：<span>{$data.all_tixian}</span>元</b></li>
+					</div>
+				</div>
+
+				<div class="wallet_burse">
+					<h1>流水账单（<span>本月份</span>）</h1>
+					<foreach name="list" item="vo">
+
+						<li><i>{$vo.create_time|date='Y-m-d',###}</i><b>{$vo.type}</b><b>{$vo.service_shouru}元</b><strong>{$vo.liushuihao}</strong><span>{$vo.type}:{$vo.service_shouru}元</span></li>
+					</foreach>
+				</div>
+					<div class="list_page">{$page}</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<include file="./public/Service/Sfooter.html"/>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+
+/*¹¤µ¥*/
+body{  font-family:"Microsoft YaHei"; margin:0px; padding:0px; color:#000000;
+}
+a{ text-decoration:none;
+}
+.gongdan{ width:100%; height:35px; padding:0px 2px; box-sizing:border-box; line-height:35px; border-bottom:1px solid #999; background:#fff;   
+}
+.gongdan li{ width:53px; float:left;  
+}
+.gongdan li a{ color:#333; font-size:12px; width:100%; display:block;
+}
+.hover a{ border-bottom:2px solid #FF0000; height:34px; color:#FF0000 !important;
+}
+.foot{ width:100%; height:50px; padding:0px 1px; box-sizing:border-box; border-top:1px solid #fe6b64; background:#fff; position:fixed;  bottom:0px; left:0px;
+}
+.foot li{ width:93px; float:left;
+}
+.foot li a{ width:100%; display:block;
+}
+.foot li img{ margin:8px 38px 2px; 
+}
+.foot li p{ margin:0px; font-size:12px;
+}
+.foot li a{ color:#999;
+}
+.her a{ color:#FF0000 !important;
+}
+.cont{ width:100%; height:530px; box-sizing:border-box; 
+}
+.tongzhi{ width:100%; height:567px;
+}
+.tongzhi li{ width:187.5px; height:100px; float:left; border:1px solid #c7c7c7; background:#fff; box-sizing:border-box; border-top:none;border-left:none;
+}
+.tongzhi li a{ width:100%; display:block;
+}
+.tongzhi li img{ margin:20px 0px 10px;
+}
+.tongzhi li p{ margin:0px; color:#111;
+}
+.hea{ width:100%; background:#FFFFFF; box-sizing:Border-box;  margin:10px 0px; padding:0px 15px; height:70px; border-bottom:1px solid #CCCCCC;
+}
+.user_name{ width:70px; height:70px; float:left;
+}
+.user_name img{ margin:10px 20px 0px 0px;
+}
+.user_cot{ width:260px; float:left; height:50px; margin:15px 0px;
+}
+.user_cot p{ text-align:left; line-height:20px; margin:0px; color:#666;
+}
+.user_cot span{ background:url(../images/user_ph.png) left no-repeat; color:#000000; font-weight:600; letter-spacing:1px; padding:0px 0px 0px 12px; line-height:20px; margin:5px 0px 0px; float:left;
+}
+.user{ margin:10px 0px; background:#FFFFFF;border-bottom:1px solid #CCCCCC;
+}
+.user li{ width:100%; padding:0px 15px; box-sizing:Border-box; line-height:30px; padding:5px 15px 0px; text-align:left; border-bottom:1px solid #ecebeb;
+}
+.user li a{ width:100%; display:block; color:#111;
+}
+.user li img{ float:right; margin:7px 0px 0px 5px;
+}
+.user li span{ float:right; font-size:12px; color:#666666;  
+}
+.meny{ width:100%; margin:0px 0px 10px; height:auto; display:block; overflow:hidden; background:#fff; border-bottom:1px solid #CCCCCC;
+}
+.meny li{ width:186px; float:left; border-right:1px solid #CCCCCC; height:100%;
+}
+.meny li p{ margin:10px 0px 0px; font-size:18px;
+}
+.meny li a p{ color:#000; 
+}
+.meny li h1{ font-size:14px; color:#FF0000; font-weight:400; line-height:20px; margin:10px 0px;
+}
+.wallet{ width:100%; margin:0px 0px 10px; height:auto; display:block; overflow:hidden; background:#fff;
+}
+.wallet li{ line-height:40px; width:100%; padding:5px 15px 0px ; box-sizing:border-box; background:#FFFFFF; border-bottom:1px solid #CCCCCC; text-align:left;
+}
+.wallet li p{ margin:0px; color:#000000;
+}
+.wallet li span{ float:right;
+}
+.wallet li span img{ margin:13px 0px 0px;
+}
+.h4{ width:100%; line-height:40px; font-size:14px; background:#ff0000; color:#fff; font-weight:400; margin:10px 0px;
+}
+.book{ width:100%; height:auto; display:block; overflow:hidden; padding:5px; box-sizing:border-box;
+}
+.book textarea{ width:100%; height:300px; padding:5px 10px; background:#fff; border:none; box-sizing:border-box; margin:5px 0px 0px;
+}
+.book p{ margin:-4px 0px 0px; padding:0px 10px; box-sizing:border-box; border-top:1px solid #f4f4f4; line-height:30px; background:#FFFFFF; text-align:left; font-size:12px;
+}
+.ka{ margin:10px 0px;  
+}
+.ka p{ line-height:30px; text-align:left; margin:0px; font-size:12px; padding:0px 10px; box-sizing:border-box;
+}
+.ka li{ line-height:40px; background:#fff; text-align:left;padding:0px 10px; box-sizing:border-box;
+}
+.ka li span{ width:60px; margin:0px 0px 0px 0px; float:left;
+}
+.ka li input{ border:none; line-height:25px; width:290px; padding:0px 5px; box-sizing:border-box;
+}
+.hex{ width:360px; height:1px; background:#f4f4f4 !important;
+}
+.h5{ line-height:40px; font-size:16px; color:#333; background:#FFFFFF; margin:20px 0px;
+}
+.h5 a{ color:#333;
+}
+.xiao{ display:block;  overflow:hidden; width:100%; height:100%; background:#e1e1e1;
+}
+.xiao p{ line-height:30px; text-align:left; padding:0px 10px; box-sizing:borer-box; font-size:12px; margin:0px; float:left;
+}
+.xiao li{ width:100%; display:block; height:80px; padding:0px 10px; box-sizing:border-box;line-height:80px; background:#fff; border-bottom:1px solid #e1e1e1; float:left;
+}
+.xilt{ width:200px; float:left;
+}
+.xilt b{ width:100%; height:35px; line-height:35px; float:left; text-align:left; font-size:16px; font-weight:400; color:#111;
+}
+.xilt span{ width:100%; line-height:20px; float:left; text-align:left; font-size:12px; color:#666666;
+}
+.xirt{ width:150px; float:right;
+}
+.xiao .xirt p{ line-height:80px; font-size:20px; text-align:right; float:right; padding:0px; color:#009900;
+}
+.xiao .xirt span{ line-height:80px; font-size:20px; text-align:right; float:right; padding:0px; color:#666;
+}
+.xiao h1{ width:100%; color:#666666; font-weight:400; line-height:60px; font-size:16px; text-align:left;   padding:0px 10px; box-sizing:border-box; margin:0px;
+}
+.xiang{ background:#fff; margin:10px 0px 0px;
+}
+.xiao h1 span{ float:right;color:#009900; font-size:22px; font-family:"ËÎÌå";
+}
+.xiao c{ width:355px; margin:0px 10px; height:1px; background:#e1e1e1; float:left;
+}
+.xiao h4{ margin:0px; padding:0px 10px; box-sizing:border-box; margin:0px; line-height:40px; text-align:left; font-size:14px; color:#666666; font-weight:400;
+}
+.xiao h4 span{ float:right; color:#999999; font-size:12px;
+}
+.friend{ width:100%; height:100%; position:fixed; top:0px; left:0px; background:rgba(150,150,150,0.6);
+}
+.fri{ width:100%; height:150px; position:relative; top:517px; left:0px; background:#e5f9fc;
+}
+.fenx{ float:left; width:100%; height:90px;
+}
+.fenx li{ float:left; width:25%; margin:20px 0px; 
+}
+.fenx li p{ margin:0px; 
+}
+.fenx li a{ color:#000000; font-size:12px;
+}
+.quex{ width:100%; height:60px; float:left;
+}
+.quex h4{ width:310px; line-height:35px; height:35px; background:#fff;  margin:5px 0px 0px;
+}
+.quex h4 a{ width:100%; line-height:35px; display:block;box-sizing:border-box; color:#000000; border-radius:4px; font-weight:400; border:1px solid #999;
+}
+.cont img{ margin:100px 0px 0px -60px; text-align:center;
+}
+.cont li{ width:100%; padding:0px 10px; box-sizing:border-box; background:#fff; margin:1px 0px 10px 0px; border-bottom:1px solid #CCCCCC; text-align:left;
+}
+.cont li a{ color:#333333;
+}
+.cont h4{ margin:0px; line-height:40px;  font-weight:400;
+}
+.cont h4 span{ float:right; color:#FF0000; font-size:14px;
+}
+.cont p{ margin:0px; line-height:24px; border-bottom:1px solid #CCCCCC;
+}
+.cont p span{ border:1px solid #FF0000; margin:0px 5px 0px 0px; border-radius:3px; padding:0px 3px; color:#FF0000; box-sizing:border-box;
+}
+.cont h5{ font-weight:400; margin:0px; line-height:30px; border-bottom:1px solid #CCCCCC; color:#000000;
+}
+.cont h6{ font-weight:400; margin:0px; line-height:35px;
+}
+.cont h6 span{ color:#FF0000;
+}
+.cont h1{ font-size:14px; color:#555; background:#FFFFFF; line-height:40px; font-weight:400;
+}
+.mgq{ margin:0px 0px 20px 0px; padding:5px 10px; box-sizing:border-box; background:#fff; border-bottom:1px solid #CCCCCC; float:left;
+}
+.ddxq{ width:100%; height:auto; display:block; overflow:hidden; float:left; 
+}
+.ddlt{ width:255px; float:left; border-bottom:1px solid #CCCCCC;
+}
+.ddlt p{ font-size:14px; text-align:left; margin:0px; line-height:30px;
+}
+.ddlt p span{ color:#FF0000;
+}
+.ddrt{ width:100px; float:right;border-bottom:1px solid #CCCCCC;
+}
+.ddrt span{ width:100px; box-sizing:border-box; float:left; margin:10px 0px; height:40px; border:1px solid #666; line-height:40px; border-radius:5px;
+}
+.ddrt span a{ color:#666666; 
+}
+.fuwks{ width:100%; height:40px; position:fixed; bottom:0px; left:0px; background:#FFFFFF; border-top:1px solid #CCCCCC;
+}
+.fuwks h1{ font-size:16px; font-weight:400;  line-height:40px; margin:0px;
+}
+.fuwks h1 a{color:#FF0000;
+}
+.jhq{ background:#fff;  float:left; width:100%;
+}
+.jhq h1{ margin:0px; font-size:14px; font-weight:400; color:#000000; line-height:40px; text-align:left;
+}
+.jhq h1 span{ float:right; font-size:14px; font-weight:400;
+}
+.jhq h1 span b{ font-weight:400; font-size:14px; color:#FF0000;
+}
+.jhq p{ text-align:left; margin:0px; line-height:20px; font-size:12px;
+}
+.jhq p span{ border:1px solid #FF0000; margin:0px 5px 0px 0px; border-radius:3px; padding:0px 3px; color:#FF0000; box-sizing:border-box;
+}
+.lxfs{ width:100%; height:auto; display:block; overflow:hidden;
+}
+.lxfs h1{ font-size:16px; color:#000000; margin:0px; line-height:30px; text-align:left; font-weight:400; border-bottom:1px solid #CCCCCC; 
+}
+.lianx{ width:300px; float:left;
+}
+.lianx p{ text-align:left; margin:0px; line-height:25px; color:#000000;
+}
+.lxtel{ width:40px; float:right; height:40px; margin:10px 0px 0px; 
+}
+.yysm{ width:100%; height:auto; display:block; overflow:hidden;
+}
+.yysm h1{ color:#666666; font-size:14px; text-align:left; line-height:30px; margin:0px; font-weight:400; 
+}
+.yysm h1 span{ float:right; margin:0px; color:#000000; 
+}
+.azcp{ width:100%; height:auto; display:block; overflow:auto; 
+}
+.azcp h4{ font-size:16px; margin:0px; text-align:left; font-weight:400; line-height:30px; border-bottom:1px solid #CCCCCC; color:#000000;
+}
+.azcp h1{ font-size:14px; margin:0px; text-align:left; font-weight:400; line-height:30px;
+}
+.azcp h1 span{ float:right; color:#FF0000;
+}
+.bianhao{ width:100%; padding:5px 10px; float:left; box-sizing:border-box; background:#fff; border-bottom:1px solid #CCCCCC;
+}
+.bianhao p{ width:100%; line-height:30px; margin:0px; text-align:left;
+}
+.genzong{ width:100%; float:left; margin:10px 0px 0px; padding:0px 10px; box-sizing:border-box; background:#fff; 
+}
+.genzong li{ width:100%; height:auto; display:block; float:left;  background:url(../images/gzg.png) left top no-repeat; padding:2px 0px ;
+}
+.genzong li .zanwei{ width:15px; height:10px; float:left;  margin:0px 5px 0px 0px;
+}
+.genzong li .zwrt{ float:left; width:335px; text-align:left; border-bottom:1px solid #CCCCCC;
+}
+.genzong li:last-child .zwrt{ border-bottom:none;
+}
+.zwrt p{ margin:5px 0px 5px; color:#000000;
+}
+.zwrt span{ color:#999999; line-height:30px;
+}
+.new { background:url(../images/gzg1.png) left top no-repeat !important; 
+}
+.new p{ color:#e34304; letter-spacing:1px;
+}
+.tishi{ width:100%; height:auto; padding:0px 10px; box-sizing:border-box;
+}
+.tishi p{ line-height:40px; text-align:left; margin:0px;
+}
+.tishi span{ color:#fe9900;
+}
+.chanpin{ width:100%; height:; display:block; overflow:hidden;  background:#fff;border-bottom:1px solid #CCCCCC;
+}
+.chanpin li{ line-height:40px; text-align:left; color:#111; border-top:1px solid #CCCCCC;padding:0px 10px; box-sizing:border-box;
+}
+.chanpin li span{ float:right;
+}
+.fwm{  width:100%; height:50px; position:fixed; bottom:0px; left:0px; background:#FFFFFF; border-top:1px solid #CCCCCC;
+}
+.fwm h1{ margin:0px; font-size:14px; line-height:50px; font-weight:400; color:#000000; text-align:left; padding:0px 10px; box-sizing:border-box;
+}
+.fwm h1 input{ padding:5px 5px; width:220px; border:none;
+}
+.fwm h1 span{ color:#fff; float:right; line-height:30px; margin:10px 0px; padding:0px 10px; background:#ff0000; border-radius:4px; 
+}
+.jiedan{ width:100%; height:auto; display:block; overflow:hidden; 
+}
+.jiedan li{ width:100%; padding:10px 10px; margin:10px 0px 0px 0px; box-sizing:border-box; background:#fff; border-bottom:1px solid #CCCCCC; float:left;
+}
+.jiedan .jielt{ width:290px; float:left; padding:0px 10px 0px 0px; box-sizing:border-box;  border-right:1px solid #CCCCCC;
+}
+.jiedan .jiert{ width:50px; float:right; border:1px solid #FF0000; box-sizing:border-box; padding:10px;
+}
+.jielt a ,.jiert a{ color:#000000;
+}
+.jielt h1{ margin:0px; font-size:16px; text-align:left; font-weight:500;
+}
+.jielt h1 span{ float:right; color:#333333; font-size:14px;  
+}
+.jielt h1 span b{ color:#FF0000;
+}
+.jielt p{ text-align:left; margin:10px 0px 0px; color:#666666;
+}
+.jielt p span{ padding:0px 5px; margin:0px 5px 0px 0px; border:1px solid #FF0000; border-radius:3px; color:#ff0000;
+}
+.jielt h4{ text-align:right; font-weight:400; margin:10px 0px 0px 0px;
+}
+.jiert p{ margin:0px;
+}
+.wus{ width:100%; line-height:40px; background:#fff; font-weight:400; color:#999; font-size:14px; margin:20px 0px 0px; float:left;
+}
+.huodong{ width:100%; height:auto; display:block; overflow:hidden; 
+}
+.huodong li{ margin:10px 0px 0px; float:left; width:100%; padding:0px 10px; box-sizing:border-box; background:#fff; border-bottom:1px solid #CCCCCC;
+}
+.huodong li a{ color:#333;
+}
+.huodong h1{ margin:0px; line-height:30px; font-size:16px; text-align:left; font-weight:400;
+}
+.huodong p{ font-size:12px; color:#666; margin:0px; text-align:left;
+}
+.huodong h6{ font-size:12px; color:#666666; margin:5px 0px 5px; font-weight:400; text-align:left;
+}
+.jdbd{ width:100%; height:auto; display:block; overflow:hidden; 
+}
+.jdbd li{ line-height:35px; border-bottom:1px solid #CCCCCC; padding:0px 10px; box-sizing:borser-box; margin:10px 0px 0px; background:#fff;text-align:left;
+}
+.jdbd li a{ color:#333333; 
+}
+.jdbd li span{ line-height:35px; float:right;
+}
+.dyy{ width:100%; height:auto; display:block; overflow:hidden;
+}
+.dyy li{ width:100%; padding:5px 10px; height:auto; display:block; overflow:hidden; background:#fff; margin:0px 0px 10px 0px; box-sizing:border-box; border-bottom:1px solid #CCCCCC;
+}
+.dyy li a{ color:#333333;
+}
+.ltrt{ width:100%; float:left; border-bottom:1px solid #CCCCCC;
+}
+.dyy_lt{ width:75%; float:left; text-align:left;
+}
+.dyy_lt span{ color:#fe9900; margin:0px 5px;
+}
+.dyy_lt span b{ font-size:16px; font-weight:400;margin:0px 5px;
+}
+.dyy_rt{ width:25%; float:right; display:block;
+}
+.dyy_rt span{ padding:5px; border:1px solid #FF0000; margin:5px 0px 0px 0px; float:right; border-radius:3px;
+}
+.ltdw{ width:100%; float:left; margin:5px 0px 0px; 
+}
+.ltdw h4{ text-align:left; margin:0px; font-weight:400;
+}
+.ltdw h4 span{ float:right; font-size:14px; margin:0px 10px 0px 0px;
+}
+.ltdw h4 span b{color:#fe9900; font-weight:400; 
+}
+.ltdw p{ margin:5px 0px 0px ; text-align:left; color:#999;
+}
+.ltdw p span{ padding:0px 5px; margin:0px 3px 0px 0px; color:#111; border:1px solid #FF0000; border-radius:3px;
+}
+.azcp h4{ font-weight:600; color:#333333;
+}
+.azcp h4 span{ float:right; color:#fe9900; font-weight:400;
+}
+.azcp h1 span{ float:right;color:#111;
+}
+.tuidan{ height:50px !important;
+}
+.tuidan span{  height:30px; width:29%; margin:10px 2%; float:left;  text-align:center;
+}
+.tuidan span a{ width:100%; border:1px solid #ff0000; border-radius:4px; color:#333333; line-height:30px; float:left; box-sizing:border-box;
+}

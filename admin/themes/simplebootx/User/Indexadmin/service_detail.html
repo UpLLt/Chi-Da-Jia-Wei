@@ -1,0 +1,115 @@
+<admintpl file="header" />
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#" target="_self">查看会员</a></li>
+    </ul>
+        <div class="row-fluid">
+            <div class="span9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="100px">用户账号</th>
+                        <td>
+                            <div>{$list.username}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>用户姓名</th>
+                        <td>
+                            <div>{$list.rel_name}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>用户城市</th>
+                        <td>
+                            <div>{$list.shop_location}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>公司地址</th>
+                        <td>
+                            <div>{$list.com_address}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>公司名称</th>
+                        <td>
+                            <div>{$list.company}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>身份证号</th>
+                        <td>
+                            <div>{$list.id_card}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>用户QQ</th>
+                        <td>
+                            <div>{$list.qq}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>用户邮箱</th>
+                        <td>
+                            <div>{$list.email}</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>服务电话</th>
+                        <td>
+                            <div>{$list.service_phone}</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>技能电话</th>
+                        <td>
+                            <div>{$list.skill_phone}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>技能</th>
+                        <td>
+                            <div>{$list.skill}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>营业执照</th>
+                        <td>
+                            <a href="{:sp_get_asset_upload_path($list['business_license'])}" target='_blank'>  <img style="width: 350px;height: 250px" src="{$list.business_license}"></a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>税务证书</th>
+                        <td>
+                            <a href="{:sp_get_asset_upload_path($list['tax_regis'])}" target='_blank'>     <img style="width: 350px;height: 250px" src="{$list.tax_regis}"></a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>特殊证明</th>
+                        <td>
+                            <a href="{:sp_get_asset_upload_path($list['special_regis'])}" target='_blank'> <img style="width: 350px;height: 250px" src="{$list.special_regis}"></a>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+        </div>
+
+</div>
+
+
+</body>
+</html>
